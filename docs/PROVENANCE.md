@@ -8,7 +8,7 @@
 
 ## 자체 구현
 
-AuditGuard Python 패키지, 탐지 설정, 작업 승인·권한 스냅샷 처리, 실제 요청·컨테이너 실행 수집기, 평가·검증 도구, 설명 문서를 구현했다. Category 3의 API 요청과 권한 모델을 바탕으로 다섯 행동군의 탐지와 정상 대조군을 구성했다.
+Python 기반 탐지기, 탐지 설정, 작업 승인·권한 스냅샷 처리, 실제 요청·컨테이너 실행 수집기, 평가·검증 도구, 설명 문서를 구현했다. Category 3의 API 요청과 권한 모델을 바탕으로 다섯 행동군의 탐지와 정상 대조군을 구성했다.
 
 핵심 위치는 `auditguard/behavior.py`, `behavior_events.py`, `advanced.py`, `config/`, `lab/`, `scripts/`다. 규칙은 관측한 보안 속성과 승인 정보를 읽고, 사례의 의도 라벨은 판정 후 평가에만 사용한다.
 
@@ -39,7 +39,7 @@ AuditGuard Python 패키지, 탐지 설정, 작업 승인·권한 스냅샷 처�
 
 외부 자료의 명칭은 **Splunk Attack Data의 Kubernetes Security 관련 True Positive Test 자료**다. [Splunk attack_data](https://github.com/splunk/attack_data/tree/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c)가 원본 로그를 제공하고, [Splunk security_content](https://github.com/splunk/security_content/tree/a9ef36bfc90fc79eb54828f0310e681eba6a3eca)의 탐지 시험 정의가 해당 로그를 양성 시험으로 지정한다. [Secret 조회 시험 정의](https://github.com/splunk/security_content/blob/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_abuse_of_secret_by_unusual_user_name.yml)에서 `True Positive Test`와 원본 파일 연결을 확인할 수 있다.
 
-2026-11-17에 확인한 Kubernetes Security 관련 시험에서 감사 로그 파일을 추리고, 같은 파일을 참조하는 규칙은 중복 제거했다. Falco·네트워크 자료와 로그가 없는 규칙을 제외한 **8개 파일, 14개 이벤트**를 고정 커밋에서 내려받았다. Git LFS의 SHA-256·파일 크기를 확인한 뒤 원본 바이트를 바꾸지 않고 AuditGuard에 재생했다. 파일별 원본 경로는 [sources.json](../data/external/splunk-v1/sources.json), 다운로드 URL과 해시는 [downloads.json](../data/external/splunk-v1/downloads.json), 수집 절차는 [fetch_external.py](../scripts/fetch_external.py)에 있다.
+2026-11-17에 확인한 Kubernetes Security 관련 시험에서 감사 로그 파일을 추리고, 같은 파일을 참조하는 규칙은 중복 제거했다. Falco·네트워크 자료와 로그가 없는 규칙을 제외한 **8개 파일, 14개 이벤트**를 고정 커밋에서 내려받았다. Git LFS의 SHA-256·파일 크기를 확인한 뒤 원본 바이트를 바꾸지 않고 탐지기에 재생했다. 파일별 원본 경로는 [sources.json](../data/external/splunk-v1/sources.json), 다운로드 URL과 해시는 [downloads.json](../data/external/splunk-v1/downloads.json), 수집 절차는 [fetch_external.py](../scripts/fetch_external.py)에 있다.
 
 이 프로젝트에서 외부 로그를 AI로 생성하거나 원래 공격을 다시 실행하지 않았다. 원저자가 각 파일을 만든 전체 실행 절차나 AI 사용 여부까지 검증한 것은 아니다. **표준 성능 벤치마크가 아닌 벤더 공개 양성 시험 자료의 재생 검증**이며, Splunk 제품·SPL 탐지기를 실행한 비교 실험도 아니다. 정상 대조군이 없어 외부 Precision·F1·오탐률을 계산하지 않는다. 이미 참고한 공개 사례이므로 독립 맹검 평가로 표현하지 않는다.
 

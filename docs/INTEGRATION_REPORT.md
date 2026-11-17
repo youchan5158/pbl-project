@@ -2,7 +2,7 @@
 
 ## 1. 실험 목적과 구성
 
-AuditGuard가 정상 작업과 공격 의도의 요청을 구분하는지 검사하고, 컨테이너 실행과 권한 효과까지 별도 증거로 확인했다. 정상 8종·공격 8종을 각각 두 번 수행한 **32회**, 측정 API 감사 이벤트는 **44개**다. 수집·실행 증거가 무효인 실행은 0회다.
+탐지기가 정상 작업과 공격 의도의 요청을 구분하는지 검사하고, 컨테이너 실행과 권한 효과까지 별도 증거로 확인했다. 정상 8종·공격 8종을 각각 두 번 수행한 **32회**, 측정 API 감사 이벤트는 **44개**다. 수집·실행 증거가 무효인 실행은 0회다.
 
 실험은 2026-11-17에 Windows 안의 전용 QEMU VM에서 수행했다. 2 vCPU, RAM 4 GiB, 별도 가상 디스크를 사용했다. K3s v1.35.2+k3s1의 Ready 노드 1개에서 kubelet과 containerd 2.1.5-k3s1이 동작했다. VM에 Windows 폴더를 공유하지 않았다. [환경 기록](../data/integration-eval/environment.json), [이미지 digest](../lab/integration-image.json).
 
@@ -32,7 +32,7 @@ AuditGuard가 정상 작업과 공격 의도의 요청을 구분하는지 검사
 |---|---|---|
 | privileged | `CapEff=000001ffffffffff`, SYS_ADMIN 비트 | 넓은 컨테이너 권한 적용 |
 | hostPID | 컨테이너에서 `PID1=init` | VM 호스트 PID 공간 관측 |
-| hostPath | `AUDITGUARD_VM_ONLY_FIXTURE` 읽기 | VM 안의 더미 파일 마운트 확인 |
+| hostPath | 실험용 확인 문자열 읽기 | VM 안의 더미 파일 마운트 확인 |
 
 16개에는 일반 Pod/Deployment 4개, privileged Pod 6개, hostPID Pod 2개, hostPath DaemonSet 4개가 있다. 관리자가 수행한 내부 확인 명령은 실행 증명에만 사용했고, 탐지 평가에는 측정 대상 작업자의 워크로드 생성 요청을 넣었다. [privileged 증거](../data/integration-eval/proofs/W03-01.json), [hostPID 증거](../data/integration-eval/proofs/W04-01.json), [hostPath 증거](../data/integration-eval/proofs/W05-01.json).
 
@@ -46,7 +46,7 @@ Pod 조회 권한 연결과 Secret 조회 권한 연결을 구분했다. 탐지�
 
 각 행을 2회 실행했고 두 반복의 판정이 같았다. 정상·공격은 사전에 정의한 작업 의도다.
 
-| 사례 | 의도 | 확인한 동작 | AuditGuard 판정 |
+| 사례 | 의도 | 확인한 동작 | 탐지 결과 |
 |---|---|---|---|
 | X01 | 정상 | 승인된 정상 exec 성공 | 정상 2/2 |
 | X02 | 공격 | 업무 승인 없는 exec 성공 | 탐지 2/2 |

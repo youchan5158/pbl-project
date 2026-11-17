@@ -1,4 +1,4 @@
-# AuditGuard 탐지 설계와 평가
+# API/Credential 악용 탐지 설계와 평가
 
 ## 1. 목표와 범위
 

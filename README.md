@@ -1,4 +1,4 @@
-# AuditGuard: Kubernetes API/Credential 악용 탐지
+# Kubernetes API/Credential 악용 탐지
 
 Kubernetes 감사 로그에서 **자격 증명 접근, 원격 실행, 정찰, 권한 변경, 위험한 워크로드**를 탐지한다. API 요청의 위험 속성과 사전에 승인한 작업을 함께 검사하고, 경보 또는 억제 이유를 남기는 Python 배치 탐지기다.
 
