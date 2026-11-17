@@ -43,6 +43,12 @@ API 동작 범위 평가의 Precision은 94.1%, Recall은 88.9%, F1은 0.914다.
 
 수치와 단위는 [최종 결과 요약](results/final-summary.json), 자세한 사례와 한계는 [평가 보고서](docs/REPORT.md)와 [실제 실행 보고서](docs/INTEGRATION_REPORT.md)에 있다. 자체 설계 소규모 실험이며 운영 환경의 일반적인 탐지율을 뜻하지 않는다.
 
+## 평가 데이터의 출처와 생성
+
+수업 예제는 [cclab-inu/Practical-Cloud-Security-PBL](https://github.com/cclab-inu/Practical-Cloud-Security-PBL/tree/270bf2df9ae1eddfb26e8dc88cb92326c54a99a8/category3/logs)의 제공 로그다. 자체 API·실행 실험은 **OpenAI Codex의 `gpt-6-astra`가 시나리오·의도 라벨·수집 코드를 작성**하고, 이를 실제 K3s에서 실행해 감사 로그와 실행 증거를 수집했다. 사전에 정상·공격 의도와 승인을 정의하고 실제 요청을 보낸 다음, 응답과 감사 이벤트를 연결해 해시와 함께 저장했다. 위 실측 결과는 AI가 로그 문장을 합성한 데이터로 계산한 수치가 아니다.
+
+외부 자료는 **Splunk Attack Data의 Kubernetes Security 관련 True Positive Test 로그 8개**다. [attack_data](https://github.com/splunk/attack_data/tree/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c)와 [security_content](https://github.com/splunk/security_content/tree/a9ef36bfc90fc79eb54828f0310e681eba6a3eca)의 고정 버전을 사용했고, 원본 파일의 해시를 확인한 뒤 그대로 재생했다. 정상 대조군 없는 벤더 시험 자료이므로 표준 성능 벤치마크와 구분한다. 파일별 출처, AI 사용 범위, 생성·수집 절차는 [데이터 출처 문서](docs/PROVENANCE.md#평가-데이터의-출처와-생성-방법)에 정리했다.
+
 ## 각 기능이 필요한 이유
 
 최종 구성에서 한 요소씩 제외해 같은 로그를 재생했다. 작업 승인을 제외하면 실제 실행 자료의 오탐이 4회에서 10회로 늘었고, 워크로드 보안 속성 경보를 제외하면 미탐이 2회에서 8회로 늘었다. API 동작 범위 자료에서는 시간 누적 경보 제외 시 미탐이 4회에서 10회로, 사전 Role 정보 제외 시 8회로 늘었다.
