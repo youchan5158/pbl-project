@@ -1,0 +1,321 @@
+{
+  "dataset": "behavior-eval",
+  "split": "evaluation",
+  "distinct_cases": 33,
+  "runs": 66,
+  "events": 158,
+  "configurations": {
+    "b4": {
+      "runs": 66,
+      "invalid": 0,
+      "unsupported_attack": 8,
+      "unsupported_normal": 6,
+      "attacks": 36,
+      "normal": 30,
+      "attack_alerts": 10,
+      "normal_alerts": 4,
+      "missed_attacks_including_unsupported": 26,
+      "attack_alert_coverage": 0.2777777777777778,
+      "normal_alert_rate": 0.13333333333333333,
+      "supported_only": {
+        "valid_runs": 52,
+        "invalid_runs": 0,
+        "tp": 10,
+        "fp": 4,
+        "fn": 18,
+        "tn": 20,
+        "precision": 0.7142857142857143,
+        "recall": 0.35714285714285715,
+        "f1": 0.47619047619047616,
+        "fpr": 0.16666666666666666
+      }
+    },
+    "b5": {
+      "runs": 66,
+      "invalid": 0,
+      "unsupported_attack": 0,
+      "unsupported_normal": 0,
+      "attacks": 36,
+      "normal": 30,
+      "attack_alerts": 32,
+      "normal_alerts": 2,
+      "missed_attacks_including_unsupported": 4,
+      "attack_alert_coverage": 0.8888888888888888,
+      "normal_alert_rate": 0.06666666666666667,
+      "supported_only": {
+        "valid_runs": 66,
+        "invalid_runs": 0,
+        "tp": 32,
+        "fp": 2,
+        "fn": 4,
+        "tn": 28,
+        "precision": 0.9411764705882353,
+        "recall": 0.8888888888888888,
+        "f1": 0.9142857142857143,
+        "fpr": 0.06666666666666667
+      }
+    }
+  },
+  "by_family": {
+    "credential": {
+      "b4": {
+        "runs": 10,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 6,
+        "normal": 4,
+        "attack_alerts": 2,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 4,
+        "attack_alert_coverage": 0.3333333333333333,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 10,
+          "invalid_runs": 0,
+          "tp": 2,
+          "fp": 0,
+          "fn": 4,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "fpr": 0.0
+        }
+      },
+      "b5": {
+        "runs": 10,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 6,
+        "normal": 4,
+        "attack_alerts": 4,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 2,
+        "attack_alert_coverage": 0.6666666666666666,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 10,
+          "invalid_runs": 0,
+          "tp": 4,
+          "fp": 0,
+          "fn": 2,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "fpr": 0.0
+        }
+      }
+    },
+    "discovery": {
+      "b4": {
+        "runs": 16,
+        "invalid": 0,
+        "unsupported_attack": 2,
+        "unsupported_normal": 4,
+        "attacks": 8,
+        "normal": 8,
+        "attack_alerts": 4,
+        "normal_alerts": 2,
+        "missed_attacks_including_unsupported": 4,
+        "attack_alert_coverage": 0.5,
+        "normal_alert_rate": 0.25,
+        "supported_only": {
+          "valid_runs": 10,
+          "invalid_runs": 0,
+          "tp": 4,
+          "fp": 2,
+          "fn": 2,
+          "tn": 2,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666,
+          "fpr": 0.5
+        }
+      },
+      "b5": {
+        "runs": 16,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 8,
+        "normal": 8,
+        "attack_alerts": 6,
+        "normal_alerts": 2,
+        "missed_attacks_including_unsupported": 2,
+        "attack_alert_coverage": 0.75,
+        "normal_alert_rate": 0.25,
+        "supported_only": {
+          "valid_runs": 16,
+          "invalid_runs": 0,
+          "tp": 6,
+          "fp": 2,
+          "fn": 2,
+          "tn": 6,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "fpr": 0.25
+        }
+      }
+    },
+    "execution": {
+      "b4": {
+        "runs": 8,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 4,
+        "normal": 4,
+        "attack_alerts": 4,
+        "normal_alerts": 2,
+        "missed_attacks_including_unsupported": 0,
+        "attack_alert_coverage": 1.0,
+        "normal_alert_rate": 0.5,
+        "supported_only": {
+          "valid_runs": 8,
+          "invalid_runs": 0,
+          "tp": 4,
+          "fp": 2,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8,
+          "fpr": 0.5
+        }
+      },
+      "b5": {
+        "runs": 8,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 4,
+        "normal": 4,
+        "attack_alerts": 4,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 0,
+        "attack_alert_coverage": 1.0,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 8,
+          "invalid_runs": 0,
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0
+        }
+      }
+    },
+    "privilege": {
+      "b4": {
+        "runs": 14,
+        "invalid": 0,
+        "unsupported_attack": 6,
+        "unsupported_normal": 2,
+        "attacks": 8,
+        "normal": 6,
+        "attack_alerts": 0,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 8,
+        "attack_alert_coverage": 0.0,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 6,
+          "invalid_runs": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 4,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0
+        }
+      },
+      "b5": {
+        "runs": 14,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 8,
+        "normal": 6,
+        "attack_alerts": 8,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 0,
+        "attack_alert_coverage": 1.0,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 14,
+          "invalid_runs": 0,
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0
+        }
+      }
+    },
+    "workload": {
+      "b4": {
+        "runs": 18,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 10,
+        "normal": 8,
+        "attack_alerts": 0,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 10,
+        "attack_alert_coverage": 0.0,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 18,
+          "invalid_runs": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 10,
+          "tn": 8,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0
+        }
+      },
+      "b5": {
+        "runs": 18,
+        "invalid": 0,
+        "unsupported_attack": 0,
+        "unsupported_normal": 0,
+        "attacks": 10,
+        "normal": 8,
+        "attack_alerts": 10,
+        "normal_alerts": 0,
+        "missed_attacks_including_unsupported": 0,
+        "attack_alert_coverage": 1.0,
+        "normal_alert_rate": 0.0,
+        "supported_only": {
+          "valid_runs": 18,
+          "invalid_runs": 0,
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0
+        }
+      }
+    }
+  }
+}

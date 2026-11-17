@@ -1,0 +1,130 @@
+{
+  "datasets": [
+    {
+      "path": "datasets/attack_techniques/T1552.007/kube_audit_get_secret/kube_audit_get_secret.json",
+      "cache_file": "tmp/external-splunk/kube_audit_get_secret.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1552.007/kube_audit_get_secret/kube_audit_get_secret.json",
+      "sha256": "a4ce2301ef2e3baf72b7f70c439b3f8de4770721f09b9d1e81370146b6cb030b",
+      "bytes": 797,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1046/kubernetes_scanning/kubernetes_scanning.json",
+      "cache_file": "tmp/external-splunk/kubernetes_scanning.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1046/kubernetes_scanning/kubernetes_scanning.json",
+      "sha256": "c79a28e5b8ce12898af556e09417e01aa929fd11c7a840754ce7ba65eceb13db",
+      "bytes": 5053,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json",
+      "cache_file": "tmp/external-splunk/kubernetes_privileged_pod.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json",
+      "sha256": "7d82ba47ac8df48a7c2256406e4afe32f43dc0836c8aaeca876079831bb51e6e",
+      "bytes": 5107,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1053.007/kubernetes_audit_cron_job_creation/kubernetes_audit_cron_job_creation.json",
+      "cache_file": "tmp/external-splunk/kubernetes_audit_cron_job_creation.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1053.007/kubernetes_audit_cron_job_creation/kubernetes_audit_cron_job_creation.json",
+      "sha256": "9826b39d9c2d2998f7313414980429af6600ee8db118cec80dabb81461ee5974",
+      "bytes": 4498,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1204/kubernetes_audit_daemonset_created/kubernetes_audit_daemonset_created.json",
+      "cache_file": "tmp/external-splunk/kubernetes_audit_daemonset_created.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1204/kubernetes_audit_daemonset_created/kubernetes_audit_daemonset_created.json",
+      "sha256": "ed7b4fc9ab8c5b26db18bd241e413893f2e21e52e34a9259c0123407dcc49895",
+      "bytes": 7076,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1204/kube_audit_create_node_port_service/kube_audit_create_node_port_service.json",
+      "cache_file": "tmp/external-splunk/kube_audit_create_node_port_service.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1204/kube_audit_create_node_port_service/kube_audit_create_node_port_service.json",
+      "sha256": "f9ec01557254081193a491bc0f67c5e21474272f699f83572357ac32020cb863",
+      "bytes": 3167,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1526/kubernetes_audit_pull_image/kubernetes_audit_pull_image.json",
+      "cache_file": "tmp/external-splunk/kubernetes_audit_pull_image.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1526/kubernetes_audit_pull_image/kubernetes_audit_pull_image.json",
+      "sha256": "475f2dd4d793bb9d32dbfab2ce49968010b13edc9c35ae09e9f989134ae3a8ba",
+      "bytes": 2727,
+      "lfs_verified": true
+    },
+    {
+      "path": "datasets/attack_techniques/T1204/kubernetes_unauthorized_access/kubernetes_unauthorized_access.json",
+      "cache_file": "tmp/external-splunk/kubernetes_unauthorized_access.json",
+      "url": "https://media.githubusercontent.com/media/splunk/attack_data/eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c/datasets/attack_techniques/T1204/kubernetes_unauthorized_access/kubernetes_unauthorized_access.json",
+      "sha256": "dff87213032a06345d98bac6b26f7486080e17b9e744f38b2bf6553bc0bae65f",
+      "bytes": 1357,
+      "lfs_verified": true
+    }
+  ],
+  "detections": [
+    {
+      "path": "detections/cloud/kubernetes_abuse_of_secret_by_unusual_user_name.yml",
+      "sha256": "be41d306271b40e6785b876cca6c895131aca0f7bc6756c29bcd346fe6c6311a",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_abuse_of_secret_by_unusual_user_name.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_access_scanning.yml",
+      "sha256": "be208baaa8e82fd1e2d90d024ceea993fc759871946a60facaf6e3151070beef",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_access_scanning.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_aws_detect_suspicious_kubectl_calls.yml",
+      "sha256": "535f5e2e5b902aa6e16a8dd2a460e5bd3298fea59b2fee0a46dafe49f3a58059",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_aws_detect_suspicious_kubectl_calls.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_create_or_update_privileged_pod.yml",
+      "sha256": "7f3bf163a20dc6ceff106ba2af4512b4f6c42a7ce37aadd25e0a72215cb35867",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_create_or_update_privileged_pod.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_cron_job_creation.yml",
+      "sha256": "c2d5e56ea0899fda66d0b84aba748380faa6b91d7a66eed4c88c60c78875d65f",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_cron_job_creation.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_daemonset_deployed.yml",
+      "sha256": "eabaabcd59a61fdd03265bbbbfcf869d8572e46dbd68d82411ea2915c5e17289",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_daemonset_deployed.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_node_port_creation.yml",
+      "sha256": "8f15198689375d08ad844b58f2fc52c7bf99e2edf42ea2c457c11d69b4d3814e",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_node_port_creation.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_pod_created_in_default_namespace.yml",
+      "sha256": "d6227a35a4af31e88287adeb244f135f7b444b3c318b571f8304251344b7aca0",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_pod_created_in_default_namespace.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_pod_with_host_network_attachment.yml",
+      "sha256": "7765e5390461d50ac3eaaebd11192129e0d0be84921e443496dd75dc2e970a94",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_pod_with_host_network_attachment.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_scanning_by_unauthenticated_ip_address.yml",
+      "sha256": "54b68a7aff2d1caf926529855c04d018991c043da9cab6303326c0dff44c41ef",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_scanning_by_unauthenticated_ip_address.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_suspicious_image_pulling.yml",
+      "sha256": "c4b417c9e6d4bb2c7a7fba0f695847a7c45033756ec380afab2a591744b48db4",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_suspicious_image_pulling.yml"
+    },
+    {
+      "path": "detections/cloud/kubernetes_unauthorized_access.yml",
+      "sha256": "c00d3cef677488b482bfb3d6dc2e9ff47a4edecf8959dfd47fbe8c7a519647d2",
+      "url": "https://raw.githubusercontent.com/splunk/security_content/a9ef36bfc90fc79eb54828f0310e681eba6a3eca/detections/cloud/kubernetes_unauthorized_access.yml"
+    }
+  ]
+}

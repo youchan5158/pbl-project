@@ -1,0 +1,10 @@
+{
+  "actor": {
+    "actor": "system:serviceaccount:int-131750-2:admin",
+    "credential_id_hash": "2d508e824c1d9f4c6b66f4417b6089313d47d93aab946bd23eef4c86cee3ce31",
+    "issued_at": "2026-11-17T13:19:14.342618Z",
+    "issuance_audit_id": "9b2f9761-bdc1-4729-9e30-6988d09bfcaf",
+    "review_audit_id": "62f45f85-e36a-4227-b6c7-0d17c0f19cc1",
+    "expires": "2026-11-17T13:29:13Z"
+  }
+}

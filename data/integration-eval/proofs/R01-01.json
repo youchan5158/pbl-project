@@ -1,0 +1,14 @@
+{
+  "kind": "rbac_access",
+  "codes": [
+    403,
+    201,
+    200
+  ],
+  "same_subject_credential": true,
+  "object_verified": true,
+  "resource_kind": "Pod",
+  "resource_uid": "c897ead1-2c63-407c-a2eb-0531d4fedbbe",
+  "subject_credential_id_hash": "05e9f7b27efbb59627ddb79c0021f4b290ca1adfd44e7d5848af626a1ce33182",
+  "secret_values_persisted": false
+}

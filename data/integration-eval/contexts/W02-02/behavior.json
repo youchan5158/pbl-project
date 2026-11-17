@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "scan_window_seconds": 90,
+  "scan_min_requests": 5,
+  "scan_min_targets": 3,
+  "enumeration_window_seconds": 180,
+  "enumeration_min_requests": 8,
+  "enumeration_min_resources": 3,
+  "sequence_window_seconds": 300,
+  "dangerous_capabilities": [
+    "SYS_ADMIN",
+    "SYS_MODULE",
+    "SYS_PTRACE",
+    "DAC_READ_SEARCH",
+    "BPF",
+    "PERFMON"
+  ],
+  "work_orders": [
+    {
+      "id": "authorized-actor",
+      "actor": "system:serviceaccount:int-131750-2:admin",
+      "credential_id_hash": "c214924dba269352a919cc7e696a5743b491cca9300d15c4a64a58b44e993ea5",
+      "not_before": "2026-11-17T13:18:37.000000Z",
+      "not_after": "2026-11-17T13:24:39.000000Z",
+      "max_requests": 1,
+      "fingerprints": [
+        "8c5cd734618c9b798c22e8f419599f8f4d850c7114654cada993011487ed0170"
+      ],
+      "reason": "측정 전에 등록한 범위·시간·횟수 제한 작업 승인"
+    }
+  ],
+  "role_inventory": [
+    {
+      "kind": "Role",
+      "namespace": "int-131750-2",
+      "name": "admin",
+      "rules": [
+        {
+          "verbs": [
+            "*"
+          ],
+          "apiGroups": [
+            "*"
+          ],
+          "resources": [
+            "*"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-2",
+      "name": "operator",
+      "rules": [
+        {
+          "verbs": [
+            "get",
+            "create"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods/exec"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-2",
+      "name": "pod-reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-2",
+      "name": "reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-2",
+      "name": "secret-reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "actor": "system:serviceaccount:be-114046-1:reader",
+  "credential_id_hash": "267b0819572ca647b3acdf3395bd037509c70b06f6f00e6a74d7d3807ed64629",
+  "issued_at": "2026-11-17T11:42:33.177218Z",
+  "issuance_audit_id": "6db8da69-5f29-4fab-aed1-76ff0b8da344",
+  "review_audit_id": "08c92e5d-8e9f-4bc6-abb8-95ccd7ba903d",
+  "expires": "2026-11-17T11:52:32Z"
+}

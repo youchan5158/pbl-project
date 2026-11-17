@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "scan_window_seconds": 90,
+  "scan_min_requests": 5,
+  "scan_min_targets": 3,
+  "enumeration_window_seconds": 180,
+  "enumeration_min_requests": 8,
+  "enumeration_min_resources": 3,
+  "sequence_window_seconds": 300,
+  "dangerous_capabilities": ["SYS_ADMIN", "SYS_MODULE", "SYS_PTRACE", "DAC_READ_SEARCH", "BPF", "PERFMON"],
+  "work_orders": [],
+  "role_inventory": []
+}

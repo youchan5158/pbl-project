@@ -1,0 +1,44 @@
+[
+  {
+    "name": "7zip.pkg.tar.zst",
+    "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-7zip-26.06-1-any.pkg.tar.zst",
+    "sha256": "d13fda872d815c19452f482ecd1028610ce4e0509317397d10591727ce1835df",
+    "size": 1323695
+  },
+  {
+    "name": "qemu.exe",
+    "url": "https://qemu.weilnetz.de/w64/2026/qemu-w64-setup-20260811.exe",
+    "sha256": "f98a8aeb5f7faea9765b6dee28316c266cd179d80354a2fed8e50176f9a2e59f",
+    "size": 206615928
+  },
+  {
+    "name": "alpine.iso",
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.8-x86_64.iso",
+    "sha256": "5e0879304cfbc433bcafd007f5ef88f6c717020bf739a7636b5d5598fd1b4671",
+    "size": 71303168
+  },
+  {
+    "name": "k3s",
+    "url": "https://github.com/k3s-io/k3s/releases/download/v1.35.2%2Bk3s1/k3s",
+    "sha256": "3ae8e35a62ac83e8e197c117858a564134057a7b8703cf73e67ce60d19f4a22b",
+    "size": 75567288
+  },
+  {
+    "name": "mingw-w64-x86_64-gcc-libs-16.1.0-7-any.pkg.tar.zst",
+    "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-gcc-libs-16.1.0-7-any.pkg.tar.zst",
+    "sha256": "1d12f7864c870069521d7ce82d25be2c76fa8f330f8dd7ce382168b43c9ec877",
+    "size": 1151536
+  },
+  {
+    "name": "mingw-w64-x86_64-libwinpthread-14.0.0.r98.g19f5121a2-1-any.pkg.tar.zst",
+    "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-libwinpthread-14.0.0.r98.g19f5121a2-1-any.pkg.tar.zst",
+    "sha256": "565a7ac155098633ce66096c02c98f274127111758fd25d3f0e5451c4cd21120",
+    "size": 31425
+  },
+  {
+    "name": "busybox-extras-1.37.0-r30.apk",
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/main/x86_64/busybox-extras-1.37.0-r30.apk",
+    "sha256": "b0f04e5563ff0a8fb3b10764800ae9407f50143c709f87348b8a3c5aad61ca3c",
+    "size": 63097
+  }
+]

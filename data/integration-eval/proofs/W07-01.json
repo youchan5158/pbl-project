@@ -1,0 +1,175 @@
+{
+  "kind": "workload",
+  "pod": {
+    "name": "w07-86c8ab24f1-64bb587f86-xrqg4",
+    "uid": "5d329cb9-676a-4c62-9c5c-4a2e4865ab40",
+    "namespace": "int-131750-1",
+    "node": "integration-node",
+    "spec": {
+      "containers": [
+        {
+          "name": "demo",
+          "image": "docker.io/library/busybox:1.36",
+          "command": [
+            "sh",
+            "-c",
+            "sleep 7200"
+          ],
+          "resources": {
+            "limits": {
+              "memory": "48Mi"
+            },
+            "requests": {
+              "cpu": "5m",
+              "memory": "8Mi"
+            }
+          },
+          "terminationMessagePath": "/dev/termination-log",
+          "terminationMessagePolicy": "File",
+          "imagePullPolicy": "Never"
+        }
+      ],
+      "restartPolicy": "Always",
+      "terminationGracePeriodSeconds": 30,
+      "dnsPolicy": "ClusterFirst",
+      "serviceAccountName": "default",
+      "serviceAccount": "default",
+      "automountServiceAccountToken": false,
+      "nodeName": "integration-node",
+      "securityContext": {},
+      "schedulerName": "default-scheduler",
+      "tolerations": [
+        {
+          "key": "node.kubernetes.io/not-ready",
+          "operator": "Exists",
+          "effect": "NoExecute",
+          "tolerationSeconds": 300
+        },
+        {
+          "key": "node.kubernetes.io/unreachable",
+          "operator": "Exists",
+          "effect": "NoExecute",
+          "tolerationSeconds": 300
+        }
+      ],
+      "priority": 0,
+      "enableServiceLinks": true,
+      "preemptionPolicy": "PreemptLowerPriority"
+    },
+    "status": {
+      "observedGeneration": 1,
+      "phase": "Running",
+      "conditions": [
+        {
+          "type": "PodReadyToStartContainers",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:50Z"
+        },
+        {
+          "type": "Initialized",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:46Z"
+        },
+        {
+          "type": "Ready",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:50Z"
+        },
+        {
+          "type": "ContainersReady",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:50Z"
+        },
+        {
+          "type": "PodScheduled",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:46Z"
+        }
+      ],
+      "hostIP": "10.0.2.15",
+      "hostIPs": [
+        {
+          "ip": "10.0.2.15"
+        },
+        {
+          "ip": "fec0::5054:ff:fe12:3456"
+        }
+      ],
+      "podIP": "10.42.0.19",
+      "podIPs": [
+        {
+          "ip": "10.42.0.19"
+        }
+      ],
+      "startTime": "2026-11-17T13:18:46Z",
+      "containerStatuses": [
+        {
+          "name": "demo",
+          "state": {
+            "running": {
+              "startedAt": "2026-11-17T13:18:49Z"
+            }
+          },
+          "lastState": {},
+          "ready": true,
+          "restartCount": 0,
+          "image": "docker.io/library/busybox:1.36",
+          "imageID": "docker.io/library/busybox@sha256:d19d26c2ba3d3b66a615b7099cf9800edbd051546954e38c2ce9d645404b417f",
+          "containerID": "containerd://5bffcd899d198fd571ae2f4fa9ce8a1c5523334195eef83c35a3b8991e574acb",
+          "started": true,
+          "allocatedResources": {
+            "cpu": "5m",
+            "memory": "8Mi"
+          },
+          "resources": {
+            "limits": {
+              "memory": "48Mi"
+            },
+            "requests": {
+              "cpu": "5m",
+              "memory": "8Mi"
+            }
+          },
+          "user": {
+            "linux": {
+              "uid": 0,
+              "gid": 0,
+              "supplementalGroups": [
+                0,
+                10
+              ]
+            }
+          }
+        }
+      ],
+      "qosClass": "Burstable"
+    }
+  },
+  "verifier_exec": {
+    "http_code": 101,
+    "audit_id": "",
+    "stdout": "WORKLOAD_CONFIRMED\n0\nCapEff=00000000a80425fb\n",
+    "stderr": "",
+    "exit_code": 0,
+    "protocol": "v5.channel.k8s.io",
+    "closed": true,
+    "status": {
+      "metadata": {},
+      "status": "Success"
+    },
+    "correlation_user_agent": "auditguard-integration/1.0 request/1870c897-b95f-4d06-8f6f-8d26a16fe84a",
+    "response_audit_id": ""
+  },
+  "verifier_scope": "admin execution proof only; excluded from measured actor audit dataset",
+  "risk": "none"
+}

@@ -1,0 +1,283 @@
+[
+  {
+    "case": "E01",
+    "findings": [
+      {
+        "rule": "R1",
+        "title": "Secret 읽기 시도",
+        "actor": "kubernetes-admin",
+        "caller": "kubernetes-admin",
+        "namespace": "default",
+        "time": "2023-12-05T15:10:15.127831Z",
+        "outcome": "observed_api_activity",
+        "evidence_count": 1,
+        "evidence": [
+          {
+            "audit_id": "71e17297-aa99-4e08-9147-ee36753f7dbf",
+            "time": "2023-12-05T15:10:15.127831Z",
+            "actor": "kubernetes-admin",
+            "caller": "kubernetes-admin",
+            "namespace": "default",
+            "api_group": "",
+            "resource": "secrets",
+            "subresource": "",
+            "name": "my-secret",
+            "verb": "get",
+            "code": 200,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.102"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f",
+            "credential_id_hash": "",
+            "uri_path": "/api/v1/namespaces/default/secrets/my-secret",
+            "groups": [
+              "system:masters",
+              "system:authenticated"
+            ],
+            "features": {},
+            "body_available": false,
+            "request_fingerprint": "428e7ac109b0b36774d32c3a32d8e0350f34107ecf1bbd6ccf50dca2dce4ab88"
+          }
+        ]
+      }
+    ],
+    "observations": [],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case": "E02",
+    "findings": [],
+    "observations": [],
+    "read_stats": {
+      "lines": 7,
+      "decoded": 7,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 7,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 7,
+      "errors": []
+    }
+  },
+  {
+    "case": "E03",
+    "findings": [
+      {
+        "rule": "G5",
+        "family": "workload",
+        "title": "위험한 워크로드 보안 속성: hostNetwork, hostPID, privileged",
+        "actor": "kubernetes-admin",
+        "caller": "kubernetes-admin",
+        "namespace": "default",
+        "time": "2023-12-13T15:48:34.794464Z",
+        "outcome": "observed_api_activity",
+        "evidence": [
+          {
+            "audit_id": "a9157591-37ac-42da-8de5-713be7a08bbd",
+            "time": "2023-12-13T15:48:34.794464Z",
+            "actor": "kubernetes-admin",
+            "caller": "kubernetes-admin",
+            "namespace": "default",
+            "api_group": "",
+            "resource": "pods",
+            "subresource": "",
+            "name": "privileged-the-pod",
+            "verb": "create",
+            "code": 201,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.101"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f",
+            "credential_id_hash": "",
+            "uri_path": "/api/v1/namespaces/default/pods",
+            "groups": [
+              "system:masters",
+              "system:authenticated"
+            ],
+            "features": {
+              "query_sha256": "ffc9ff8b4140e39fb22ba2fc7c722c06211c1b00d0f3989b173a06b5f3cdb693",
+              "workload_flags": [
+                "hostNetwork",
+                "hostPID",
+                "privileged"
+              ],
+              "capabilities": [],
+              "images": [
+                "nginx:latest"
+              ],
+              "host_paths": [],
+              "execution_spec_sha256": "73d136a071757d681bf55206bcaebc24c5e7450585d570cee2179781ba6437d2"
+            },
+            "body_available": true,
+            "request_fingerprint": "7f31d096679e594d4729eb15428eafeb4a32218d0a1260be61341da05c795b01"
+          }
+        ],
+        "evidence_count": 1
+      }
+    ],
+    "observations": [],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case": "E04",
+    "findings": [],
+    "observations": [],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case": "E05",
+    "findings": [
+      {
+        "rule": "G5",
+        "family": "workload",
+        "title": "위험한 워크로드 보안 속성: hostPath",
+        "actor": "kubernetes-admin",
+        "caller": "kubernetes-admin",
+        "namespace": "kube-system",
+        "time": "2023-12-14T12:00:14.969470Z",
+        "outcome": "observed_api_activity",
+        "evidence": [
+          {
+            "audit_id": "0030660c-9015-41ea-8400-922acaaa25fe",
+            "time": "2023-12-14T12:00:14.969470Z",
+            "actor": "kubernetes-admin",
+            "caller": "kubernetes-admin",
+            "namespace": "kube-system",
+            "api_group": "apps",
+            "resource": "daemonsets",
+            "subresource": "",
+            "name": "fluentd-elasticsearch",
+            "verb": "create",
+            "code": 201,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.121"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f",
+            "credential_id_hash": "",
+            "uri_path": "/apis/apps/v1/namespaces/kube-system/daemonsets",
+            "groups": [
+              "system:masters",
+              "system:authenticated"
+            ],
+            "features": {
+              "query_sha256": "ffc9ff8b4140e39fb22ba2fc7c722c06211c1b00d0f3989b173a06b5f3cdb693",
+              "workload_flags": [
+                "hostPath"
+              ],
+              "capabilities": [],
+              "images": [
+                "quay.io/fluentd_elasticsearch/fluentd:v2.5.2"
+              ],
+              "host_paths": [
+                "/var/log"
+              ],
+              "execution_spec_sha256": "4f699e1cf078e4d32c8da50a48b07d7ea67e14d797c27503ba92811f4e73b839"
+            },
+            "body_available": true,
+            "request_fingerprint": "98ffa1840fc048917814851dbde92fc4bc30a62760dbe403fca665efc18fde0c"
+          }
+        ],
+        "evidence_count": 1
+      }
+    ],
+    "observations": [],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case": "E06",
+    "findings": [],
+    "observations": [],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case": "E07",
+    "findings": [],
+    "observations": [],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case": "E08",
+    "findings": [],
+    "observations": [
+      {
+        "audit_id": "582c31ab-4906-49bb-9ff9-872f980ccb84",
+        "reason": "workload_body_unavailable"
+      }
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  }
+]

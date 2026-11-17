@@ -1,0 +1,23 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+omitStages: ["RequestReceived"]
+rules:
+  # Never record Secret values or TokenReview bearer tokens.
+  - level: Metadata
+    resources:
+      - group: ""
+        resources: ["secrets", "configmaps"]
+      - group: "authentication.k8s.io"
+        resources: ["tokenreviews"]
+  # Request level excludes token-bearing responses.
+  - level: Request
+    resources:
+      - group: ""
+        resources: ["pods", "pods/ephemeralcontainers", "serviceaccounts/token"]
+      - group: "apps"
+        resources: ["deployments", "daemonsets", "replicasets", "statefulsets"]
+      - group: "batch"
+        resources: ["jobs", "cronjobs"]
+      - group: "rbac.authorization.k8s.io"
+        resources: ["roles", "clusterroles", "rolebindings", "clusterrolebindings"]
+  - level: Metadata

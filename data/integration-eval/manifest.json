@@ -1,0 +1,1160 @@
+{
+  "schema_version": 1,
+  "dataset_id": "integration-eval",
+  "split": "evaluation",
+  "source_type": "live",
+  "runs": [
+    {
+      "run_id": "W05-02",
+      "scenario": "W05",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 hostPath DaemonSet에서 VM 더미 파일 읽기",
+      "limitation_control": false,
+      "path": "logs/W05-02.jsonl",
+      "sha256": "8861febbe8b8cf9f5ff9180733cce56048942174c8b0049e3f173de92ac70202",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W05-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "8fd8ee4a258c1d1d8b969ebb52b3c1b0fdc91259bf00e11d322c96a44c8afa5e"
+      },
+      "proof_path": "proofs/W05-02.json",
+      "proof_sha256": "f7d4aab8e9469d69fc2e18d61d8fe28a6154c25d7e684fafeed84db00f0058ec",
+      "start": "2026-11-17T13:17:57.249081Z",
+      "end": "2026-11-17T13:18:01.196692Z",
+      "observations": [
+        {
+          "audit_id": "7fd1a177-8a4c-4a2d-b402-97c6bf7b3f4c",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W04-01",
+      "scenario": "W04",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 hostPID Pod에서 VM init 관측",
+      "limitation_control": false,
+      "path": "logs/W04-01.jsonl",
+      "sha256": "36ffc103f7f8962da6d8df102f7fc41ed00eef8bd0bb25901c77dcedb56bcf84",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W04-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "efcc4493f39ca66dc44c79d09cb485748516557fd63617e905924a6ea98fdc74"
+      },
+      "proof_path": "proofs/W04-01.json",
+      "proof_sha256": "e987b343c88f847cebb3a8d6bfd521d0bf5252524b9d28943358bd79c1d88087",
+      "start": "2026-11-17T13:18:01.402038Z",
+      "end": "2026-11-17T13:18:05.241706Z",
+      "observations": [
+        {
+          "audit_id": "d41d7855-f11c-40b2-989f-4beefff09a45",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "X05-01",
+      "scenario": "X05",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일",
+      "limitation_control": true,
+      "path": "logs/X05-01.jsonl",
+      "sha256": "84f5ef27767bd16baa6de9628e365e8a5ea31049f8d571d18ac3477459171cd0",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X05-01",
+      "context_sha256": {
+        "behavior": "666ac0447425675ea2fa1af07792f07e7f29d0a5ece650d9139062a84afe0262",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "98ea1ae6d3b1696c7e01086b6ffd10b8c80ee1a723364be2c35bda18f2f6509a"
+      },
+      "proof_path": "proofs/X05-01.json",
+      "proof_sha256": "24bd5db57081625867c53f609e72652004c64eb101b39d781f66fb88c3abc6b3",
+      "start": "2026-11-17T13:18:05.445763Z",
+      "end": "2026-11-17T13:18:05.991854Z",
+      "observations": [
+        {
+          "audit_id": "90ec95be-a948-4474-9fed-3c6ac7a6a1d9",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "X01-02",
+      "scenario": "X01",
+      "label": "normal",
+      "family": "execution",
+      "description": "승인된 정상 exec 성공",
+      "limitation_control": false,
+      "path": "logs/X01-02.jsonl",
+      "sha256": "cded589e56f5ed1fcd126ffd4e29a53df0a73a99ab63db03708093bf5e86461b",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X01-02",
+      "context_sha256": {
+        "behavior": "e98dd9db4053e30252ab530ec088b94948d4c115156637f1387c4346ef30872a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "f89f6efabd899125256f98e14208aa5dd6d26292585e2cc16706d3ef3e6a0941"
+      },
+      "proof_path": "proofs/X01-02.json",
+      "proof_sha256": "85fb8bc840e48090be57a2191cf9eb2050ff4b9727a1312f33b18dcb54331622",
+      "start": "2026-11-17T13:18:06.116212Z",
+      "end": "2026-11-17T13:18:06.650266Z",
+      "observations": [
+        {
+          "audit_id": "bb9ef72d-63e0-4202-80e8-fa45651c439a",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "R02-01",
+      "scenario": "R02",
+      "label": "attack",
+      "family": "privilege",
+      "description": "미승인 민감 권한 연결 후 실제 Secret 조회: 403→200",
+      "limitation_control": false,
+      "path": "logs/R02-01.jsonl",
+      "sha256": "276a119db283559205ef6a6a5b67fa94889724ab14f16539c54d8a53264708c8",
+      "expected_events": 3,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/R02-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "ee3124f72c58087c2007416882e40fa417fe87c4f6a796072f819f1536310ee1"
+      },
+      "proof_path": "proofs/R02-01.json",
+      "proof_sha256": "1c0b17fcd53e3b43f2191d48b1cab20e43c305493b6d07d0bbb40353c8d5141d",
+      "start": "2026-11-17T13:18:06.827303Z",
+      "end": "2026-11-17T13:18:06.995508Z",
+      "observations": [
+        {
+          "audit_id": "02d701bf-b3ce-407b-b6fb-e44592526b79",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject"
+        },
+        {
+          "audit_id": "93d62e1f-8d1a-4744-b2d7-b4c7f41bdbaa",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        },
+        {
+          "audit_id": "99e13c17-0fc7-491d-859a-1eb2e254a6b5",
+          "code": 200,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject"
+        }
+      ]
+    },
+    {
+      "run_id": "R03-02",
+      "scenario": "R03",
+      "label": "normal",
+      "family": "privilege",
+      "description": "승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",
+      "limitation_control": true,
+      "path": "logs/R03-02.jsonl",
+      "sha256": "a1dbb96de70b067ad4502b5a9d4584ed24962e89c994155b76f7019410f5ac72",
+      "expected_events": 3,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/R03-02",
+      "context_sha256": {
+        "behavior": "eb670e8c0e7da441eba9b4660d40401f4fad3ba3b46e7c2ac79a1b5826d26c68",
+        "legacy": "83c036e5fa43aa82304ec0af8121175da6e9789392b6f9c0785359740f962dbc",
+        "issuance": "95ba44a197cabe34fbf91cbc6c5a783de9dabbb3858b6cabbb2a109ce1bec2e4"
+      },
+      "proof_path": "proofs/R03-02.json",
+      "proof_sha256": "d2692c2926fd808665e0f9f191b030fd43ab21b9cd7516ce707d2130208ac39c",
+      "start": "2026-11-17T13:18:07.948950Z",
+      "end": "2026-11-17T13:18:08.153774Z",
+      "observations": [
+        {
+          "audit_id": "89e887d8-6ed4-4264-8078-282cd2117b03",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject"
+        },
+        {
+          "audit_id": "b5f19094-4ff7-47a3-ad01-d86b7050d165",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        },
+        {
+          "audit_id": "48ca3464-88e5-400d-880e-48924e946cda",
+          "code": 200,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject"
+        }
+      ]
+    },
+    {
+      "run_id": "X02-02",
+      "scenario": "X02",
+      "label": "attack",
+      "family": "execution",
+      "description": "RBAC는 허용하지만 업무 승인이 없는 exec 성공",
+      "limitation_control": false,
+      "path": "logs/X02-02.jsonl",
+      "sha256": "92f613e97a785a781e181409e034099a46f058201f1ecfee9591c43c62d57d13",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X02-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "7e70df9716c5c9c5dff8799483cdf10f3b0d4da656e3b0a3811375dc77e79e2b"
+      },
+      "proof_path": "proofs/X02-02.json",
+      "proof_sha256": "29eb94bb9ce37254346a2f85e2e04eff12aadc93c8bac1010846874dfb0022e0",
+      "start": "2026-11-17T13:18:08.964526Z",
+      "end": "2026-11-17T13:18:09.481986Z",
+      "observations": [
+        {
+          "audit_id": "9c52a543-c84e-4d68-8cf9-c6da300db643",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W01-01",
+      "scenario": "W01",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 Pod 실제 실행",
+      "limitation_control": false,
+      "path": "logs/W01-01.jsonl",
+      "sha256": "64d31051e2866887f2d78d909a759fa13331d4c139afee1f295a952ec17030a7",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W01-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "cbaf990eeff7c7cc2caa492ddbc377c405ae5e2e113eaa47a41e84201ec7e6ac"
+      },
+      "proof_path": "proofs/W01-01.json",
+      "proof_sha256": "7573cb468e25582b62b8942ad8b95b4c206e246b98c81885f9d4d5a63ba2142a",
+      "start": "2026-11-17T13:18:09.869755Z",
+      "end": "2026-11-17T13:18:14.617162Z",
+      "observations": [
+        {
+          "audit_id": "76b6a77e-51f2-41b7-a168-105e0418e045",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W03-01",
+      "scenario": "W03",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 privileged Pod 실행",
+      "limitation_control": false,
+      "path": "logs/W03-01.jsonl",
+      "sha256": "b8163e5b4bdcdaf479795cf502e82f34462cf6ceacd08c291cde9a6f79fbbb4e",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W03-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "019887cceacb6cb96e7f330c2e19ccb67e300776ea45b7601289a6a89a066f05"
+      },
+      "proof_path": "proofs/W03-01.json",
+      "proof_sha256": "9e2e81553a0f4ca1cd7e689f430454dd6501e937768acc6ef1e31d422dc880b0",
+      "start": "2026-11-17T13:18:14.877939Z",
+      "end": "2026-11-17T13:18:20.868214Z",
+      "observations": [
+        {
+          "audit_id": "183c09e3-35b9-43e6-8ad0-4ee68fed289b",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W05-01",
+      "scenario": "W05",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 hostPath DaemonSet에서 VM 더미 파일 읽기",
+      "limitation_control": false,
+      "path": "logs/W05-01.jsonl",
+      "sha256": "43c45a3f60e55df2de3f33a2dd24366b38524473a0e49f640392d59d2004dac2",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W05-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "0e914d60f0c7662d3efd74c445eaf3b2944d9a303d396146e0e182a6e8070b2d"
+      },
+      "proof_path": "proofs/W05-01.json",
+      "proof_sha256": "d1d216a16d76a25a4e4045c1a9687e8d3c7875685aea3cfdce2817789b6fd825",
+      "start": "2026-11-17T13:18:21.368913Z",
+      "end": "2026-11-17T13:18:27.733905Z",
+      "observations": [
+        {
+          "audit_id": "3118dad2-f71c-4160-bcc9-d8b249aa9a2c",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W06-01",
+      "scenario": "W06",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 hostPath 관리 DaemonSet 실행",
+      "limitation_control": false,
+      "path": "logs/W06-01.jsonl",
+      "sha256": "227e3abdf8b88a1ded7dca01784250d805f65e8db5bc6ed99ec5fc05c15511c2",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W06-01",
+      "context_sha256": {
+        "behavior": "1c18e216fa1b8358c77189995d612b7254b302b642e0852e08dc958f171638b5",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "76c01409c64580d42f4380b648bfbfdb120982a48f0878097182b4fc81e95b5f"
+      },
+      "proof_path": "proofs/W06-01.json",
+      "proof_sha256": "83c3e45c9682298975261a0fc11a1c30edd8383bbb6539d9134deb20a7fbef09",
+      "start": "2026-11-17T13:18:28.018200Z",
+      "end": "2026-11-17T13:18:33.737071Z",
+      "observations": [
+        {
+          "audit_id": "96dc935c-360d-44d6-a44d-1e02c07d66e6",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W03-02",
+      "scenario": "W03",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 privileged Pod 실행",
+      "limitation_control": false,
+      "path": "logs/W03-02.jsonl",
+      "sha256": "b2d85cc790366fae87ca6b8f6fec09047a747da7e3187e4e2973046d67ddb0e7",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W03-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "ba0eec41d0a0182ef3fd214cb7b90795ab1097ac0dfb701de0e4048c35eb36d0"
+      },
+      "proof_path": "proofs/W03-02.json",
+      "proof_sha256": "0c92efd87360fdde1754849e4282c989bc196045dc66af51bec6b0d1cd6fef64",
+      "start": "2026-11-17T13:18:34.110979Z",
+      "end": "2026-11-17T13:18:40.017181Z",
+      "observations": [
+        {
+          "audit_id": "8f51a7ed-53b9-4285-b186-f0b2647cf33e",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W02-02",
+      "scenario": "W02",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 privileged 관리 Pod 실행",
+      "limitation_control": false,
+      "path": "logs/W02-02.jsonl",
+      "sha256": "36342d412e3e594fb3d9550d4259d96c87cc9f3e4f466a04e0807b953c1d232e",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W02-02",
+      "context_sha256": {
+        "behavior": "042b0f8c8e0aa096448ce7b1dd8c9c1e9579bd90f5ba43b3c2c8f28d3f90d1ff",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "5de1c6ba35ba1514d969ba765da4eb2cff9656647e22e7b03d042ff913ce416d"
+      },
+      "proof_path": "proofs/W02-02.json",
+      "proof_sha256": "f372ad80b6d66872ff8bd24093c1e25e8054910f66b731d49426bfa340d50bda",
+      "start": "2026-11-17T13:18:40.418988Z",
+      "end": "2026-11-17T13:18:45.950386Z",
+      "observations": [
+        {
+          "audit_id": "84f7d792-5e5e-4c0c-875a-550bb81de658",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W07-01",
+      "scenario": "W07",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 Deployment 실제 실행",
+      "limitation_control": false,
+      "path": "logs/W07-01.jsonl",
+      "sha256": "62692e182ef01e440a9bb38480bbe3b837ba9f3240161a7744951b834aebaadd",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W07-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "6258999695f10a42851eac44fe57ca534cf07171e2d4c40b4b7296b4157cc6b4"
+      },
+      "proof_path": "proofs/W07-01.json",
+      "proof_sha256": "14649e5b1cd71537331cc7c0860b2dd3e302302c203fd3a362eeb6ffa8718842",
+      "start": "2026-11-17T13:18:46.356046Z",
+      "end": "2026-11-17T13:18:53.121378Z",
+      "observations": [
+        {
+          "audit_id": "cd5f2a6d-85e0-4ab7-89ab-9e929f20e2a8",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "X03-01",
+      "scenario": "X03",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인된 명령과 다른 exec 성공",
+      "limitation_control": false,
+      "path": "logs/X03-01.jsonl",
+      "sha256": "3052a297fd09e266244c0f8ea4534f8f4c3a7668f1769f1ee301cc0aacf41ace",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X03-01",
+      "context_sha256": {
+        "behavior": "1cd067fa732e5d22ff51ff04edaa857ffa32eecc9f08d198c1875b51a4bc8235",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "0b44297c8b2db795693af574bda0720d967984b976786de0483ecad4338a854e"
+      },
+      "proof_path": "proofs/X03-01.json",
+      "proof_sha256": "7278a9d66c10613ef2d58a7c9b48659d92a44fccc2ffbec1afe38ec138473db1",
+      "start": "2026-11-17T13:18:53.522762Z",
+      "end": "2026-11-17T13:18:54.655473Z",
+      "observations": [
+        {
+          "audit_id": "a470208f-4da7-4a3a-9cc5-eecf83fc9f35",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "R01-02",
+      "scenario": "R01",
+      "label": "normal",
+      "family": "privilege",
+      "description": "낮은 권한 연결 후 실제 Pod 조회: 403→200",
+      "limitation_control": false,
+      "path": "logs/R01-02.jsonl",
+      "sha256": "ee3d744138ad8528fced3f48eaafdc101d3a7a5b1957fb1a4b7dd83ebed8479f",
+      "expected_events": 3,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/R01-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "154924ac4418c985537c3387c1cf3e1dcb96c5794501e5219afc81d0960e8355"
+      },
+      "proof_path": "proofs/R01-02.json",
+      "proof_sha256": "ff41b64f13edf354566d8b947fb6426f98584dcae3505d1a85de04dbb77c5c0a",
+      "start": "2026-11-17T13:18:55.027602Z",
+      "end": "2026-11-17T13:18:55.316502Z",
+      "observations": [
+        {
+          "audit_id": "0f186b9d-be83-4238-8490-89d8bb62e1b3",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject"
+        },
+        {
+          "audit_id": "1fa00b1b-decc-4643-8aa2-8c2c2634e80d",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        },
+        {
+          "audit_id": "b9237f9c-fbba-4476-a315-0ad95ad396cc",
+          "code": 200,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject"
+        }
+      ]
+    },
+    {
+      "run_id": "X05-02",
+      "scenario": "X05",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일",
+      "limitation_control": true,
+      "path": "logs/X05-02.jsonl",
+      "sha256": "0517c35c0cd6718d093568fa4e63ecf08ecee6610e9a07971fc9d01c8ca36a23",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X05-02",
+      "context_sha256": {
+        "behavior": "400a16871d9946851e856c4c98ac3a359da24ca09e6bd8d4c20361a6d6edd6cd",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "4a297f0ba85fd49c2da70b22e2215be72d1580275f1826972c102e56e85003cd"
+      },
+      "proof_path": "proofs/X05-02.json",
+      "proof_sha256": "24c22a8fa8ee9763a606953bee723eb8f09db4f781c0a428cd427d8c05870f97",
+      "start": "2026-11-17T13:18:56.047989Z",
+      "end": "2026-11-17T13:18:57.688778Z",
+      "observations": [
+        {
+          "audit_id": "c101a194-0ab9-4331-bab1-f16e4a692b52",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W07-02",
+      "scenario": "W07",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 Deployment 실제 실행",
+      "limitation_control": false,
+      "path": "logs/W07-02.jsonl",
+      "sha256": "eb0f53ede21e868aaf966f01594e0182b132e50e6dbbffe6dcc60b864cb6652f",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W07-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "af3f552f4fb5b40c5cb1f88b6517d1a455bd80ecfd9e3ae2c159b2236ffa83d9"
+      },
+      "proof_path": "proofs/W07-02.json",
+      "proof_sha256": "15b5501f80e183e220adf33fc333e9f451839eba9ae39dda3639cdaa07165620",
+      "start": "2026-11-17T13:18:57.922956Z",
+      "end": "2026-11-17T13:19:05.694936Z",
+      "observations": [
+        {
+          "audit_id": "74a0792c-1ecf-426a-b98f-b2ca482f49d6",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W08-02",
+      "scenario": "W08",
+      "label": "normal",
+      "family": "workload",
+      "description": "무해한 관리 작업이지만 승인 등록 누락",
+      "limitation_control": true,
+      "path": "logs/W08-02.jsonl",
+      "sha256": "e44706d28dfec80fdbf94b6d8262a507235abb15b076c03b68b83f490262d4b7",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W08-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "cc1acc8f109b03b2ca0889f9030d117cc8ea5b8bb5787ca1383d2ef5227e0426"
+      },
+      "proof_path": "proofs/W08-02.json",
+      "proof_sha256": "2cb01ef97e48c688fd147b016bc6831f43112eee360c95ecbf53e740e6747dd3",
+      "start": "2026-11-17T13:19:05.974015Z",
+      "end": "2026-11-17T13:19:11.635026Z",
+      "observations": [
+        {
+          "audit_id": "d444c03b-2347-4199-9113-bbf5dd59ab79",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "R02-02",
+      "scenario": "R02",
+      "label": "attack",
+      "family": "privilege",
+      "description": "미승인 민감 권한 연결 후 실제 Secret 조회: 403→200",
+      "limitation_control": false,
+      "path": "logs/R02-02.jsonl",
+      "sha256": "00b4b3b066419a5803ca56d024ff2896a09f8d1e19a289a29f34ddbda17149dc",
+      "expected_events": 3,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/R02-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "c60628c784fb39c498aee4703537c0e857759d9913671eeb0e3196fdaccc2a88"
+      },
+      "proof_path": "proofs/R02-02.json",
+      "proof_sha256": "8efdbbe4b4c427e82976da6499b7a9830bfc8531c7c270d7bedbd6588f8cd1f6",
+      "start": "2026-11-17T13:19:12.061218Z",
+      "end": "2026-11-17T13:19:12.458917Z",
+      "observations": [
+        {
+          "audit_id": "d382686f-3464-4e29-ae28-5d77a0286a93",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject"
+        },
+        {
+          "audit_id": "11085652-3d04-43f2-9a5e-11edfe436031",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        },
+        {
+          "audit_id": "83fd8a28-ac4d-4761-a91a-8d060ae54f02",
+          "code": 200,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject"
+        }
+      ]
+    },
+    {
+      "run_id": "X03-02",
+      "scenario": "X03",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인된 명령과 다른 exec 성공",
+      "limitation_control": false,
+      "path": "logs/X03-02.jsonl",
+      "sha256": "6bab89cd577be4b1027d0ff2cf2a39fc049498ec9e93ac2cab901b90b3bec458",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X03-02",
+      "context_sha256": {
+        "behavior": "a9f44f61d5dc3cf9d22d1c7aa0f6c78a2ab1c9c23c49a9314f948774611da384",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "37c0074f74982fa9f927a73b902940d6f796c19b8a977ee83475f0a06c5e40f6"
+      },
+      "proof_path": "proofs/X03-02.json",
+      "proof_sha256": "d14d55461ef14316f70224c741343c4701016e28744d987e8df18e9f74ae65f3",
+      "start": "2026-11-17T13:19:13.209832Z",
+      "end": "2026-11-17T13:19:14.255058Z",
+      "observations": [
+        {
+          "audit_id": "04cdf697-eb75-4cb5-9377-b668cb807ba9",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W06-02",
+      "scenario": "W06",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 hostPath 관리 DaemonSet 실행",
+      "limitation_control": false,
+      "path": "logs/W06-02.jsonl",
+      "sha256": "08285e06235831ac1e7bed3d145fb529cf5736f82d96ef0c20ad26757bc91f17",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W06-02",
+      "context_sha256": {
+        "behavior": "1a3236b9775ef28d64743a0826a99880fe73fa48530f7508af5735ebd18b7a96",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "1595820242ef15773c568e14076962f746ffd1f55204b4d006ad49fd766f09d6"
+      },
+      "proof_path": "proofs/W06-02.json",
+      "proof_sha256": "93e73dc65867cdcddbd45d613a22c75ac1301fe16898400c4057382dfcc68ba3",
+      "start": "2026-11-17T13:19:14.503587Z",
+      "end": "2026-11-17T13:19:19.117690Z",
+      "observations": [
+        {
+          "audit_id": "b011ed30-4a00-496f-a680-7a53c4ad0e08",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "R03-01",
+      "scenario": "R03",
+      "label": "normal",
+      "family": "privilege",
+      "description": "승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",
+      "limitation_control": true,
+      "path": "logs/R03-01.jsonl",
+      "sha256": "0c3016c648f9b4cd8f658d69bd10d478b2a52413c9a166cdc8a5d0be38ed31dc",
+      "expected_events": 3,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/R03-01",
+      "context_sha256": {
+        "behavior": "889883b5fa270c7d5438a89b5c77d02280d6cc15ef2184927b67fd7304d145f7",
+        "legacy": "fff879c39b936599188ff759e8fe4adaf284449b087ee3af9866411bf355a9f2",
+        "issuance": "6eb68d6b15738d66b978328ec2725d2c3275bdbe4832c3db02b29e4ae17fa461"
+      },
+      "proof_path": "proofs/R03-01.json",
+      "proof_sha256": "938a9a826791b0a57f607f12a354e4978a20e46b639d94fa31d8638bf904b450",
+      "start": "2026-11-17T13:19:19.567793Z",
+      "end": "2026-11-17T13:19:19.916766Z",
+      "observations": [
+        {
+          "audit_id": "6ed9be56-b34e-464b-84cd-7de454d6f35e",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject"
+        },
+        {
+          "audit_id": "0c6ea8ed-8e86-4fc9-bad4-f7b73ad3a614",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        },
+        {
+          "audit_id": "367e673f-d272-4a2d-bac5-15f8c35bc3ab",
+          "code": 200,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject"
+        }
+      ]
+    },
+    {
+      "run_id": "W02-01",
+      "scenario": "W02",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 privileged 관리 Pod 실행",
+      "limitation_control": false,
+      "path": "logs/W02-01.jsonl",
+      "sha256": "c767e94e8a28eb6882b09de455fbe3c973f817e58728f9e3d36decb46276987b",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W02-01",
+      "context_sha256": {
+        "behavior": "f75a1d38af7935d7692ca0d2050c2a97155fc9cb84d2cb9b449c7206316eaa13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "a7d52110bfb66ffd712fe4f6e5bbf1b01d734f8d8febf42907dd33b95e125bc0"
+      },
+      "proof_path": "proofs/W02-01.json",
+      "proof_sha256": "4ac928841466f06ca277546471e72e81fe88d8d56d49f33ae410d50647cf862c",
+      "start": "2026-11-17T13:19:20.444878Z",
+      "end": "2026-11-17T13:19:26.743431Z",
+      "observations": [
+        {
+          "audit_id": "a38a11c8-661c-4e82-844a-3873d9ff3bb4",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W01-02",
+      "scenario": "W01",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 Pod 실제 실행",
+      "limitation_control": false,
+      "path": "logs/W01-02.jsonl",
+      "sha256": "abc0fffefd3fe5ae074f119e4b1b7bed12a6487af6290ac259f2d322e4cec3f7",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W01-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "13c5fa99f55923e88aab6546afa9a93daa177402dd68c80a44d018813143c031"
+      },
+      "proof_path": "proofs/W01-02.json",
+      "proof_sha256": "81c24f9b6454edda02b51d0f2817c9fc534dd7cfa514ee0c95874f5caa8f6b1e",
+      "start": "2026-11-17T13:19:27.073845Z",
+      "end": "2026-11-17T13:19:32.822098Z",
+      "observations": [
+        {
+          "audit_id": "272c95df-1dd6-46dd-beb7-fd79f91b6547",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "X02-01",
+      "scenario": "X02",
+      "label": "attack",
+      "family": "execution",
+      "description": "RBAC는 허용하지만 업무 승인이 없는 exec 성공",
+      "limitation_control": false,
+      "path": "logs/X02-01.jsonl",
+      "sha256": "21859f2bbc6a2e7e1c79b21e425b31d8ed9abf0a55a068753ae307be180faeda",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X02-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "7fa06e9b0ff169aa2464ff7413474a15ea8e6daf413201c3ff738e494e80fdb7"
+      },
+      "proof_path": "proofs/X02-01.json",
+      "proof_sha256": "a713d815dc02fa63cedb0d653ef4a50f004463471c249c2729adf60e6afedb63",
+      "start": "2026-11-17T13:19:33.230681Z",
+      "end": "2026-11-17T13:19:35.231830Z",
+      "observations": [
+        {
+          "audit_id": "8ad3d675-8979-4e7a-8e4c-95e5122876a3",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W08-01",
+      "scenario": "W08",
+      "label": "normal",
+      "family": "workload",
+      "description": "무해한 관리 작업이지만 승인 등록 누락",
+      "limitation_control": true,
+      "path": "logs/W08-01.jsonl",
+      "sha256": "c907edf5c0b153a013359b7f488a5abb7defda4cee6acdc19f41a7ce55a02b91",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W08-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "04370dc2f9608b14ad7506b26c20e8c3c1cd8fa48892facec28bc0459823b923"
+      },
+      "proof_path": "proofs/W08-01.json",
+      "proof_sha256": "ec3fbdc2765c7526e6986534dd3ed4fbad2a6c3dd85226a9e5ec198d220af84d",
+      "start": "2026-11-17T13:19:36.055847Z",
+      "end": "2026-11-17T13:19:40.935666Z",
+      "observations": [
+        {
+          "audit_id": "2def16e7-f816-49a3-a30e-fe11b9d237f0",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "R01-01",
+      "scenario": "R01",
+      "label": "normal",
+      "family": "privilege",
+      "description": "낮은 권한 연결 후 실제 Pod 조회: 403→200",
+      "limitation_control": false,
+      "path": "logs/R01-01.jsonl",
+      "sha256": "9c2557ce1471f035a8c9321f7b4ddee2ddd3bd839caccc45f67ab6c9242e5b9c",
+      "expected_events": 3,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/R01-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "8712423a882c2cc75689c63ced18d366520498d58fc18b475ae3af54071bd07d"
+      },
+      "proof_path": "proofs/R01-01.json",
+      "proof_sha256": "256a6aea95a8e2a17cf27c9d4012ffbc39db0a0f40241508bcdcbb2908bc3d78",
+      "start": "2026-11-17T13:19:41.433640Z",
+      "end": "2026-11-17T13:19:41.834488Z",
+      "observations": [
+        {
+          "audit_id": "82be05eb-8dcb-4ba1-8c44-21a5fd9808c7",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject"
+        },
+        {
+          "audit_id": "544d1abb-3680-4994-b7be-0f83229c8a08",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        },
+        {
+          "audit_id": "e134fbb4-4b64-4682-adda-503df8d9b505",
+          "code": 200,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject"
+        }
+      ]
+    },
+    {
+      "run_id": "X01-01",
+      "scenario": "X01",
+      "label": "normal",
+      "family": "execution",
+      "description": "승인된 정상 exec 성공",
+      "limitation_control": false,
+      "path": "logs/X01-01.jsonl",
+      "sha256": "b8dcdf49d604efb7682bd81e7d81260310833c312d37c07a8e29656772732211",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X01-01",
+      "context_sha256": {
+        "behavior": "f79cb40e5de239b3a42a429469157bb0a20d73430c26c35c2805075adcb93b77",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "9f0855ab40c4d44ccfb27561f1f3a31876ced9c900589d9babd43c31682efac6"
+      },
+      "proof_path": "proofs/X01-01.json",
+      "proof_sha256": "d0277a497e826c366171f83824fa11d5bcc2aea1d80485bb7b813bc3ecd8851d",
+      "start": "2026-11-17T13:19:42.229475Z",
+      "end": "2026-11-17T13:19:43.440642Z",
+      "observations": [
+        {
+          "audit_id": "fbe9cfb1-ede7-41c4-a53b-8993e9a8397a",
+          "code": 101,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "X04-02",
+      "scenario": "X04",
+      "label": "attack",
+      "family": "execution",
+      "description": "RBAC가 거부한 exec 대조군",
+      "limitation_control": false,
+      "path": "logs/X04-02.jsonl",
+      "sha256": "385b39ff1e5fa44db3580c294f9af922b5ad65c0d9ee3378b2d4d28290e74635",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X04-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "92da65836eb146c34c63550de06313cedc370d13bf968f24f55a31041bc5d50c"
+      },
+      "proof_path": "proofs/X04-02.json",
+      "proof_sha256": "f78281979aac2165b272d7e3b8a2873c69c39464f6da4280e4a8d0c4872302e3",
+      "start": "2026-11-17T13:19:43.846519Z",
+      "end": "2026-11-17T13:19:44.186706Z",
+      "observations": [
+        {
+          "audit_id": "be5b53bc-109f-415a-a367-5b5b91f7b0fc",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "W04-02",
+      "scenario": "W04",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 hostPID Pod에서 VM init 관측",
+      "limitation_control": false,
+      "path": "logs/W04-02.jsonl",
+      "sha256": "b1ad57e1da6ab72cb5fb6ca0d916bb7db07fbc43954f65f283676dfd3a661e41",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/W04-02",
+      "context_sha256": {
+        "behavior": "7b122a972854f1475a8f8c3c6fbf3ae87de804ffac50371a45124d5c1ab8fc13",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "a1b874b4ea4739ed92ad6ab35585e7420e1c329af6232e147dd1487fcaf95f12"
+      },
+      "proof_path": "proofs/W04-02.json",
+      "proof_sha256": "1dd18ecefe5952a52d305d53cb1826f4f6b3b0e266a1c6059183fd3de86327cf",
+      "start": "2026-11-17T13:19:44.402856Z",
+      "end": "2026-11-17T13:19:49.709950Z",
+      "observations": [
+        {
+          "audit_id": "40caac5c-6608-49ed-a11f-2fb4018c71d7",
+          "code": 201,
+          "expected_codes": [
+            201
+          ],
+          "client": "actor"
+        }
+      ]
+    },
+    {
+      "run_id": "X04-01",
+      "scenario": "X04",
+      "label": "attack",
+      "family": "execution",
+      "description": "RBAC가 거부한 exec 대조군",
+      "limitation_control": false,
+      "path": "logs/X04-01.jsonl",
+      "sha256": "837f314aeb9b43cb5b88733e195a19ab96873f29c599441bb4e2a0a7081fd954",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/X04-01",
+      "context_sha256": {
+        "behavior": "f7b7d3491534754d9959c71a4d0b456ccd1ed2216f8f181474d0800519e8739a",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "df25ee8acf4a2a96f50b0c497854c1b921ec3207c2cef7dfd9079ef19a1240e7"
+      },
+      "proof_path": "proofs/X04-01.json",
+      "proof_sha256": "7c2570208e4777ffdd15f4c24b8b01bd07ad9f2229143cab17a2316eaf7fbc59",
+      "start": "2026-11-17T13:19:50.012494Z",
+      "end": "2026-11-17T13:19:50.378735Z",
+      "observations": [
+        {
+          "audit_id": "e1edcfbe-00f1-4ab5-8427-3321d3571ae8",
+          "code": 403,
+          "expected_codes": [
+            403
+          ],
+          "client": "actor"
+        }
+      ]
+    }
+  ]
+}

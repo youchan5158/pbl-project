@@ -1,0 +1,30 @@
+[
+  {
+    "file": "category3/logs/abnormal_1.log",
+    "events": 1,
+    "prediction": "alert",
+    "malformed": 0,
+    "expected": "alert"
+  },
+  {
+    "file": "category3/logs/abnormal_2.log",
+    "events": 1,
+    "prediction": "alert",
+    "malformed": 0,
+    "expected": "alert"
+  },
+  {
+    "file": "category3/logs/abnormal_3.log",
+    "events": 18,
+    "prediction": "alert",
+    "malformed": 0,
+    "expected": "alert"
+  },
+  {
+    "file": "category3/logs/normal.log",
+    "events": 4,
+    "prediction": "normal",
+    "malformed": 0,
+    "expected": "normal"
+  }
+]

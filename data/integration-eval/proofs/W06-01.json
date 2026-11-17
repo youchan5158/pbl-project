@@ -1,0 +1,236 @@
+{
+  "kind": "workload",
+  "pod": {
+    "name": "w06-86c8ab24f1-jpq4x",
+    "uid": "271ddb99-9b6b-495d-9607-71270fa7e109",
+    "namespace": "int-131750-1",
+    "node": "integration-node",
+    "spec": {
+      "volumes": [
+        {
+          "name": "fixture",
+          "hostPath": {
+            "path": "/var/lib/auditguard-fixtures",
+            "type": "Directory"
+          }
+        }
+      ],
+      "containers": [
+        {
+          "name": "demo",
+          "image": "docker.io/library/busybox:1.36",
+          "command": [
+            "sh",
+            "-c",
+            "sleep 7200"
+          ],
+          "resources": {
+            "limits": {
+              "memory": "48Mi"
+            },
+            "requests": {
+              "cpu": "5m",
+              "memory": "8Mi"
+            }
+          },
+          "volumeMounts": [
+            {
+              "name": "fixture",
+              "readOnly": true,
+              "mountPath": "/fixture"
+            }
+          ],
+          "terminationMessagePath": "/dev/termination-log",
+          "terminationMessagePolicy": "File",
+          "imagePullPolicy": "Never"
+        }
+      ],
+      "restartPolicy": "Always",
+      "terminationGracePeriodSeconds": 30,
+      "dnsPolicy": "ClusterFirst",
+      "serviceAccountName": "default",
+      "serviceAccount": "default",
+      "automountServiceAccountToken": false,
+      "nodeName": "integration-node",
+      "securityContext": {},
+      "affinity": {
+        "nodeAffinity": {
+          "requiredDuringSchedulingIgnoredDuringExecution": {
+            "nodeSelectorTerms": [
+              {
+                "matchFields": [
+                  {
+                    "key": "metadata.name",
+                    "operator": "In",
+                    "values": [
+                      "integration-node"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "schedulerName": "default-scheduler",
+      "tolerations": [
+        {
+          "key": "node.kubernetes.io/not-ready",
+          "operator": "Exists",
+          "effect": "NoExecute"
+        },
+        {
+          "key": "node.kubernetes.io/unreachable",
+          "operator": "Exists",
+          "effect": "NoExecute"
+        },
+        {
+          "key": "node.kubernetes.io/disk-pressure",
+          "operator": "Exists",
+          "effect": "NoSchedule"
+        },
+        {
+          "key": "node.kubernetes.io/memory-pressure",
+          "operator": "Exists",
+          "effect": "NoSchedule"
+        },
+        {
+          "key": "node.kubernetes.io/pid-pressure",
+          "operator": "Exists",
+          "effect": "NoSchedule"
+        },
+        {
+          "key": "node.kubernetes.io/unschedulable",
+          "operator": "Exists",
+          "effect": "NoSchedule"
+        }
+      ],
+      "priority": 0,
+      "enableServiceLinks": true,
+      "preemptionPolicy": "PreemptLowerPriority"
+    },
+    "status": {
+      "observedGeneration": 1,
+      "phase": "Running",
+      "conditions": [
+        {
+          "type": "PodReadyToStartContainers",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:32Z"
+        },
+        {
+          "type": "Initialized",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:27Z"
+        },
+        {
+          "type": "Ready",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:32Z"
+        },
+        {
+          "type": "ContainersReady",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:32Z"
+        },
+        {
+          "type": "PodScheduled",
+          "observedGeneration": 1,
+          "status": "True",
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-11-17T13:18:27Z"
+        }
+      ],
+      "hostIP": "10.0.2.15",
+      "hostIPs": [
+        {
+          "ip": "10.0.2.15"
+        },
+        {
+          "ip": "fec0::5054:ff:fe12:3456"
+        }
+      ],
+      "podIP": "10.42.0.16",
+      "podIPs": [
+        {
+          "ip": "10.42.0.16"
+        }
+      ],
+      "startTime": "2026-11-17T13:18:27Z",
+      "containerStatuses": [
+        {
+          "name": "demo",
+          "state": {
+            "running": {
+              "startedAt": "2026-11-17T13:18:31Z"
+            }
+          },
+          "lastState": {},
+          "ready": true,
+          "restartCount": 0,
+          "image": "docker.io/library/busybox:1.36",
+          "imageID": "docker.io/library/busybox@sha256:d19d26c2ba3d3b66a615b7099cf9800edbd051546954e38c2ce9d645404b417f",
+          "containerID": "containerd://cd9dfe8cd4258ac4ae25474ac0c7292c4d60bae2f1f601b2f7186d592ad9cdf5",
+          "started": true,
+          "allocatedResources": {
+            "cpu": "5m",
+            "memory": "8Mi"
+          },
+          "resources": {
+            "limits": {
+              "memory": "48Mi"
+            },
+            "requests": {
+              "cpu": "5m",
+              "memory": "8Mi"
+            }
+          },
+          "volumeMounts": [
+            {
+              "name": "fixture",
+              "mountPath": "/fixture",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            }
+          ],
+          "user": {
+            "linux": {
+              "uid": 0,
+              "gid": 0,
+              "supplementalGroups": [
+                0,
+                10
+              ]
+            }
+          }
+        }
+      ],
+      "qosClass": "Burstable"
+    }
+  },
+  "verifier_exec": {
+    "http_code": 101,
+    "audit_id": "",
+    "stdout": "WORKLOAD_CONFIRMED\n0\nCapEff=00000000a80425fb\nAUDITGUARD_VM_ONLY_FIXTURE\n",
+    "stderr": "",
+    "exit_code": 0,
+    "protocol": "v5.channel.k8s.io",
+    "closed": true,
+    "status": {
+      "metadata": {},
+      "status": "Success"
+    },
+    "correlation_user_agent": "auditguard-integration/1.0 request/19796767-7d90-42dd-98d7-23b6bbe7a326",
+    "response_audit_id": ""
+  },
+  "verifier_scope": "admin execution proof only; excluded from measured actor audit dataset",
+  "risk": "hostpath"
+}

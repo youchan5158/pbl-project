@@ -1,0 +1,9 @@
+﻿case,title,events,status,target_match,rules
+E01,Secret 조회,1,alert,True,R1
+E02,익명 API 스캔,7,normal,False,
+E03,특권 Pod 생성,1,alert,True,G5
+E04,CronJob 생성,1,normal,False,
+E05,DaemonSet 생성,1,alert,True,G5
+E06,NodePort 생성,1,normal,False,
+E07,이미지 Pull 이벤트,1,normal,False,
+E08,권한 없는 Job 생성 시도,1,normal,False,

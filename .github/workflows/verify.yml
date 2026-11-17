@@ -1,0 +1,24 @@
+name: Verify detector
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python scripts/verify.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ matrix.os }}-${{ matrix.python }}
+          path: |
+            results/local/verification.json
+            results/integration/final/metrics.json
+            results/integration/final/execution-verification.json
+            results/behavior/fresh/metrics.json
+            results/behavior/external/metrics.json

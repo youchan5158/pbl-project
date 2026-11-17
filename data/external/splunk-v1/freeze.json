@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-17T10:12:05.257788+00:00",
+  "purpose": "external vendor positive-fixture replay; not operational accuracy",
+  "files": {
+    "auditguard/__init__.py": "60fb39e048bdccd3e4da8e615d5b8cce0a9eb1c3aa52f42cfc4f12e816eb1131",
+    "auditguard/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "auditguard/advanced.py": "13defcb507996431b934ba2ee873d597ecbb1cb44bb25ebebaf2f6487c2b2571",
+    "auditguard/benchmark.py": "91c86d83f3b24270dc05d16a021e2f431454acb5c0279713aa0cf46870bdf6de",
+    "auditguard/cli.py": "472447f6439eaa3f2ad8c17dfc51007916c8b1979deacd36a69e5d450cb5bad2",
+    "auditguard/detector.py": "73bb7d404f2a7f01a31fd901a19aeff148f8b9f5d4e70b4e0b51e5e15c9e241b",
+    "auditguard/evaluate.py": "eae37107df624cf2a728c5a15db250b795ba14b2ff592f6ac2ee0d90a83cc76a",
+    "auditguard/events.py": "e4e0882d4bd3093005525447f705f029444ace61cf5829bef67cb3dc8c2869f8",
+    "auditguard/policy.py": "53c444932ec1703a6d8fe1baf80b1fe7e8aef0b8e9f766b5d57297c67f7b9ef7",
+    "auditguard/refinement.py": "b9c874192f4d4204624dbebae6d6f40e28fb359ad06f83aa5239a3554ccd8ac2",
+    "config/live-policy.json": "18ae5fc30a84c4d3a5d4be23d594c10c005019975a1630c92091c45d3668160e",
+    "config/advanced.json": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160"
+  },
+  "rule_changes_allowed": false,
+  "threshold_tuning_allowed": false,
+  "evaluation_unit": "one distinct upstream dataset file, one replay",
+  "negative_samples_available": false,
+  "tracks": {
+    "deployment_default": "unchanged config/live-policy.json",
+    "portable_scope": "same rules and thresholds; include every nonempty observed namespace and all actor types; cluster-scoped empty namespace remains unsupported"
+  },
+  "score": "Any alert and target-evidence overlap are reported separately for all selected fixtures; out-of-scope and parse failures remain in the inventory; no precision/F1/FPR from positive-only data"
+}

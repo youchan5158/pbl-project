@@ -1,0 +1,8 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+omitStages:
+  - RequestReceived
+rules:
+  # Metadata is sufficient for this project. Do not write Secret contents or
+  # TokenRequest responses to the collected logs.
+  - level: Metadata

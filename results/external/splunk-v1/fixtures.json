@@ -1,0 +1,192 @@
+[
+  {
+    "case_id": "E01",
+    "title": "Secret 조회",
+    "target_description": "secrets/get",
+    "source_path": "datasets/attack_techniques/T1552.007/kube_audit_get_secret/kube_audit_get_secret.json",
+    "sha256": "a4ce2301ef2e3baf72b7f70c439b3f8de4770721f09b9d1e81370146b6cb030b",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "71e17297-aa99-4e08-9147-ee36753f7dbf"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E02",
+    "title": "익명 API 스캔",
+    "target_description": "unauthenticated/403",
+    "source_path": "datasets/attack_techniques/T1046/kubernetes_scanning/kubernetes_scanning.json",
+    "sha256": "c79a28e5b8ce12898af556e09417e01aa929fd11c7a840754ce7ba65eceb13db",
+    "raw_events": 7,
+    "normalized_events": 0,
+    "target_audit_ids": [
+      "15bee445-5c11-41ea-82a9-9c1889241ce6",
+      "1d29b26d-1314-4b93-891a-802d11ae8155",
+      "2e4874e8-1d18-4396-ab83-5fd931b2a293",
+      "7179c11e-1034-4894-ae92-73ad1deeb935",
+      "7be6bfe5-6ba4-4918-bfc6-d0a5d9bcf58c",
+      "aeabc2d5-d774-482a-9a33-54624f986993",
+      "fe67c94d-abcb-4e4f-bc4a-8f62a8d64be8"
+    ],
+    "read_stats": {
+      "lines": 7,
+      "decoded": 7,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 7,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 0,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E03",
+    "title": "특권 Pod 생성",
+    "target_description": "pods/create/privileged",
+    "source_path": "datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json",
+    "sha256": "7d82ba47ac8df48a7c2256406e4afe32f43dc0836c8aaeca876079831bb51e6e",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "a9157591-37ac-42da-8de5-713be7a08bbd"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E04",
+    "title": "CronJob 생성",
+    "target_description": "cronjobs/create",
+    "source_path": "datasets/attack_techniques/T1053.007/kubernetes_audit_cron_job_creation/kubernetes_audit_cron_job_creation.json",
+    "sha256": "9826b39d9c2d2998f7313414980429af6600ee8db118cec80dabb81461ee5974",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "ed9104db-f0d9-41d2-954c-d1cf01b180c3"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E05",
+    "title": "DaemonSet 생성",
+    "target_description": "daemonsets/create",
+    "source_path": "datasets/attack_techniques/T1204/kubernetes_audit_daemonset_created/kubernetes_audit_daemonset_created.json",
+    "sha256": "ed7b4fc9ab8c5b26db18bd241e413893f2e21e52e34a9259c0123407dcc49895",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "0030660c-9015-41ea-8400-922acaaa25fe"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E06",
+    "title": "NodePort 생성",
+    "target_description": "services/create/NodePort",
+    "source_path": "datasets/attack_techniques/T1204/kube_audit_create_node_port_service/kube_audit_create_node_port_service.json",
+    "sha256": "f9ec01557254081193a491bc0f67c5e21474272f699f83572357ac32020cb863",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "bf70c113-4df3-407e-8804-6c9363498fe0"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E07",
+    "title": "이미지 Pull 이벤트",
+    "target_description": "events/Pulling image",
+    "source_path": "datasets/attack_techniques/T1526/kubernetes_audit_pull_image/kubernetes_audit_pull_image.json",
+    "sha256": "475f2dd4d793bb9d32dbfab2ce49968010b13edc9c35ae09e9f989134ae3a8ba",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "96a0f5db-6839-49a3-8d05-ade7c2cbe9a3"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  },
+  {
+    "case_id": "E08",
+    "title": "권한 없는 Job 생성 시도",
+    "target_description": "create/403",
+    "source_path": "datasets/attack_techniques/T1204/kubernetes_unauthorized_access/kubernetes_unauthorized_access.json",
+    "sha256": "dff87213032a06345d98bac6b26f7486080e17b9e744f38b2bf6553bc0bae65f",
+    "raw_events": 1,
+    "normalized_events": 1,
+    "target_audit_ids": [
+      "582c31ab-4906-49bb-9ff9-872f980ccb84"
+    ],
+    "read_stats": {
+      "lines": 1,
+      "decoded": 1,
+      "malformed": 0,
+      "ignored_stage": 0,
+      "non_resource": 0,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "events": 1,
+      "errors": []
+    }
+  }
+]

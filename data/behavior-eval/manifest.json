@@ -1,0 +1,2632 @@
+{
+  "schema_version": 1,
+  "dataset_id": "behavior-eval",
+  "split": "evaluation",
+  "source_type": "live",
+  "runs": [
+    {
+      "run_id": "N03-01",
+      "scenario": "N03",
+      "label": "normal",
+      "family": "execution",
+      "description": "운영자 승인 exec POST 시도",
+      "limitation_control": false,
+      "path": "logs/N03-01.jsonl",
+      "sha256": "ccd58f4cbb59cfe2fb15e10a948bba3a6c1c08bc6caa7b4e06b901860783e8d1",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N03-01",
+      "context_sha256": {
+        "behavior": "ad0d868de6fcb4452f28d6800d4052396a7c95b35fe0ea8a64ce650808284b44",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "b138374e5d0896b9e06b05bba338e22524f4f3616cca3658e02ac66fa23af5cc"
+      },
+      "start": "2026-11-17T11:40:51.698096Z",
+      "end": "2026-11-17T11:40:51.847819Z",
+      "observations": [
+        {
+          "audit_id": "cd6c22fe-5cd5-4c98-81a3-8b1fcfc1c47e",
+          "code": 400,
+          "expected_codes": [
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A03-01",
+      "scenario": "A03",
+      "label": "attack",
+      "family": "execution",
+      "description": "GET 방식의 미승인 exec",
+      "limitation_control": false,
+      "path": "logs/A03-01.jsonl",
+      "sha256": "9a5697fc23784c48a7de94221d7a1fc8f96f20120a19cbe097d729c676c212dc",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A03-01",
+      "context_sha256": {
+        "behavior": "3eae3d95792311d789ae6af3485566124a3f8aa0bc148f963a5c2a44ea2e153c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "7454de9fd6e3d50cce13c0ed6a9a70b2d56ebfbf2016fa5c87e3f488fcccc3a0"
+      },
+      "start": "2026-11-17T11:40:51.975230Z",
+      "end": "2026-11-17T11:40:52.102269Z",
+      "observations": [
+        {
+          "audit_id": "e5156ff5-c842-436b-9492-61a5a7e93e3d",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A10-01",
+      "scenario": "A10",
+      "label": "attack",
+      "family": "privilege",
+      "description": "JSON Patch로 Role 권한 확장",
+      "limitation_control": false,
+      "path": "logs/A10-01.jsonl",
+      "sha256": "57de4d24201b08792cda5402732f61f72c7488ae2fb86d56151ae1c193bfe72c",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A10-01",
+      "context_sha256": {
+        "behavior": "3eae3d95792311d789ae6af3485566124a3f8aa0bc148f963a5c2a44ea2e153c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "9ae3157daf94babc9ee3692d26723c6394e23d576a7464d8aa586bc47f492bb8"
+      },
+      "start": "2026-11-17T11:40:52.236730Z",
+      "end": "2026-11-17T11:40:52.388997Z",
+      "observations": [
+        {
+          "audit_id": "34953938-2384-4e0d-9062-b911f1a4f774",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N09-02",
+      "scenario": "N09",
+      "label": "normal",
+      "family": "privilege",
+      "description": "읽기 전용 ClusterRole 연결",
+      "limitation_control": false,
+      "path": "logs/N09-02.jsonl",
+      "sha256": "d12a4c1ec58af73a2edf6e27e07daae2653f5d2df3fdb404d72ef62e03552a83",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N09-02",
+      "context_sha256": {
+        "behavior": "b9ca693525b8845f2c9262e15dbdb89ae2a1824cc25f083bd61df660fd80086f",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "a068e7767f7b869311d5ef3cabd72cff9297c18cd0c08a5577d1398b70e8fdef"
+      },
+      "start": "2026-11-17T11:40:52.704192Z",
+      "end": "2026-11-17T11:40:52.864256Z",
+      "observations": [
+        {
+          "audit_id": "ffce01e3-7e39-4091-8ebb-6009b78391a9",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N06-02",
+      "scenario": "N06",
+      "label": "normal",
+      "family": "discovery",
+      "description": "한 번의 비리소스 권한 오류",
+      "limitation_control": false,
+      "path": "logs/N06-02.jsonl",
+      "sha256": "4d9ed77f4f006fb1a4b843d70b3ec3e4144aa3e81629db5e2d14317cf1ad4f0f",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N06-02",
+      "context_sha256": {
+        "behavior": "b9ca693525b8845f2c9262e15dbdb89ae2a1824cc25f083bd61df660fd80086f",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "5257a5ff77bf047abae4ae7fdc845c32fcb0b1b669247754ac07fc7ef32938c0"
+      },
+      "start": "2026-11-17T11:40:53.725356Z",
+      "end": "2026-11-17T11:40:53.872627Z",
+      "observations": [
+        {
+          "audit_id": "6b7f074c-da25-4cf2-8cbe-af9b0cd91f39",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N14-01",
+      "scenario": "N14",
+      "label": "normal",
+      "family": "workload",
+      "description": "정상 NodePort 서비스",
+      "limitation_control": false,
+      "path": "logs/N14-01.jsonl",
+      "sha256": "ca2646e36f906670586079604b26d71a10c097cf416258ada1469d1509146ca3",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N14-01",
+      "context_sha256": {
+        "behavior": "5638820567ea63be43324d074ed917a9b43a240b02e49032e4edc9126c6ad304",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "697a6aa0e19472694439f0aa1d1f5fbf94908fa687ca49d8045fff93233fe147"
+      },
+      "start": "2026-11-17T11:40:54.024551Z",
+      "end": "2026-11-17T11:40:54.275805Z",
+      "observations": [
+        {
+          "audit_id": "4d305c43-e89d-4d3f-a3f4-d99dd650c177",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N05-02",
+      "scenario": "N05",
+      "label": "normal",
+      "family": "discovery",
+      "description": "반복 health check",
+      "limitation_control": false,
+      "path": "logs/N05-02.jsonl",
+      "sha256": "a45a253d51c8bda69a0b9ec556013a52e36dd33a7195fa35a3147ff2e88fd716",
+      "expected_events": 8,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N05-02",
+      "context_sha256": {
+        "behavior": "b9ca693525b8845f2c9262e15dbdb89ae2a1824cc25f083bd61df660fd80086f",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "692e6f0507a458ed9d44e27fbc62e44a08c7ed54feb9717fc33f7d099a9c4b19"
+      },
+      "start": "2026-11-17T11:40:54.721590Z",
+      "end": "2026-11-17T11:40:54.916166Z",
+      "observations": [
+        {
+          "audit_id": "680ad4db-486d-4f40-8721-81067ab5b35a",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "ce21262f-63f0-4b16-a8c8-9c91ae1fbf05",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "ee4e8165-8ab9-451c-960a-db3a701ce4fa",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "696a543d-59cb-4977-9c5c-033b1133673d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "e657dcea-43cc-4247-b7c9-f52eb6b6f4b1",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "bf4e61fb-dc9c-44f3-8bb8-0bed709b461f",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "8d0cd9af-6b56-4f7b-a109-7c84a3317347",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "1ba57a1c-695c-4609-9b20-7ed99ab6b389",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A03-02",
+      "scenario": "A03",
+      "label": "attack",
+      "family": "execution",
+      "description": "GET 방식의 미승인 exec",
+      "limitation_control": false,
+      "path": "logs/A03-02.jsonl",
+      "sha256": "06fcc22f44fb00f471a088acf46845b263a530fc30adba10e6442a050dc22953",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A03-02",
+      "context_sha256": {
+        "behavior": "b9ca693525b8845f2c9262e15dbdb89ae2a1824cc25f083bd61df660fd80086f",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "ef877b5e2060e1081efd6c5b4dbff030274350abc08bd1c9df64c30af120fd6f"
+      },
+      "start": "2026-11-17T11:40:55.035598Z",
+      "end": "2026-11-17T11:40:55.138113Z",
+      "observations": [
+        {
+          "audit_id": "a96bd337-074b-457a-9226-5ac56e431aff",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A10-02",
+      "scenario": "A10",
+      "label": "attack",
+      "family": "privilege",
+      "description": "JSON Patch로 Role 권한 확장",
+      "limitation_control": false,
+      "path": "logs/A10-02.jsonl",
+      "sha256": "75da55ae83eccc6ffccada2d3f2f71b568d599b000cbc79c39f139e0b37f36fa",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A10-02",
+      "context_sha256": {
+        "behavior": "b9ca693525b8845f2c9262e15dbdb89ae2a1824cc25f083bd61df660fd80086f",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "3a510403e00a9e570d249254f752e936ef8318e266f0e9bbe1a7da7d3f941a01"
+      },
+      "start": "2026-11-17T11:40:55.268286Z",
+      "end": "2026-11-17T11:40:55.419524Z",
+      "observations": [
+        {
+          "audit_id": "0bd49e33-a3f6-4f00-a525-d6b838ddddb2",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N10-01",
+      "scenario": "N10",
+      "label": "normal",
+      "family": "privilege",
+      "description": "사전 승인된 고권한 역할 연결",
+      "limitation_control": false,
+      "path": "logs/N10-01.jsonl",
+      "sha256": "2a789c9ccfb1b08039849397150d01030962aeb8847028a0234776d980ed11f2",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N10-01",
+      "context_sha256": {
+        "behavior": "e3d2cfa43ad7d3e2ad2a43ed3fcb387533289554df27a834b8316a057f10d9dd",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "ebe0b33a82653b0b4f16dc87c5303d452099e140814c6ae604e51bfd07c9aaef"
+      },
+      "start": "2026-11-17T11:40:55.688651Z",
+      "end": "2026-11-17T11:40:55.833400Z",
+      "observations": [
+        {
+          "audit_id": "ce7b685d-62cf-40e3-8a7a-454bfe13461e",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A16-01",
+      "scenario": "A16",
+      "label": "attack",
+      "family": "workload",
+      "description": "DaemonSet 호스트 네트워크 공유",
+      "limitation_control": false,
+      "path": "logs/A16-01.jsonl",
+      "sha256": "d8dfc56130582fe306b691aee3d230dc2cd2a84fd73638ed2bda8216a23eacd9",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A16-01",
+      "context_sha256": {
+        "behavior": "5638820567ea63be43324d074ed917a9b43a240b02e49032e4edc9126c6ad304",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "13571a52e3128a17699b9ca959ba003573d4e3adb2f1bc881957e92f59e28966"
+      },
+      "start": "2026-11-17T11:40:56.749187Z",
+      "end": "2026-11-17T11:40:56.905808Z",
+      "observations": [
+        {
+          "audit_id": "02341f6e-0ebe-494f-ac69-fa1ec0f46369",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "H01-02",
+      "scenario": "H01",
+      "label": "attack",
+      "family": "credential",
+      "description": "승인 토큰의 최초 사용을 공격자가 차지",
+      "limitation_control": true,
+      "path": "logs/H01-02.jsonl",
+      "sha256": "29641ed6348e7cb6b6dd8d205a634387eb3e6fe3b9b6eab3a2e6d63b482fe317",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/H01-02",
+      "context_sha256": {
+        "behavior": "43fecd9e5559911bf8b4fa8b20d16429826cc98652540c5f066ef70f6427a346",
+        "legacy": "316c6205599aa229302d8ef4aa072cb3908822906186ff0749b34fefc5f48cfd",
+        "issuance": "b9a01ba9f3d9744658a0af7f59ed83e56829d761f9b7d388adae68b460e848d9"
+      },
+      "start": "2026-11-17T11:40:57.689402Z",
+      "end": "2026-11-17T11:40:57.837556Z",
+      "observations": [
+        {
+          "audit_id": "211d1762-c062-4e13-9443-5a99676bbbc6",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A06-02",
+      "scenario": "A06",
+      "label": "attack",
+      "family": "discovery",
+      "description": "간격을 둔 다종 리소스 정찰",
+      "limitation_control": false,
+      "path": "logs/A06-02.jsonl",
+      "sha256": "d7687102c6144927ce813e32890bd17da2d9ab98db246818379d0d6ffc93ef12",
+      "expected_events": 6,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A06-02",
+      "context_sha256": {
+        "behavior": "f9faf36baeecfbcb0337f140389204f262eba600caafda001a199e97ffa48e38",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "a6e0b1f633bc34c9d4bb2e244e82f8a3fecd005c2ac4a485154e6a427d2466a5"
+      },
+      "start": "2026-11-17T11:40:58.783655Z",
+      "end": "2026-11-17T11:41:35.212909Z",
+      "observations": [
+        {
+          "audit_id": "1c96902e-73e0-440b-8b3b-b48416b1140a",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "98bef321-37d5-4632-adbc-1f25b729d2ce",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "46e4ceb1-7ada-4664-9c0e-88b49557ddc5",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "e1103aec-63ef-43ad-8fa7-93c30c00a23a",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "992fbcd8-7ecd-4115-ae7b-2c1d4c24d862",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "0c99d848-7d06-4413-92bd-975d65e7b919",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A13-02",
+      "scenario": "A13",
+      "label": "attack",
+      "family": "workload",
+      "description": "StatefulSet initContainer 특권 실행 설정",
+      "limitation_control": false,
+      "path": "logs/A13-02.jsonl",
+      "sha256": "04fbaef573f3ce3993a5d3cd1134b03501893b6080ede9dd6970d7d934495c1f",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A13-02",
+      "context_sha256": {
+        "behavior": "f9faf36baeecfbcb0337f140389204f262eba600caafda001a199e97ffa48e38",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "833283c38d2c52e3bbb7fbd8e049e3cb45d33fc5967d8b90721410e3d5f905c9"
+      },
+      "start": "2026-11-17T11:41:35.347711Z",
+      "end": "2026-11-17T11:41:35.526234Z",
+      "observations": [
+        {
+          "audit_id": "bef43888-8591-4995-bacd-046858de16b9",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A13-01",
+      "scenario": "A13",
+      "label": "attack",
+      "family": "workload",
+      "description": "StatefulSet initContainer 특권 실행 설정",
+      "limitation_control": false,
+      "path": "logs/A13-01.jsonl",
+      "sha256": "b8027556a70a8cdea8394ecb06b3c36d62b7792a28dad5bda73d5d6af1c54538",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A13-01",
+      "context_sha256": {
+        "behavior": "5638820567ea63be43324d074ed917a9b43a240b02e49032e4edc9126c6ad304",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "c4d8fddaf8194ac45399c395721e9fb7fdf967644ff6719d122940a86d9868a2"
+      },
+      "start": "2026-11-17T11:41:36.670009Z",
+      "end": "2026-11-17T11:41:36.835201Z",
+      "observations": [
+        {
+          "audit_id": "36cd76c6-a159-4443-ae65-6db3a194ec2f",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A08-01",
+      "scenario": "A08",
+      "label": "attack",
+      "family": "privilege",
+      "description": "새 이름으로 wildcard 역할 생성",
+      "limitation_control": false,
+      "path": "logs/A08-01.jsonl",
+      "sha256": "59138de6065e98998c52f8e22ff93e17988a809a3f1476679c1c341ac9e9dc2d",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A08-01",
+      "context_sha256": {
+        "behavior": "5638820567ea63be43324d074ed917a9b43a240b02e49032e4edc9126c6ad304",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "59f93558864447ea9898bb0466b816b84db1316d61ebb8bbeb22483abe227562"
+      },
+      "start": "2026-11-17T11:41:38.439434Z",
+      "end": "2026-11-17T11:41:38.585037Z",
+      "observations": [
+        {
+          "audit_id": "71b13db5-1bae-4375-a649-f45e1c30a88d",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A01-02",
+      "scenario": "A01",
+      "label": "attack",
+      "family": "credential",
+      "description": "허용된 권한으로 Secret 열거",
+      "limitation_control": false,
+      "path": "logs/A01-02.jsonl",
+      "sha256": "feb0a478239164b2b03479a8f6f68d5572383858d80275879b9c3aa2a76b5dc2",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A01-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "33456075784ef4799089481491e82a8757001d6550daff2640ba730d3621d481"
+      },
+      "start": "2026-11-17T11:41:38.725176Z",
+      "end": "2026-11-17T11:41:38.933441Z",
+      "observations": [
+        {
+          "audit_id": "94cbd194-c48a-401d-bc5b-36b8465828ce",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A05-02",
+      "scenario": "A05",
+      "label": "attack",
+      "family": "discovery",
+      "description": "익명 비리소스 경로 정찰",
+      "limitation_control": false,
+      "path": "logs/A05-02.jsonl",
+      "sha256": "cea4868160ed9d65e46844d8e1e9d36a672312dc9ff27aaae977d20340932e82",
+      "expected_events": 8,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A05-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "0172fcd1ebdfe689a3dcc25091b1ef4fdcd63e07fb24d7f3f1e0048504065783"
+      },
+      "start": "2026-11-17T11:41:39.012274Z",
+      "end": "2026-11-17T11:41:39.211100Z",
+      "observations": [
+        {
+          "audit_id": "74e869c1-b49d-4363-8fa3-ac58c7687b3b",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "71a0c74f-d654-4f9b-82ea-21370b4e8251",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "b89642c6-b74e-4c9a-9368-e89c34a26035",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "2396dfeb-9ab1-4ee4-8d3e-1998f8000e73",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "682626c7-9ca2-4f1d-b007-de66633c339e",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "3125611c-c5d2-40c5-912c-e79161a0c4af",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "123e1b72-5f5d-4d71-9bdc-32610841c2d7",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "eb4621a6-f00c-4e29-887e-a65e5daa27cb",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N02-02",
+      "scenario": "N02",
+      "label": "normal",
+      "family": "credential",
+      "description": "업무용 단기 토큰 발급",
+      "limitation_control": false,
+      "path": "logs/N02-02.jsonl",
+      "sha256": "fb5f49b92749da20bbf3a13ca0314eaf7655065baf690ec95fdb71db710183c9",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N02-02",
+      "context_sha256": {
+        "behavior": "f9e5ff4481a8b3adaeafcffdb091e75685bad221b843cb91720aa46e71978922",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "c1954d2657f3cf2f86662b212cf207a8188145dd53745dcd437fce46b0515b6b"
+      },
+      "start": "2026-11-17T11:41:39.340399Z",
+      "end": "2026-11-17T11:41:39.461017Z",
+      "observations": [
+        {
+          "audit_id": "68559037-e0c7-40da-9234-97d049a061c2",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N04-01",
+      "scenario": "N04",
+      "label": "normal",
+      "family": "execution",
+      "description": "잘못된 Pod 로그 접근 한 번",
+      "limitation_control": false,
+      "path": "logs/N04-01.jsonl",
+      "sha256": "8254d956d317775524aca4aad105e10b7c3ca993309fa4934aaa44142955f923",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N04-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "2c8c85a3e00d66dfc4ae9655d6f67fe1cf624d34c5156cb15f726abffc26b69b"
+      },
+      "start": "2026-11-17T11:41:39.581089Z",
+      "end": "2026-11-17T11:41:39.734062Z",
+      "observations": [
+        {
+          "audit_id": "eae38a33-4c98-40fe-9fff-4205b1706472",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A02-01",
+      "scenario": "A02",
+      "label": "attack",
+      "family": "credential",
+      "description": "다른 SA 토큰의 승인 없는 발급",
+      "limitation_control": false,
+      "path": "logs/A02-01.jsonl",
+      "sha256": "092c4a3d0da2d089e483d0d6d2b825425897625d5dcc594dcd992cac8baef6e8",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A02-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "4dfa995db7cc8b70f83d61b76dc8ec92cf92f30dd372226b70bc7bdbaf709456"
+      },
+      "start": "2026-11-17T11:41:39.853627Z",
+      "end": "2026-11-17T11:41:40.004572Z",
+      "observations": [
+        {
+          "audit_id": "768869f3-021f-4a95-b2ca-9b93e088c80c",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N13-02",
+      "scenario": "N13",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 DaemonSet 생성",
+      "limitation_control": false,
+      "path": "logs/N13-02.jsonl",
+      "sha256": "6024d9331459e889530df81de408ff86e2f572565c71701fe4f84dabc7ab1a07",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N13-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "a028fa62d9e7ebdb0678211fd03a92937134465213cb9d7e629a6a0c6d9a2fbe"
+      },
+      "start": "2026-11-17T11:41:40.137592Z",
+      "end": "2026-11-17T11:41:40.289531Z",
+      "observations": [
+        {
+          "audit_id": "ba7677e9-5665-4a3a-afb7-5a2ea51687a8",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N15-02",
+      "scenario": "N15",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 인프라 특권 DaemonSet",
+      "limitation_control": false,
+      "path": "logs/N15-02.jsonl",
+      "sha256": "a6735224cef1fbc84ae9003a1f6dfc54ebc83c7ad18c7a1c8b981f2e82ed6de6",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N15-02",
+      "context_sha256": {
+        "behavior": "6cb2db99eeefa6992febc7ba81b342d5f547a9ccfa89397ff2df6be98d02fee3",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "1658f8b0ba0dbf167e8e532e3fe47a9e0cb12e367bdce8c0eddcfed4a3fff7cd"
+      },
+      "start": "2026-11-17T11:41:40.785161Z",
+      "end": "2026-11-17T11:41:40.932120Z",
+      "observations": [
+        {
+          "audit_id": "9459595e-9d12-47c6-a7f2-60e699b82b51",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A09-02",
+      "scenario": "A09",
+      "label": "attack",
+      "family": "privilege",
+      "description": "이름만으로 알 수 없는 고권한 역할 연결",
+      "limitation_control": false,
+      "path": "logs/A09-02.jsonl",
+      "sha256": "cb38dbeeaf2344185666a03f8ce7d065e8876363e11131933d0503b83c479d2d",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A09-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "44502b8fdd7c7bfb9574776e8ef3f52e328148541731e02602188eb1e03a332b"
+      },
+      "start": "2026-11-17T11:41:41.789025Z",
+      "end": "2026-11-17T11:41:41.936503Z",
+      "observations": [
+        {
+          "audit_id": "67bd3a4e-96c9-4a31-a1d1-f40c4cf1de3f",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "H02-01",
+      "scenario": "H02",
+      "label": "attack",
+      "family": "discovery",
+      "description": "정상 조회와 같은 단일 저빈도 정찰",
+      "limitation_control": true,
+      "path": "logs/H02-01.jsonl",
+      "sha256": "5bd54a9024ff3fe09fa73343ff76f9150c58d3f89622777fad5bb8b40b6f3390",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/H02-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "4fcb7586c09557de4f82158c5cfd086dcb95cbbe1365340f47daf7c8b45997bc"
+      },
+      "start": "2026-11-17T11:41:42.662231Z",
+      "end": "2026-11-17T11:41:42.855666Z",
+      "observations": [
+        {
+          "audit_id": "a6650c6e-a8e8-4f03-960f-444f5c4dda8e",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N08-01",
+      "scenario": "N08",
+      "label": "normal",
+      "family": "discovery",
+      "description": "승인 정보 없는 정상 인벤토리",
+      "limitation_control": true,
+      "path": "logs/N08-01.jsonl",
+      "sha256": "b2b6d9f508c5a6785aba64999dad69e4fde31860d47ce6d431fddf9e1054f2b8",
+      "expected_events": 9,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N08-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "d3e6e19e2355a362bfe1ea6e54aed0c16581bec444c1c70765600812dd311484"
+      },
+      "start": "2026-11-17T11:41:43.030478Z",
+      "end": "2026-11-17T11:41:43.428403Z",
+      "observations": [
+        {
+          "audit_id": "5a27e4a5-fc5a-40a4-841a-87cc828fb1b7",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "6792aa4b-56ae-4406-bcb7-571de96c4963",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "64a07aa3-6b05-4822-92ab-3647bf7ea4d1",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "8cd6071b-6160-4118-9f55-83a428a0c8c5",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "ff5da10c-b86b-45af-9b43-1c0b4ff3fdbf",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "923bb328-ecd5-42fe-8211-1fdd42b093ca",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "052486a2-3d1e-456e-ab11-902f96606e5b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "6e743a11-7ecf-43b0-bf19-64ed2c2d8e6b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "a7de8a05-a285-444c-a422-93495406a967",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A01-01",
+      "scenario": "A01",
+      "label": "attack",
+      "family": "credential",
+      "description": "허용된 권한으로 Secret 열거",
+      "limitation_control": false,
+      "path": "logs/A01-01.jsonl",
+      "sha256": "17561f8397a4bfea95c5d5ff046440c540bccee17c82edf8cee93b70568a3033",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A01-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "f53ecb9db8d76886caed7139ef5474ef70e1b9a55fe0cb34eb24dbde8d35173d"
+      },
+      "start": "2026-11-17T11:41:43.560593Z",
+      "end": "2026-11-17T11:41:43.704967Z",
+      "observations": [
+        {
+          "audit_id": "eb473804-9a9d-4a04-b32d-53ae3d52b6f2",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N10-02",
+      "scenario": "N10",
+      "label": "normal",
+      "family": "privilege",
+      "description": "사전 승인된 고권한 역할 연결",
+      "limitation_control": false,
+      "path": "logs/N10-02.jsonl",
+      "sha256": "3efc550d6acd96b9e89daaaa246dfb7984ceb83b8b64184e42f7e549f2fbfe1a",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N10-02",
+      "context_sha256": {
+        "behavior": "b007e00ed0be7c596ecaa71c5c0643f97f3b88b917973a514a5ed83eab769fc7",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "4e6c34a04be19b049cdd507e222f14330707543ba478badb30ec49db58608d47"
+      },
+      "start": "2026-11-17T11:41:43.828912Z",
+      "end": "2026-11-17T11:41:43.999774Z",
+      "observations": [
+        {
+          "audit_id": "a6553a8c-3d72-47c8-854e-255e6e87664e",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N01-02",
+      "scenario": "N01",
+      "label": "normal",
+      "family": "credential",
+      "description": "승인된 단일 Secret 조회",
+      "limitation_control": false,
+      "path": "logs/N01-02.jsonl",
+      "sha256": "ef2fadffbc2c78354b45142473248af84db1d2dac309c2bfee83b3adcdb18500",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N01-02",
+      "context_sha256": {
+        "behavior": "49e42a5d81ca1cd07914a397a962d7f2061e76d7779df4bc08d78eae5d1c3659",
+        "legacy": "4fa962fc005d6edaf8a0752b7f0f5ecb933bb31cc8b398fe125476490eacc224",
+        "issuance": "9025648b2756cb17547e61e8c100ef4df4a956e83e95f9b4368a6a1c2865a7a0"
+      },
+      "start": "2026-11-17T11:41:44.717228Z",
+      "end": "2026-11-17T11:41:44.864124Z",
+      "observations": [
+        {
+          "audit_id": "a2e4537c-7a50-4bd0-a38b-da8b2edb8911",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A06-01",
+      "scenario": "A06",
+      "label": "attack",
+      "family": "discovery",
+      "description": "간격을 둔 다종 리소스 정찰",
+      "limitation_control": false,
+      "path": "logs/A06-01.jsonl",
+      "sha256": "2b0624918b8e1e6330693c0d5c395d13bc36573a52d5b3407ed2e8796cad8289",
+      "expected_events": 6,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A06-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "27b3c4b2a354ab7543b423184c244d14edc4580621bbd51f74e0d1a15c2c4e27"
+      },
+      "start": "2026-11-17T11:41:45.004206Z",
+      "end": "2026-11-17T11:42:21.881765Z",
+      "observations": [
+        {
+          "audit_id": "279b3be9-b0ab-4014-ad4d-cccff7d2b17b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "66c2e373-5869-43a3-849e-2fed9463c8ad",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "64939ebc-b683-4591-ba3c-8070d9810c0b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "7ea88ba8-2f96-48f7-a63c-6469ca2782ed",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "fbf592e8-7a6e-4ee9-8523-b945c5db618d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "7e3ce414-6c10-47c4-925f-3bb0bcd73830",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A11-02",
+      "scenario": "A11",
+      "label": "attack",
+      "family": "privilege",
+      "description": "cluster-admin 역할 연결",
+      "limitation_control": false,
+      "path": "logs/A11-02.jsonl",
+      "sha256": "62edbc40dfff46199cf94b6551ab778c77b919d43b85fc4ebbfbcf181e07e673",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A11-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "1bd1fae9bf7f906073329f87c2adf586d1e8a19111eb0d77f3a5b11b522d7d88"
+      },
+      "start": "2026-11-17T11:42:22.025516Z",
+      "end": "2026-11-17T11:42:22.194279Z",
+      "observations": [
+        {
+          "audit_id": "63f5ed09-3e88-495b-88b4-04299890ff5b",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N11-01",
+      "scenario": "N11",
+      "label": "normal",
+      "family": "privilege",
+      "description": "최소권한 Role 생성",
+      "limitation_control": false,
+      "path": "logs/N11-01.jsonl",
+      "sha256": "63a32bf6234f5056cf17db1dbd4748b6b237ead78c81e405501e42188ea43acb",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N11-01",
+      "context_sha256": {
+        "behavior": "1a180d36392a470da3375edfe9392dac63846d39bdc8069ac0bb5b1c96d661ca",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "53939aeaf491bfbcb88b90f3e85001d018681acb5a135dd8f8862e9bd4328b54"
+      },
+      "start": "2026-11-17T11:42:22.660772Z",
+      "end": "2026-11-17T11:42:22.801984Z",
+      "observations": [
+        {
+          "audit_id": "549b2c1a-ea04-4d7f-937a-2972458e3419",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A15-01",
+      "scenario": "A15",
+      "label": "attack",
+      "family": "workload",
+      "description": "Pod에 위험한 capability 부여",
+      "limitation_control": false,
+      "path": "logs/A15-01.jsonl",
+      "sha256": "293c6f7f5de26caed5c27f1a6c6899f9bc26f6a73d1837e62abc15c53e7c7b29",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A15-01",
+      "context_sha256": {
+        "behavior": "d9881dd6b9107454efd49592552445d6189f01ccff8d740f16160414dbca582c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "210a2e5438ec88bec034fc455f9961022945748cc34e28176b7c00c6afc6d329"
+      },
+      "start": "2026-11-17T11:42:23.696376Z",
+      "end": "2026-11-17T11:42:23.971351Z",
+      "observations": [
+        {
+          "audit_id": "56bee932-c501-4c9e-b27c-49ea1c502549",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A14-01",
+      "scenario": "A14",
+      "label": "attack",
+      "family": "workload",
+      "description": "Deployment PATCH로 hostPID 활성화",
+      "limitation_control": false,
+      "path": "logs/A14-01.jsonl",
+      "sha256": "746f0783025502b4a143033a18ec8b57f518e0d7bfeadead75c3bdfa69b8c8b7",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A14-01",
+      "context_sha256": {
+        "behavior": "d9881dd6b9107454efd49592552445d6189f01ccff8d740f16160414dbca582c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "12d277db82865fcd7ceee163fd7a1e5387c48c4b32e9bd4fed7b45dc002bde45"
+      },
+      "start": "2026-11-17T11:42:24.774251Z",
+      "end": "2026-11-17T11:42:24.934530Z",
+      "observations": [
+        {
+          "audit_id": "de997f91-2be3-41ae-89c2-9eb2d2ac8ecf",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A07-01",
+      "scenario": "A07",
+      "label": "attack",
+      "family": "discovery",
+      "description": "두 namespace를 가로지르는 정찰",
+      "limitation_control": false,
+      "path": "logs/A07-01.jsonl",
+      "sha256": "b63b60eeaa6b2cf6b62c9250a4dc5197d63694502fb8fedb4626d50d4d45257b",
+      "expected_events": 12,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A07-01",
+      "context_sha256": {
+        "behavior": "d9881dd6b9107454efd49592552445d6189f01ccff8d740f16160414dbca582c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "be281a3bc995cd833310a5f3c4822007018e85e94774226a0c1a6ce7e15120b1"
+      },
+      "start": "2026-11-17T11:42:25.640262Z",
+      "end": "2026-11-17T11:42:26.170231Z",
+      "observations": [
+        {
+          "audit_id": "b8799c46-d2f4-42c6-8986-9378bcef553d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "5f8e54dd-fcb5-4bd0-8b95-7c86d896a136",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "42665485-bf41-4687-9f8a-2bb1d51784b3",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "899183cb-60f1-42bd-bb83-0dd59c342354",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "980df4b3-0eae-4d43-8f21-5001427523f5",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "28f8fbc3-2336-4dce-b487-ef9178f54b9d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "9cb6fe5a-bdd3-4b9f-a40d-bd3156497f35",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "e9c92f99-42a4-4123-81be-a2f5e5b68270",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "1056e994-7a99-4194-8393-9e095b848880",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "24a74fe5-dd86-436c-bf63-a2ddac8ff590",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "2dcbd44f-b1fa-4885-bacd-dea69f68f9ca",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "1a494879-ac19-4248-b654-5166c40da9d0",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N14-02",
+      "scenario": "N14",
+      "label": "normal",
+      "family": "workload",
+      "description": "정상 NodePort 서비스",
+      "limitation_control": false,
+      "path": "logs/N14-02.jsonl",
+      "sha256": "f69c5b8de1f533cd7d10a0894ff55b6e360688eb628021a8306e8b6b2ed31375",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N14-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "f1cdfebc7a2bd589b6200a3bea36489751edf1ecc828e96b25ccd03e452708ea"
+      },
+      "start": "2026-11-17T11:42:26.314706Z",
+      "end": "2026-11-17T11:42:26.503745Z",
+      "observations": [
+        {
+          "audit_id": "606a8ba1-71e6-4e2c-a80c-b124642aa8c7",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N07-02",
+      "scenario": "N07",
+      "label": "normal",
+      "family": "discovery",
+      "description": "승인된 인벤토리 조회",
+      "limitation_control": false,
+      "path": "logs/N07-02.jsonl",
+      "sha256": "ab99eeeb1965050bfc7df57631ed9ac704bfb5fdd2f30558e4a96760980e3167",
+      "expected_events": 9,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N07-02",
+      "context_sha256": {
+        "behavior": "081daf0fb8886ef2ef38196a4d39e3d9d5fc280a9732fffd53dc8548b7c9af96",
+        "legacy": "155364ec478c5acb31bd8939c49d0be99f8db0b095c98d1293ccd27db644827d",
+        "issuance": "0979e8f2a623dd35d419f341000a03b91ab163a579eea349511aba02ee6dcd1c"
+      },
+      "start": "2026-11-17T11:42:26.769138Z",
+      "end": "2026-11-17T11:42:27.316869Z",
+      "observations": [
+        {
+          "audit_id": "ea8eb9f1-79f6-461b-bd5d-d57830c3eed2",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "230650c8-0029-4df7-8eb3-66f426cbd46c",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "fe50d033-e9c6-432a-8374-8506469ae231",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "77c0a82a-c33d-4d68-99bc-ce48d0dcff6c",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "90d79e6a-4fce-41ef-934c-3f22a97dbca4",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "95175e42-afe7-4641-8447-7b0d8e18419d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "22f9ea6a-2121-487d-ae1c-c3bbb72a4a98",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "aeb6706c-1999-471f-bb9c-f5f6507eb4c6",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "a3f9ad02-54d5-4493-b44d-81c270c00057",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A15-02",
+      "scenario": "A15",
+      "label": "attack",
+      "family": "workload",
+      "description": "Pod에 위험한 capability 부여",
+      "limitation_control": false,
+      "path": "logs/A15-02.jsonl",
+      "sha256": "7e5baf326d03f3eeb91ecd678c48f37c4c81dd869c08062b6c137356bf76f85d",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A15-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "1b8f9efe8fef90695e6d5180aa5c387acee3b0248cd6e989b47476a59818c6ac"
+      },
+      "start": "2026-11-17T11:42:27.458132Z",
+      "end": "2026-11-17T11:42:27.699061Z",
+      "observations": [
+        {
+          "audit_id": "fce7a28b-cb11-4a92-8f5a-b25200c43417",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A14-02",
+      "scenario": "A14",
+      "label": "attack",
+      "family": "workload",
+      "description": "Deployment PATCH로 hostPID 활성화",
+      "limitation_control": false,
+      "path": "logs/A14-02.jsonl",
+      "sha256": "7163a38e7e70bc1fa0b97e190f48831ed90340aa2be217c6c2d599ead55e35c1",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A14-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "8495a11e23c87cac52a2b10600be1266656b02f11f1ee46c4ac736da0cdc5446"
+      },
+      "start": "2026-11-17T11:42:27.876651Z",
+      "end": "2026-11-17T11:42:28.011897Z",
+      "observations": [
+        {
+          "audit_id": "9af2cd9f-78ab-4f77-962e-a47d50251f2b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N12-02",
+      "scenario": "N12",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 CronJob 생성",
+      "limitation_control": false,
+      "path": "logs/N12-02.jsonl",
+      "sha256": "871c50046f36f3f86ec6a479e2cbd69d68d8b8510e8aa82fae1e4ccbf4e28507",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N12-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "40bc4a497ba14bb7350e2ee42776df511415ae099077d6456a4ebffa3993b41f"
+      },
+      "start": "2026-11-17T11:42:28.787441Z",
+      "end": "2026-11-17T11:42:28.981137Z",
+      "observations": [
+        {
+          "audit_id": "fcccf33b-ccb9-4f01-a02e-bd7c9db878c0",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N02-01",
+      "scenario": "N02",
+      "label": "normal",
+      "family": "credential",
+      "description": "업무용 단기 토큰 발급",
+      "limitation_control": false,
+      "path": "logs/N02-01.jsonl",
+      "sha256": "1065af777a1ac452fcabc81445c4ccbccb5222125229557d67df4a9ebf59e081",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N02-01",
+      "context_sha256": {
+        "behavior": "4821c88248dc20e892f37dcad8774c6452fc72722dead762398bb9b41a8a631b",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "27211e39aa91dc26c63f656824e8410fa624bd3f5e73c7f89b7fc39944bb475f"
+      },
+      "start": "2026-11-17T11:42:29.660531Z",
+      "end": "2026-11-17T11:42:29.836376Z",
+      "observations": [
+        {
+          "audit_id": "fe240220-709c-4914-a8fe-9909b9d2f898",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "H02-02",
+      "scenario": "H02",
+      "label": "attack",
+      "family": "discovery",
+      "description": "정상 조회와 같은 단일 저빈도 정찰",
+      "limitation_control": true,
+      "path": "logs/H02-02.jsonl",
+      "sha256": "9af4579eeae5aa6160fc17b9ceaccced25a2014467914b72541824ae5fc8265f",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/H02-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "b7832a14a2b1707f9552a5f0ebddf21d08ce0623c5e17f1895db8d04f98791b8"
+      },
+      "start": "2026-11-17T11:42:30.024909Z",
+      "end": "2026-11-17T11:42:30.256980Z",
+      "observations": [
+        {
+          "audit_id": "c2e77247-b0d6-4817-8d03-5a8b613eaf78",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A08-02",
+      "scenario": "A08",
+      "label": "attack",
+      "family": "privilege",
+      "description": "새 이름으로 wildcard 역할 생성",
+      "limitation_control": false,
+      "path": "logs/A08-02.jsonl",
+      "sha256": "578b5790c7e0d2853179321f838cd6846df0e4732e6097e983560c2a6d348528",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A08-02",
+      "context_sha256": {
+        "behavior": "a4d61705dff2270f6e690cd213b8290afec8b18b0bb1b86920e7514cac962a43",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "8d5b90960cfc7df104c77ad48802d7592fad0ef3c1de1c829cbf19fc1fa2c1df"
+      },
+      "start": "2026-11-17T11:42:30.381510Z",
+      "end": "2026-11-17T11:42:30.506899Z",
+      "observations": [
+        {
+          "audit_id": "2078e1ae-01ca-4d50-8bd1-1b6422c0ec3e",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A11-01",
+      "scenario": "A11",
+      "label": "attack",
+      "family": "privilege",
+      "description": "cluster-admin 역할 연결",
+      "limitation_control": false,
+      "path": "logs/A11-01.jsonl",
+      "sha256": "4a80369e02a0d8ddc2e45ddd1b4b785b6253504479f8f4bae13c9b5115a5ba50",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A11-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "3ee16e01c5be6b9882762ab3f2b8971574025351d7e7ec9391bdd59c448dc7a0"
+      },
+      "start": "2026-11-17T11:42:30.709087Z",
+      "end": "2026-11-17T11:42:30.844815Z",
+      "observations": [
+        {
+          "audit_id": "83cedd07-7b63-4806-a5bd-97a670e58724",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A05-01",
+      "scenario": "A05",
+      "label": "attack",
+      "family": "discovery",
+      "description": "익명 비리소스 경로 정찰",
+      "limitation_control": false,
+      "path": "logs/A05-01.jsonl",
+      "sha256": "b1c58558cc1699ba49d1de450ee795d3428b90a13039f317839db81d26442385",
+      "expected_events": 8,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A05-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "0172fcd1ebdfe689a3dcc25091b1ef4fdcd63e07fb24d7f3f1e0048504065783"
+      },
+      "start": "2026-11-17T11:42:31.718088Z",
+      "end": "2026-11-17T11:42:31.936677Z",
+      "observations": [
+        {
+          "audit_id": "4813b38f-cdbf-4720-ae5a-318a3223fd3f",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "829ed553-9cbf-4dbe-971b-dac3f8942c5f",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "72885a38-950a-4c70-a2bd-5fca8fbac4f2",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "ef0f615b-a10e-424c-a7e0-3803b7247305",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "8bbd3682-ae4a-4f7d-a144-69250a098cab",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "0e469140-d68b-462d-a803-c5a5f5243df1",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "cc5836a7-019b-4771-809b-b0cc3122d7ea",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        },
+        {
+          "audit_id": "96896af1-9894-4837-8f91-5d975dae6b1e",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A12-02",
+      "scenario": "A12",
+      "label": "attack",
+      "family": "workload",
+      "description": "CronJob 템플릿에 호스트 경로 추가",
+      "limitation_control": false,
+      "path": "logs/A12-02.jsonl",
+      "sha256": "dff0bdff9dcd51e0eb52ccc63e060127789a0ab1ab4ca777bf2eb9b084dec27e",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A12-02",
+      "context_sha256": {
+        "behavior": "24593dbdc9160f390728e425c09b1db80d83724e29ebd62aea2fd007f3f2b32c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "f7d1809ba04495935b9785f553724159c829c608b9ad8c059cde1beaa5a6c0ae"
+      },
+      "start": "2026-11-17T11:42:32.067124Z",
+      "end": "2026-11-17T11:42:32.220607Z",
+      "observations": [
+        {
+          "audit_id": "d6e54ad5-bed8-4230-bac1-4798aced00dd",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A04-01",
+      "scenario": "A04",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인한 명령과 다른 exec 요청",
+      "limitation_control": false,
+      "path": "logs/A04-01.jsonl",
+      "sha256": "0ec3cd91f403f98e132fab6ff75ddc1eeffe7aff3d7cc6876cb935362e653579",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A04-01",
+      "context_sha256": {
+        "behavior": "f390cf4d23becea2f4f0dcd5ad1780cb07b07106e1490fe4d91a35a23d27bb7f",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "42f2135e332b6fd36826f104695f9b44b4dcacda43cf50018eaff47a0160a356"
+      },
+      "start": "2026-11-17T11:42:32.662569Z",
+      "end": "2026-11-17T11:42:32.801556Z",
+      "observations": [
+        {
+          "audit_id": "f969f120-7c6a-41fe-a7be-1b004baadd60",
+          "code": 400,
+          "expected_codes": [
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "H01-01",
+      "scenario": "H01",
+      "label": "attack",
+      "family": "credential",
+      "description": "승인 토큰의 최초 사용을 공격자가 차지",
+      "limitation_control": true,
+      "path": "logs/H01-01.jsonl",
+      "sha256": "8e05b0754d29091d5de83ec75226ebcf6f1661ca5d57801e2f56f23ab9e80a8e",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/H01-01",
+      "context_sha256": {
+        "behavior": "1074e6ac0cfe75771e4dedc3af0b379ea8dc74670bf9ac40e04ac6361f55c1ad",
+        "legacy": "c22b3f02e068402ca0c1af90e7884f91bd3bbfb05da4044a7fb707d04fee8dbb",
+        "issuance": "6625906891b7b80f0efba40a57415d20d0dba573d22753231dc79575e284da67"
+      },
+      "start": "2026-11-17T11:42:32.955844Z",
+      "end": "2026-11-17T11:42:33.125990Z",
+      "observations": [
+        {
+          "audit_id": "8c168691-3d7b-4948-a07c-02b740e9c5d4",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N05-01",
+      "scenario": "N05",
+      "label": "normal",
+      "family": "discovery",
+      "description": "반복 health check",
+      "limitation_control": false,
+      "path": "logs/N05-01.jsonl",
+      "sha256": "c3d2490ecf7dcc32c60eee7024b529754e591fe7d58d6e91d145b8f091955d62",
+      "expected_events": 8,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N05-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "0cde3809fa7d7ed542952d7d55e05c138451ce311a13a35841e261c14f920161"
+      },
+      "start": "2026-11-17T11:42:33.249415Z",
+      "end": "2026-11-17T11:42:33.455844Z",
+      "observations": [
+        {
+          "audit_id": "ae84a3f6-10ac-409d-969f-a373401d4d71",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "6145adf1-aa9e-451e-a22f-fed68edb682e",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "425ba767-bbe4-45bc-8912-50be14cbbd47",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "917cbc52-bc01-436e-8b3c-27c66d7d7e48",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "bf1dff66-6d91-4f90-b7db-4faffad56a5b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "43d8cac1-26b0-4bdf-a6af-5d8a979e4cad",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "c5e7471d-0e58-4f39-895d-f4cb9d59de52",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "eb062fb5-7a33-4ed4-873b-40c7672b356c",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N13-01",
+      "scenario": "N13",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 DaemonSet 생성",
+      "limitation_control": false,
+      "path": "logs/N13-01.jsonl",
+      "sha256": "cfdbca3430d5c74eb03cae7a1af55353e7ea8de5d4e3fdad2968c3d2ea44ad8f",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N13-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "5987624b480d64d1f128cd2317aabf1978c4c44d91f8c9751fe13709383f5cf8"
+      },
+      "start": "2026-11-17T11:42:33.583797Z",
+      "end": "2026-11-17T11:42:33.760993Z",
+      "observations": [
+        {
+          "audit_id": "48775fe2-ac99-4c18-98df-46915c9328d0",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N11-02",
+      "scenario": "N11",
+      "label": "normal",
+      "family": "privilege",
+      "description": "최소권한 Role 생성",
+      "limitation_control": false,
+      "path": "logs/N11-02.jsonl",
+      "sha256": "bf633a38e9151a99b022d84c391d7f5402d5da47846578d8396a850e1a3d7dde",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N11-02",
+      "context_sha256": {
+        "behavior": "24593dbdc9160f390728e425c09b1db80d83724e29ebd62aea2fd007f3f2b32c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "ec37e93fe7c7eaeb9dbdaff645c751d43607a5ee29f5372eb35a22f62ae941f4"
+      },
+      "start": "2026-11-17T11:42:34.735463Z",
+      "end": "2026-11-17T11:42:34.895419Z",
+      "observations": [
+        {
+          "audit_id": "1cf95d25-e356-4145-a406-2ed5908b803f",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N07-01",
+      "scenario": "N07",
+      "label": "normal",
+      "family": "discovery",
+      "description": "승인된 인벤토리 조회",
+      "limitation_control": false,
+      "path": "logs/N07-01.jsonl",
+      "sha256": "61e2d586138a0a61e931906b3cd65b6e428e98307f5b6af36177ee526f041ba8",
+      "expected_events": 9,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N07-01",
+      "context_sha256": {
+        "behavior": "9bc3efd968fa397f8308ad261fe1bb1bd7378df3413c439f1bca8141db94cf1d",
+        "legacy": "33d93a1685607f726f77311c4bb46690838069c71eb039e6b55073a851f0101e",
+        "issuance": "f70f4c1fe4c2d62233991ade392fe9362548329d3833915f20a68e040077fb6e"
+      },
+      "start": "2026-11-17T11:42:35.695373Z",
+      "end": "2026-11-17T11:42:36.152739Z",
+      "observations": [
+        {
+          "audit_id": "1ced833f-5c7c-4bcf-aa05-6b90f1405d17",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "fc6f316e-971d-44b8-aecf-4860d12bd6d2",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "c377e611-1bc1-480f-a260-afb9367da78d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "99148b83-19c8-4967-94c6-e87eeb6edd3b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "481943aa-d284-4c97-b01c-84306ce87c08",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "c7f0a546-2eb1-48c4-a890-f62da0550c3e",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "f2fb2b5b-8c1f-4c34-b413-8d745607d35c",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "24fc65cc-6e0e-4cc5-a3ea-0dc8782ee492",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "5449def9-6369-4b90-8202-18f376872477",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N03-02",
+      "scenario": "N03",
+      "label": "normal",
+      "family": "execution",
+      "description": "운영자 승인 exec POST 시도",
+      "limitation_control": false,
+      "path": "logs/N03-02.jsonl",
+      "sha256": "90ce126885f1cb3e5b5193ecd4c83efa270d2fdce14d54cf8846c20f20997b2f",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N03-02",
+      "context_sha256": {
+        "behavior": "5d7ba1670ae4a44a67defa77a08f5b4cfa13de4309a20ceca4715c7e98ca4046",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "808a336014c2d737c19d9522461e33e724ebb7254e689fd0a14bcdd52129a29f"
+      },
+      "start": "2026-11-17T11:42:36.282280Z",
+      "end": "2026-11-17T11:42:36.435235Z",
+      "observations": [
+        {
+          "audit_id": "e84e4ce4-af42-46df-85b4-e291c99d3642",
+          "code": 400,
+          "expected_codes": [
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A02-02",
+      "scenario": "A02",
+      "label": "attack",
+      "family": "credential",
+      "description": "다른 SA 토큰의 승인 없는 발급",
+      "limitation_control": false,
+      "path": "logs/A02-02.jsonl",
+      "sha256": "fa51a137180bc1b70bb3c861eefddcaadeabc7b5d25c4a2aefe4db55f9d84603",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A02-02",
+      "context_sha256": {
+        "behavior": "727b179ca117e0c109d50c8cc60d4f3a50f6559c2edde998bd1a7e239841bd7b",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "acaa61679e9f193d6a41a9f35bda9a3ea3b9acfd9af664cc6773331fce47deb4"
+      },
+      "start": "2026-11-17T11:42:36.582954Z",
+      "end": "2026-11-17T11:42:36.758419Z",
+      "observations": [
+        {
+          "audit_id": "76d423f6-06c9-4ded-bb06-ee6970d3a5cc",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N08-02",
+      "scenario": "N08",
+      "label": "normal",
+      "family": "discovery",
+      "description": "승인 정보 없는 정상 인벤토리",
+      "limitation_control": true,
+      "path": "logs/N08-02.jsonl",
+      "sha256": "fa20e5a0df2c19d5e2107e7be55fb4aeb45da91cb08b1c58cffd12d77d03bc50",
+      "expected_events": 9,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N08-02",
+      "context_sha256": {
+        "behavior": "727b179ca117e0c109d50c8cc60d4f3a50f6559c2edde998bd1a7e239841bd7b",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "39cf70144c115ea43996a8afd01cae69ccadf924464b21da59cc847cbf9f92db"
+      },
+      "start": "2026-11-17T11:42:36.887679Z",
+      "end": "2026-11-17T11:42:37.205078Z",
+      "observations": [
+        {
+          "audit_id": "9a047c6f-f0eb-48fc-80cc-a9167709b620",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "1a5ebd99-8ed3-43e7-beb2-f5bd8ef777ad",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "c7168cb5-e5e2-4cae-bcdd-4cf7d945621d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "fea6829b-caa8-49f5-9c90-7221c7efb7b6",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "4b739851-3eb2-4b21-a944-dc1205ed9df1",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "5fa57d63-fd47-4bdd-ac77-60e4e1231a4b",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "96e2a7eb-0219-4a27-b547-aa52f01ae794",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "1bd5f30e-e744-4e65-90aa-f306702cf615",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "7234842c-cef8-480a-ad55-db22b6d54c47",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A12-01",
+      "scenario": "A12",
+      "label": "attack",
+      "family": "workload",
+      "description": "CronJob 템플릿에 호스트 경로 추가",
+      "limitation_control": false,
+      "path": "logs/A12-01.jsonl",
+      "sha256": "8c7b2e2a04c68f5bf6d303de9fc2d5c7d2fa7b4902077660a3793cc2285c8f14",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A12-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "9df48e3b985ad63b20fb2f6641d53170de43f73980f189deb803df038b898c41"
+      },
+      "start": "2026-11-17T11:42:37.334413Z",
+      "end": "2026-11-17T11:42:37.509808Z",
+      "observations": [
+        {
+          "audit_id": "b4067138-16c7-4f4a-8018-bf72b2e37a41",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A09-01",
+      "scenario": "A09",
+      "label": "attack",
+      "family": "privilege",
+      "description": "이름만으로 알 수 없는 고권한 역할 연결",
+      "limitation_control": false,
+      "path": "logs/A09-01.jsonl",
+      "sha256": "e9b5c22d753102500266fac62fc71bfebd38094e5e6fee937bc257ad5b5a1d9b",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A09-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "787b46665fb0f7b402824e667146fa5a76b59955a68cf70c4f9fe9129b7a86b5"
+      },
+      "start": "2026-11-17T11:42:37.766337Z",
+      "end": "2026-11-17T11:42:37.930212Z",
+      "observations": [
+        {
+          "audit_id": "fd4b2088-b833-40c4-a74b-3a4c3397c50f",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A04-02",
+      "scenario": "A04",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인한 명령과 다른 exec 요청",
+      "limitation_control": false,
+      "path": "logs/A04-02.jsonl",
+      "sha256": "bd83a21aa419b98f7ebaeb85f93fe30121dd585caf80a90194f868330406f430",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A04-02",
+      "context_sha256": {
+        "behavior": "537df8864f915846b1b8d722cd7b739b9d05c6f0da841e3c7d397df411750feb",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "565c6033b8f5d1bf1c6c7a414e97df5df2b4fcf587d2bc4fd8964ed9db6a7df1"
+      },
+      "start": "2026-11-17T11:42:38.778594Z",
+      "end": "2026-11-17T11:42:38.945468Z",
+      "observations": [
+        {
+          "audit_id": "be834f40-7309-4885-bf88-df69c6660c3b",
+          "code": 400,
+          "expected_codes": [
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N06-01",
+      "scenario": "N06",
+      "label": "normal",
+      "family": "discovery",
+      "description": "한 번의 비리소스 권한 오류",
+      "limitation_control": false,
+      "path": "logs/N06-01.jsonl",
+      "sha256": "7163946ccef517876ecc9afbe7a73b9ebcccd26dbcfbbae7952c0be0ddacaed5",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N06-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "cb456e45a8a84947e47f2329a05ce268ae03b623c14ba8f01e605dffbd03f3f8"
+      },
+      "start": "2026-11-17T11:42:39.079418Z",
+      "end": "2026-11-17T11:42:39.223311Z",
+      "observations": [
+        {
+          "audit_id": "299def54-5f6e-4d79-81c3-09c5f616401c",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N12-01",
+      "scenario": "N12",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 CronJob 생성",
+      "limitation_control": false,
+      "path": "logs/N12-01.jsonl",
+      "sha256": "06b03bdf353ce4ab95f7da007e27ae2ad85c44d816b0f5089e901612ce6e8ffd",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N12-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "116b9d2a9f38c7b567959fec3825fe00ea390c24720520768df93c18ba3d31b8"
+      },
+      "start": "2026-11-17T11:42:39.340140Z",
+      "end": "2026-11-17T11:42:39.488255Z",
+      "observations": [
+        {
+          "audit_id": "d1d0be35-e8ca-4754-a6fb-63a5a26bb5ca",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A16-02",
+      "scenario": "A16",
+      "label": "attack",
+      "family": "workload",
+      "description": "DaemonSet 호스트 네트워크 공유",
+      "limitation_control": false,
+      "path": "logs/A16-02.jsonl",
+      "sha256": "31a1d5e9c695cf78304cbcb4be5533487dcfb2087e8228d8265e4b4b579f0c07",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A16-02",
+      "context_sha256": {
+        "behavior": "727b179ca117e0c109d50c8cc60d4f3a50f6559c2edde998bd1a7e239841bd7b",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "967fa9498273ef573afdea46daacfa13d5432d8b69aa53e8fe1cea8a53dadf11"
+      },
+      "start": "2026-11-17T11:42:39.793737Z",
+      "end": "2026-11-17T11:42:39.996720Z",
+      "observations": [
+        {
+          "audit_id": "c292060a-5b92-4f68-bca4-b4816d3e8c76",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N09-01",
+      "scenario": "N09",
+      "label": "normal",
+      "family": "privilege",
+      "description": "읽기 전용 ClusterRole 연결",
+      "limitation_control": false,
+      "path": "logs/N09-01.jsonl",
+      "sha256": "6107d17d17050e79f817394ff1f86ef195e24b2f2ecc833ebf3ed6e53b353d3c",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N09-01",
+      "context_sha256": {
+        "behavior": "62c030a7b4fc47bb1b75c863cca7303f65c9e1cf4cb30be3418718cff4ea4e1d",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "bf47210d5e2d603324b262924b08b81cf51eb2e826509aee094af424990d4f4e"
+      },
+      "start": "2026-11-17T11:42:40.692429Z",
+      "end": "2026-11-17T11:42:40.849332Z",
+      "observations": [
+        {
+          "audit_id": "a5165e67-13de-47e6-9185-5c27e61079f4",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N15-01",
+      "scenario": "N15",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 인프라 특권 DaemonSet",
+      "limitation_control": false,
+      "path": "logs/N15-01.jsonl",
+      "sha256": "c0184987d5881b7b1a9d19c439d45f4ec1987197d6b8f486e49baf92f4f67cf5",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N15-01",
+      "context_sha256": {
+        "behavior": "31cdfa2f7dab933ed67d1c9eefa203511431c67f10a372e142f50707467d7e4c",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "f7b165504195b90fb8d2760b9eae87b2e1ef7a0ec15930dd2e3319866a9c4c6b"
+      },
+      "start": "2026-11-17T11:42:41.708745Z",
+      "end": "2026-11-17T11:42:41.894428Z",
+      "observations": [
+        {
+          "audit_id": "f0e869c1-dcda-48c6-aec9-ca440c6944f0",
+          "code": 201,
+          "expected_codes": [
+            201
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N01-01",
+      "scenario": "N01",
+      "label": "normal",
+      "family": "credential",
+      "description": "승인된 단일 Secret 조회",
+      "limitation_control": false,
+      "path": "logs/N01-01.jsonl",
+      "sha256": "d56257f14418e631d88f37ffca860c5e7c020d69cbcb794de05aa7549f06ab94",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N01-01",
+      "context_sha256": {
+        "behavior": "4be57d0e6f44c9fe414dac3923756f1904d3fd9fb0d4f634e08211c68dc5783e",
+        "legacy": "edf9a38b1bc9a4c6cd152a47e32ff1115fa6239833a92c1949a57f7354506989",
+        "issuance": "da32a8b5da70ae42ff2253f3105fdfa24f9a8c60432dcb0d171144f99143bb0f"
+      },
+      "start": "2026-11-17T11:42:42.661933Z",
+      "end": "2026-11-17T11:42:42.830036Z",
+      "observations": [
+        {
+          "audit_id": "043319a3-be52-47e7-8541-255dd3201a44",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "A07-02",
+      "scenario": "A07",
+      "label": "attack",
+      "family": "discovery",
+      "description": "두 namespace를 가로지르는 정찰",
+      "limitation_control": false,
+      "path": "logs/A07-02.jsonl",
+      "sha256": "2ed2c5c3c214a2fbb3fefbf5f7db972d519586cc32ca696300875df4d37a6a7b",
+      "expected_events": 12,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/A07-02",
+      "context_sha256": {
+        "behavior": "727b179ca117e0c109d50c8cc60d4f3a50f6559c2edde998bd1a7e239841bd7b",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "3528f5ad3667965d7035341fa8cbfdb5fe6a1e71788254c71997ce031e86e941"
+      },
+      "start": "2026-11-17T11:42:43.039230Z",
+      "end": "2026-11-17T11:42:43.639784Z",
+      "observations": [
+        {
+          "audit_id": "5ed61892-5c1d-4fac-b14c-597d4a8bdc33",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "2072b9b5-1a70-4339-a0f3-6243d135649e",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "a4f06f54-2ab6-4ceb-a9a5-1ac6905b434d",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "c1f2bf06-9054-401c-baf6-e697a6142288",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "7967242b-f6db-41ba-b170-c06edb7c2d52",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "0c2e22d8-7115-44c1-be28-0713069717d3",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "955a94a7-a57e-4ec7-8ad9-7e82315b5611",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "79ea0952-4304-4db3-aa1f-0a8b185dbdf4",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "e21f7ec3-4afd-4d57-aacb-d5ed0f8ff8c8",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "9ca4a978-424c-422f-ac91-21e535893875",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "806cee4a-46fd-4720-aace-aef45cc0642e",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        },
+        {
+          "audit_id": "22be68ee-a98f-4dcb-b4e1-9b299224a308",
+          "code": 200,
+          "expected_codes": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "N04-02",
+      "scenario": "N04",
+      "label": "normal",
+      "family": "execution",
+      "description": "잘못된 Pod 로그 접근 한 번",
+      "limitation_control": false,
+      "path": "logs/N04-02.jsonl",
+      "sha256": "bca2a35b6ea68d8adf7306e95da44a54c7c942357625054a5752060ff632ae47",
+      "expected_events": 1,
+      "status": "complete",
+      "collection_errors": [],
+      "contexts": "contexts/N04-02",
+      "context_sha256": {
+        "behavior": "727b179ca117e0c109d50c8cc60d4f3a50f6559c2edde998bd1a7e239841bd7b",
+        "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+        "issuance": "92d279bdb45c60a40011e8967227b2f7e7698384c8a75bb800be86fc247eed22"
+      },
+      "start": "2026-11-17T11:42:43.762572Z",
+      "end": "2026-11-17T11:42:43.908820Z",
+      "observations": [
+        {
+          "audit_id": "c71c5b21-437b-4f09-b250-6537a430fa72",
+          "code": 403,
+          "expected_codes": [
+            403
+          ]
+        }
+      ]
+    }
+  ]
+}

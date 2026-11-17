@@ -1,0 +1,15 @@
+* text=auto
+*.py text eol=lf
+*.sh text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.log text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+/data/external/splunk-v1/logs/* -text
+/data/external/splunk-v1/upstream-detections/* -text
+# Preserve measured evidence and archived baseline hashes byte for byte.
+/data/** -text
+/results/** -text

@@ -1,0 +1,1505 @@
+{
+  "created_before_requests": "2026-11-17T11:40:46.819758Z",
+  "split": "evaluation",
+  "seed": 619207,
+  "repetitions": 2,
+  "files": {
+    "auditguard/behavior.py": "34f248db671c24bf92b52f9de636099c76882428165a777d632b09d5739bc666",
+    "auditguard/behavior_events.py": "c6d751d2cf3d15bd7b0ff1d171ecf5237795ada6bdb666f7828d870193c459ba",
+    "config/behavior.json": "9c9c5fc2721a8f6ad09b1a0e1599efce1d26ad0d3422ca9f0268067018f75a83",
+    "lab/behavior_scenarios.py": "a204ee6d4c37d98a980390c66bc2a1d3e13c283d0f72a536df116d1a59fe1e8b",
+    "lab/behavior_live.py": "08d725888ab209f627945d552863738f208b7668221ba10bdb6c18f3dc0840e8",
+    "lab/windows.py": "17acab41d9ec5050a61270711a3772b3bcd0efadb3db04ade4b12e99d17f4ada",
+    "lab/behavior-audit-policy.yaml": "2f04b5059e545889ae467ee4d54055aded92ea242c35a046d395104f59ca464c",
+    "data/behavior-plan/scenarios.json": "961460eb12cc6e7d994c37a36f02f65d5fd56d875c08c24ac6e83db91462a196",
+    "auditguard/__init__.py": "60fb39e048bdccd3e4da8e615d5b8cce0a9eb1c3aa52f42cfc4f12e816eb1131",
+    "auditguard/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "auditguard/advanced.py": "13defcb507996431b934ba2ee873d597ecbb1cb44bb25ebebaf2f6487c2b2571",
+    "auditguard/benchmark.py": "91c86d83f3b24270dc05d16a021e2f431454acb5c0279713aa0cf46870bdf6de",
+    "auditguard/cli.py": "472447f6439eaa3f2ad8c17dfc51007916c8b1979deacd36a69e5d450cb5bad2",
+    "auditguard/detector.py": "73bb7d404f2a7f01a31fd901a19aeff148f8b9f5d4e70b4e0b51e5e15c9e241b",
+    "auditguard/evaluate.py": "eae37107df624cf2a728c5a15db250b795ba14b2ff592f6ac2ee0d90a83cc76a",
+    "auditguard/events.py": "e4e0882d4bd3093005525447f705f029444ace61cf5829bef67cb3dc8c2869f8",
+    "auditguard/policy.py": "53c444932ec1703a6d8fe1baf80b1fe7e8aef0b8e9f766b5d57297c67f7b9ef7",
+    "auditguard/refinement.py": "b9c874192f4d4204624dbebae6d6f40e28fb359ad06f83aa5239a3554ccd8ac2",
+    "config/advanced.json": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+    "config/live-policy.json": "18ae5fc30a84c4d3a5d4be23d594c10c005019975a1630c92091c45d3668160e",
+    "scripts/evaluate_behavior.py": "98925ab9dd34380b88d84c0cee57e13e6ccc3c35195ad0040416a3481ca90cd7"
+  },
+  "scenarios": [
+    {
+      "id": "N01",
+      "label": "normal",
+      "family": "credential",
+      "description": "승인된 단일 Secret 조회",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/secrets/demo-secret",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": false
+    },
+    {
+      "id": "N02",
+      "label": "normal",
+      "family": "credential",
+      "description": "업무용 단기 토큰 발급",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/{ns}/serviceaccounts/worker/token",
+          "body": {
+            "apiVersion": "authentication.k8s.io/v1",
+            "kind": "TokenRequest",
+            "spec": {
+              "expirationSeconds": 600
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": false
+    },
+    {
+      "id": "A01",
+      "label": "attack",
+      "family": "credential",
+      "description": "허용된 권한으로 Secret 열거",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/secrets",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A02",
+      "label": "attack",
+      "family": "credential",
+      "description": "다른 SA 토큰의 승인 없는 발급",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/{ns}/serviceaccounts/worker/token",
+          "body": {
+            "apiVersion": "authentication.k8s.io/v1",
+            "kind": "TokenRequest",
+            "spec": {
+              "expirationSeconds": 600
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "H01",
+      "label": "attack",
+      "family": "credential",
+      "description": "승인 토큰의 최초 사용을 공격자가 차지",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/secrets/demo-secret",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": true
+    },
+    {
+      "id": "N03",
+      "label": "normal",
+      "family": "execution",
+      "description": "운영자 승인 exec POST 시도",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/{ns}/pods/diagnostic/exec?command=hostname&stdout=true&stderr=true",
+          "body": null,
+          "expected_codes": [
+            400
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": false
+    },
+    {
+      "id": "N04",
+      "label": "normal",
+      "family": "execution",
+      "description": "잘못된 Pod 로그 접근 한 번",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods/diagnostic/log",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A03",
+      "label": "attack",
+      "family": "execution",
+      "description": "GET 방식의 미승인 exec",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods/diagnostic/exec?command=whoami&stdout=true&stderr=true",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A04",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인한 명령과 다른 exec 요청",
+      "actor_role": "operator",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/{ns}/pods/diagnostic/exec?command=hostname&stdout=true&stderr=true",
+          "body": null,
+          "expected_codes": [
+            400
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "different_command",
+      "limitation_control": false
+    },
+    {
+      "id": "N05",
+      "label": "normal",
+      "family": "discovery",
+      "description": "반복 health check",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/readyz",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N06",
+      "label": "normal",
+      "family": "discovery",
+      "description": "한 번의 비리소스 권한 오류",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/debug",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N07",
+      "label": "normal",
+      "family": "discovery",
+      "description": "승인된 인벤토리 조회",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": false
+    },
+    {
+      "id": "N08",
+      "label": "normal",
+      "family": "discovery",
+      "description": "승인 정보 없는 정상 인벤토리",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": true
+    },
+    {
+      "id": "A05",
+      "label": "attack",
+      "family": "discovery",
+      "description": "익명 비리소스 경로 정찰",
+      "actor_role": "anonymous",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v9",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/apis/unknown",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/admin",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/debug",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/metrics",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/configz",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/logs",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/openapi/v99",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A06",
+      "label": "attack",
+      "family": "discovery",
+      "description": "간격을 둔 다종 리소스 정찰",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 6
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 6
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 6
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 6
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 6
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 6
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A07",
+      "label": "attack",
+      "family": "discovery",
+      "description": "두 namespace를 가로지르는 정찰",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{other}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{other}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{other}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{other}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{other}/services",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{other}/configmaps",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "H02",
+      "label": "attack",
+      "family": "discovery",
+      "description": "정상 조회와 같은 단일 저빈도 정찰",
+      "actor_role": "reader",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": true
+    },
+    {
+      "id": "N09",
+      "label": "normal",
+      "family": "privilege",
+      "description": "읽기 전용 ClusterRole 연결",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/namespaces/{ns}/rolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "RoleBinding",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "ClusterRole",
+              "name": "view"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "{ns}",
+                "name": "worker"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N10",
+      "label": "normal",
+      "family": "privilege",
+      "description": "사전 승인된 고권한 역할 연결",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/clusterrolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "ClusterRoleBinding",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "ClusterRole",
+              "name": "lab-wide"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "{ns}",
+                "name": "worker"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": false
+    },
+    {
+      "id": "N11",
+      "label": "normal",
+      "family": "privilege",
+      "description": "최소권한 Role 생성",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/namespaces/{ns}/roles",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "Role",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "rules": [
+              {
+                "apiGroups": [
+                  ""
+                ],
+                "resources": [
+                  "pods"
+                ],
+                "verbs": [
+                  "get",
+                  "list"
+                ]
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A08",
+      "label": "attack",
+      "family": "privilege",
+      "description": "새 이름으로 wildcard 역할 생성",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/clusterroles",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "ClusterRole",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "rules": [
+              {
+                "apiGroups": [
+                  "*"
+                ],
+                "resources": [
+                  "*"
+                ],
+                "verbs": [
+                  "*"
+                ]
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A09",
+      "label": "attack",
+      "family": "privilege",
+      "description": "이름만으로 알 수 없는 고권한 역할 연결",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/clusterrolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "ClusterRoleBinding",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "ClusterRole",
+              "name": "lab-wide"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "{ns}",
+                "name": "worker"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A10",
+      "label": "attack",
+      "family": "privilege",
+      "description": "JSON Patch로 Role 권한 확장",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "PATCH",
+          "path": "/apis/rbac.authorization.k8s.io/v1/namespaces/{ns}/roles/editable",
+          "body": [
+            {
+              "op": "add",
+              "path": "/rules/-",
+              "value": {
+                "apiGroups": [
+                  "rbac.authorization.k8s.io"
+                ],
+                "resources": [
+                  "roles"
+                ],
+                "verbs": [
+                  "escalate"
+                ]
+              }
+            }
+          ],
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A11",
+      "label": "attack",
+      "family": "privilege",
+      "description": "cluster-admin 역할 연결",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/clusterrolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "ClusterRoleBinding",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "ClusterRole",
+              "name": "cluster-admin"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "{ns}",
+                "name": "worker"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N12",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 CronJob 생성",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/batch/v1/namespaces/{ns}/cronjobs",
+          "body": {
+            "apiVersion": "batch/v1",
+            "kind": "CronJob",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "schedule": "0 0 1 1 *",
+              "suspend": true,
+              "jobTemplate": {
+                "spec": {
+                  "template": {
+                    "spec": {
+                      "containers": [
+                        {
+                          "name": "main",
+                          "image": "busybox:1.36",
+                          "command": [
+                            "sleep",
+                            "3600"
+                          ]
+                        }
+                      ],
+                      "restartPolicy": "Never"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N13",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 DaemonSet 생성",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/{ns}/daemonsets",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "app": "item-{suffix}"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "app": "item-{suffix}"
+                  }
+                },
+                "spec": {
+                  "containers": [
+                    {
+                      "name": "main",
+                      "image": "busybox:1.36",
+                      "command": [
+                        "sleep",
+                        "3600"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N14",
+      "label": "normal",
+      "family": "workload",
+      "description": "정상 NodePort 서비스",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/{ns}/services",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "type": "NodePort",
+              "ports": [
+                {
+                  "port": 8080,
+                  "targetPort": 8080
+                }
+              ],
+              "selector": {
+                "app": "item-{suffix}"
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "N15",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 인프라 특권 DaemonSet",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/{ns}/daemonsets",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "app": "item-{suffix}"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "app": "item-{suffix}"
+                  }
+                },
+                "spec": {
+                  "containers": [
+                    {
+                      "name": "main",
+                      "image": "busybox:1.36",
+                      "command": [
+                        "sleep",
+                        "3600"
+                      ],
+                      "securityContext": {
+                        "privileged": true
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "all",
+      "limitation_control": false
+    },
+    {
+      "id": "A12",
+      "label": "attack",
+      "family": "workload",
+      "description": "CronJob 템플릿에 호스트 경로 추가",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/batch/v1/namespaces/{ns}/cronjobs",
+          "body": {
+            "apiVersion": "batch/v1",
+            "kind": "CronJob",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "schedule": "0 0 1 1 *",
+              "suspend": true,
+              "jobTemplate": {
+                "spec": {
+                  "template": {
+                    "spec": {
+                      "containers": [
+                        {
+                          "name": "main",
+                          "image": "busybox:1.36",
+                          "command": [
+                            "sleep",
+                            "3600"
+                          ]
+                        }
+                      ],
+                      "volumes": [
+                        {
+                          "name": "host",
+                          "hostPath": {
+                            "path": "/"
+                          }
+                        }
+                      ],
+                      "restartPolicy": "Never"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A13",
+      "label": "attack",
+      "family": "workload",
+      "description": "StatefulSet initContainer 특권 실행 설정",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/{ns}/statefulsets",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "app": "item-{suffix}"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "app": "item-{suffix}"
+                  }
+                },
+                "spec": {
+                  "containers": [
+                    {
+                      "name": "main",
+                      "image": "busybox:1.36",
+                      "command": [
+                        "sleep",
+                        "3600"
+                      ]
+                    }
+                  ],
+                  "initContainers": [
+                    {
+                      "name": "prepare",
+                      "image": "busybox:1.36",
+                      "command": [
+                        "true"
+                      ],
+                      "securityContext": {
+                        "privileged": true
+                      }
+                    }
+                  ]
+                }
+              },
+              "serviceName": "item-{suffix}"
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A14",
+      "label": "attack",
+      "family": "workload",
+      "description": "Deployment PATCH로 hostPID 활성화",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "PATCH",
+          "path": "/apis/apps/v1/namespaces/{ns}/deployments/editable",
+          "body": [
+            {
+              "op": "add",
+              "path": "/spec/template/spec/hostPID",
+              "value": true
+            }
+          ],
+          "expected_codes": [
+            200
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A15",
+      "label": "attack",
+      "family": "workload",
+      "description": "Pod에 위험한 capability 부여",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/{ns}/pods",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "containers": [
+                {
+                  "name": "main",
+                  "image": "busybox:1.36",
+                  "command": [
+                    "sleep",
+                    "3600"
+                  ],
+                  "securityContext": {
+                    "capabilities": {
+                      "add": [
+                        "SYS_ADMIN"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "A16",
+      "label": "attack",
+      "family": "workload",
+      "description": "DaemonSet 호스트 네트워크 공유",
+      "actor_role": "admin",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/{ns}/daemonsets",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "metadata": {
+              "name": "item-{suffix}"
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "app": "item-{suffix}"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "app": "item-{suffix}"
+                  }
+                },
+                "spec": {
+                  "containers": [
+                    {
+                      "name": "main",
+                      "image": "busybox:1.36",
+                      "command": [
+                        "sleep",
+                        "3600"
+                      ]
+                    }
+                  ],
+                  "hostNetwork": true
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "delay": 0
+        }
+      ],
+      "approval": "none",
+      "limitation_control": false
+    }
+  ],
+  "policy": "No tuning after final evaluation. Author-designed cases, not a blind independent benchmark."
+}

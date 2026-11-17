@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "scan_window_seconds": 90,
+  "scan_min_requests": 5,
+  "scan_min_targets": 3,
+  "enumeration_window_seconds": 180,
+  "enumeration_min_requests": 8,
+  "enumeration_min_resources": 3,
+  "sequence_window_seconds": 300,
+  "dangerous_capabilities": [
+    "SYS_ADMIN",
+    "SYS_MODULE",
+    "SYS_PTRACE",
+    "DAC_READ_SEARCH",
+    "BPF",
+    "PERFMON"
+  ],
+  "work_orders": [],
+  "role_inventory": [
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "admin",
+      "rules": [
+        {
+          "verbs": [
+            "*"
+          ],
+          "apiGroups": [
+            "*"
+          ],
+          "resources": [
+            "*"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "operator",
+      "rules": [
+        {
+          "verbs": [
+            "get",
+            "create"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods/exec"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "pod-reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "secret-reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "runs": 32,
+  "audit_events": 44,
+  "counts": {
+    "running_workloads": 16,
+    "workloads_hostpath": 4,
+    "workloads_hostpid": 2,
+    "successful_measured_exec": 8,
+    "verified_permission_transitions": 6,
+    "workloads_none": 4,
+    "workloads_privileged": 6,
+    "denied_measured_exec": 2
+  },
+  "checks": [
+    {
+      "run_id": "W05-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "f7d4aab8e9469d69fc2e18d61d8fe28a6154c25d7e684fafeed84db00f0058ec"
+    },
+    {
+      "run_id": "W04-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "e987b343c88f847cebb3a8d6bfd521d0bf5252524b9d28943358bd79c1d88087"
+    },
+    {
+      "run_id": "X05-01",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "24bd5db57081625867c53f609e72652004c64eb101b39d781f66fb88c3abc6b3"
+    },
+    {
+      "run_id": "X01-02",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "85fb8bc840e48090be57a2191cf9eb2050ff4b9727a1312f33b18dcb54331622"
+    },
+    {
+      "run_id": "R02-01",
+      "execution_verified": true,
+      "proof_kind": "rbac_access",
+      "proof_sha256": "1c0b17fcd53e3b43f2191d48b1cab20e43c305493b6d07d0bbb40353c8d5141d"
+    },
+    {
+      "run_id": "R03-02",
+      "execution_verified": true,
+      "proof_kind": "rbac_access",
+      "proof_sha256": "d2692c2926fd808665e0f9f191b030fd43ab21b9cd7516ce707d2130208ac39c"
+    },
+    {
+      "run_id": "X02-02",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "29eb94bb9ce37254346a2f85e2e04eff12aadc93c8bac1010846874dfb0022e0"
+    },
+    {
+      "run_id": "W01-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "7573cb468e25582b62b8942ad8b95b4c206e246b98c81885f9d4d5a63ba2142a"
+    },
+    {
+      "run_id": "W03-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "9e2e81553a0f4ca1cd7e689f430454dd6501e937768acc6ef1e31d422dc880b0"
+    },
+    {
+      "run_id": "W05-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "d1d216a16d76a25a4e4045c1a9687e8d3c7875685aea3cfdce2817789b6fd825"
+    },
+    {
+      "run_id": "W06-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "83c3e45c9682298975261a0fc11a1c30edd8383bbb6539d9134deb20a7fbef09"
+    },
+    {
+      "run_id": "W03-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "0c92efd87360fdde1754849e4282c989bc196045dc66af51bec6b0d1cd6fef64"
+    },
+    {
+      "run_id": "W02-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "f372ad80b6d66872ff8bd24093c1e25e8054910f66b731d49426bfa340d50bda"
+    },
+    {
+      "run_id": "W07-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "14649e5b1cd71537331cc7c0860b2dd3e302302c203fd3a362eeb6ffa8718842"
+    },
+    {
+      "run_id": "X03-01",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "7278a9d66c10613ef2d58a7c9b48659d92a44fccc2ffbec1afe38ec138473db1"
+    },
+    {
+      "run_id": "R01-02",
+      "execution_verified": true,
+      "proof_kind": "rbac_access",
+      "proof_sha256": "ff41b64f13edf354566d8b947fb6426f98584dcae3505d1a85de04dbb77c5c0a"
+    },
+    {
+      "run_id": "X05-02",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "24c22a8fa8ee9763a606953bee723eb8f09db4f781c0a428cd427d8c05870f97"
+    },
+    {
+      "run_id": "W07-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "15b5501f80e183e220adf33fc333e9f451839eba9ae39dda3639cdaa07165620"
+    },
+    {
+      "run_id": "W08-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "2cb01ef97e48c688fd147b016bc6831f43112eee360c95ecbf53e740e6747dd3"
+    },
+    {
+      "run_id": "R02-02",
+      "execution_verified": true,
+      "proof_kind": "rbac_access",
+      "proof_sha256": "8efdbbe4b4c427e82976da6499b7a9830bfc8531c7c270d7bedbd6588f8cd1f6"
+    },
+    {
+      "run_id": "X03-02",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "d14d55461ef14316f70224c741343c4701016e28744d987e8df18e9f74ae65f3"
+    },
+    {
+      "run_id": "W06-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "93e73dc65867cdcddbd45d613a22c75ac1301fe16898400c4057382dfcc68ba3"
+    },
+    {
+      "run_id": "R03-01",
+      "execution_verified": true,
+      "proof_kind": "rbac_access",
+      "proof_sha256": "938a9a826791b0a57f607f12a354e4978a20e46b639d94fa31d8638bf904b450"
+    },
+    {
+      "run_id": "W02-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "4ac928841466f06ca277546471e72e81fe88d8d56d49f33ae410d50647cf862c"
+    },
+    {
+      "run_id": "W01-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "81c24f9b6454edda02b51d0f2817c9fc534dd7cfa514ee0c95874f5caa8f6b1e"
+    },
+    {
+      "run_id": "X02-01",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "a713d815dc02fa63cedb0d653ef4a50f004463471c249c2729adf60e6afedb63"
+    },
+    {
+      "run_id": "W08-01",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "ec3fbdc2765c7526e6986534dd3ed4fbad2a6c3dd85226a9e5ec198d220af84d"
+    },
+    {
+      "run_id": "R01-01",
+      "execution_verified": true,
+      "proof_kind": "rbac_access",
+      "proof_sha256": "256a6aea95a8e2a17cf27c9d4012ffbc39db0a0f40241508bcdcbb2908bc3d78"
+    },
+    {
+      "run_id": "X01-01",
+      "execution_verified": true,
+      "proof_kind": "exec",
+      "proof_sha256": "d0277a497e826c366171f83824fa11d5bcc2aea1d80485bb7b813bc3ecd8851d"
+    },
+    {
+      "run_id": "X04-02",
+      "execution_verified": true,
+      "proof_kind": "exec_denied",
+      "proof_sha256": "f78281979aac2165b272d7e3b8a2873c69c39464f6da4280e4a8d0c4872302e3"
+    },
+    {
+      "run_id": "W04-02",
+      "execution_verified": true,
+      "proof_kind": "workload",
+      "proof_sha256": "1dd18ecefe5952a52d305d53cb1826f4f6b3b0e266a1c6059183fd3de86327cf"
+    },
+    {
+      "run_id": "X04-01",
+      "execution_verified": true,
+      "proof_kind": "exec_denied",
+      "proof_sha256": "7c2570208e4777ffdd15f4c24b8b01bd07ad9f2229143cab17a2316eaf7fbc59"
+    }
+  ]
+}

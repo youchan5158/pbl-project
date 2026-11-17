@@ -1,0 +1,90 @@
+{
+  "api_version": {
+    "major": "1",
+    "minor": "35",
+    "emulationMajor": "1",
+    "emulationMinor": "35",
+    "minCompatibilityMajor": "1",
+    "minCompatibilityMinor": "34",
+    "gitVersion": "v1.35.2+k3s1",
+    "gitCommit": "13563febb4bd4aef9c7cda43a22c8155ac937dd4",
+    "gitTreeState": "clean",
+    "buildDate": "2026-03-04T22:29:48Z",
+    "goVersion": "go1.25.7",
+    "compiler": "gc",
+    "platform": "linux/amd64"
+  },
+  "nodes": [
+    {
+      "name": "integration-node",
+      "uid": "66750fc0-6671-41c1-bc87-1477af6d3c9e",
+      "conditions": [
+        {
+          "type": "MemoryPressure",
+          "status": "False",
+          "lastHeartbeatTime": "2026-11-17T13:16:56Z",
+          "lastTransitionTime": "2026-11-17T13:03:11Z",
+          "reason": "KubeletHasSufficientMemory",
+          "message": "kubelet has sufficient memory available"
+        },
+        {
+          "type": "DiskPressure",
+          "status": "False",
+          "lastHeartbeatTime": "2026-11-17T13:16:56Z",
+          "lastTransitionTime": "2026-11-17T13:03:11Z",
+          "reason": "KubeletHasNoDiskPressure",
+          "message": "kubelet has no disk pressure"
+        },
+        {
+          "type": "PIDPressure",
+          "status": "False",
+          "lastHeartbeatTime": "2026-11-17T13:16:56Z",
+          "lastTransitionTime": "2026-11-17T13:03:11Z",
+          "reason": "KubeletHasSufficientPID",
+          "message": "kubelet has sufficient PID available"
+        },
+        {
+          "type": "Ready",
+          "status": "True",
+          "lastHeartbeatTime": "2026-11-17T13:16:56Z",
+          "lastTransitionTime": "2026-11-17T13:03:12Z",
+          "reason": "KubeletReady",
+          "message": "kubelet is posting ready status"
+        }
+      ],
+      "node_info": {
+        "machineID": "",
+        "systemUUID": "",
+        "bootID": "e71a7dff-53c3-4ccb-861e-288d4c7e1f1a",
+        "kernelVersion": "6.18.60-0-virt",
+        "osImage": "Alpine Linux v3.23",
+        "containerRuntimeVersion": "containerd://2.1.5-k3s1",
+        "kubeletVersion": "v1.35.2+k3s1",
+        "kubeProxyVersion": "",
+        "operatingSystem": "linux",
+        "architecture": "amd64"
+      },
+      "capacity": {
+        "cpu": "2",
+        "ephemeral-storage": "2009684Ki",
+        "hugepages-1Gi": "0",
+        "hugepages-2Mi": "0",
+        "memory": "4019372Ki",
+        "pods": "60"
+      }
+    }
+  ],
+  "image_lock": {
+    "image": "docker.io/library/busybox:1.36",
+    "platform": "linux/amd64",
+    "manifest_digest": "sha256:b7f3d86d6e84fc17718c48bcde1450807faa2d56704205c697b4bd5df7b9e29f",
+    "config_digest": "sha256:b116e155074440ffd9e449559433feb4cd2341eb3554b1da1c638c976e56451d",
+    "layer_digests": [
+      "sha256:034d6572bf287fa79604fee9be062f0683809ae3a3685bc7b0e17bd1c48c50e8"
+    ],
+    "archive_sha256": "d3aa54b8780638eb2cf07c023f7643231c69fa28136c02500806445a636e71f0",
+    "source": "Docker Official Images busybox via registry-1.docker.io"
+  },
+  "isolation": "single QEMU VM, no host shares; loopback API/export",
+  "scope": "real kubelet/containerd; successful exec, running risky workloads, RBAC access effects; harmless commands only"
+}

@@ -1,0 +1,14 @@
+{
+  "purpose": "known external regression fixtures, already inspected before B5 design",
+  "cases": 8,
+  "events": 14,
+  "target_matches": 3,
+  "statuses": {
+    "alert": 3,
+    "normal": 5
+  },
+  "normal_controls": 0,
+  "precision": null,
+  "f1": null,
+  "fpr": null
+}

@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "scan_window_seconds": 90,
+  "scan_min_requests": 5,
+  "scan_min_targets": 3,
+  "enumeration_window_seconds": 180,
+  "enumeration_min_requests": 8,
+  "enumeration_min_resources": 3,
+  "sequence_window_seconds": 300,
+  "dangerous_capabilities": [
+    "SYS_ADMIN",
+    "SYS_MODULE",
+    "SYS_PTRACE",
+    "DAC_READ_SEARCH",
+    "BPF",
+    "PERFMON"
+  ],
+  "work_orders": [
+    {
+      "id": "authorized-actor",
+      "actor": "system:serviceaccount:int-131750-1:admin",
+      "credential_id_hash": "7eae3b32750a645b41732c4e808a57f05618bb7b3092d8419445c3359c961201",
+      "not_before": "2026-11-17T13:19:16.000000Z",
+      "not_after": "2026-11-17T13:25:18.000000Z",
+      "max_requests": 1,
+      "fingerprints": [
+        "68c0ef06ab8378765f6f69a0b81577a3830d2fa6cf6fc3ab1da5a5e440ae589a"
+      ],
+      "reason": "측정 전에 등록한 범위·시간·횟수 제한 작업 승인"
+    },
+    {
+      "id": "authorized-subject",
+      "actor": "system:serviceaccount:int-131750-1:r03-subject",
+      "credential_id_hash": "783bc80c25f952eca811c7f5f801b6e3f9d0c18d463d6ad6da3de42b57192eaf",
+      "not_before": "2026-11-17T13:19:16.000000Z",
+      "not_after": "2026-11-17T13:25:18.000000Z",
+      "max_requests": 2,
+      "fingerprints": [
+        "e59ab892b97415182f773b51896ceeae468551808f1262edd9194aba98b81d75"
+      ],
+      "reason": "측정 전에 등록한 범위·시간·횟수 제한 작업 승인"
+    }
+  ],
+  "role_inventory": [
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "admin",
+      "rules": [
+        {
+          "verbs": [
+            "*"
+          ],
+          "apiGroups": [
+            "*"
+          ],
+          "resources": [
+            "*"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "operator",
+      "rules": [
+        {
+          "verbs": [
+            "get",
+            "create"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods/exec"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "pod-reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "namespace": "int-131750-1",
+      "name": "secret-reader",
+      "rules": [
+        {
+          "verbs": [
+            "get"
+          ],
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ]
+        }
+      ]
+    }
+  ]
+}

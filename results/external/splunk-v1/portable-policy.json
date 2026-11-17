@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "scope": {
+    "namespaces": [
+      "default",
+      "kube-system",
+      "test2"
+    ],
+    "service_accounts_only": false
+  },
+  "burst": {
+    "window_seconds": 5,
+    "request_threshold": 10,
+    "resource_threshold": 3
+  },
+  "monitor_profiles": [
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resources": [
+        "pods",
+        "services",
+        "configmaps"
+      ],
+      "verbs": [
+        "get",
+        "list"
+      ],
+      "request_threshold": 37
+    }
+  ],
+  "approvals": [
+    {
+      "id": "LAB-DEMO-001",
+      "actor": "system:serviceaccount:pbl-security:pbl-operator",
+      "namespace": "pbl-security",
+      "api_group": "",
+      "resource": "secrets",
+      "subresource": "",
+      "name": "demo-secret",
+      "verb": "get",
+      "not_before": "2026-11-17T06:22:50.466895Z",
+      "not_after": "2026-11-17T07:22:55.466895Z",
+      "reason": "사전에 승인한 실습용 단일 더미 Secret GET"
+    },
+    {
+      "id": "LAB-EXPIRED",
+      "actor": "system:serviceaccount:pbl-security:pbl-operator-expired",
+      "namespace": "pbl-security",
+      "api_group": "",
+      "resource": "secrets",
+      "subresource": "",
+      "name": "demo-secret",
+      "verb": "get",
+      "not_before": "2026-11-17T04:22:55.466895Z",
+      "not_after": "2026-11-17T05:22:55.466895Z",
+      "reason": "실습 시작 전 만료된 운영 승인"
+    }
+  ]
+}

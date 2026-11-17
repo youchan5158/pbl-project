@@ -1,0 +1,65 @@
+﻿case_id,title,track,mode,status,target_match,raw_events,normalized_events,inspected_events,out_of_scope_events,alerts,rules,non_resource_events,malformed
+E01,Secret 조회,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E01,Secret 조회,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E01,Secret 조회,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E01,Secret 조회,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E01,Secret 조회,portable_scope,b0,no_alert,False,1,1,1,0,0,,0,0
+E01,Secret 조회,portable_scope,b1,alert,True,1,1,1,0,1,R1,0,0
+E01,Secret 조회,portable_scope,b3,alert,True,1,1,1,0,1,R1,0,0
+E01,Secret 조회,portable_scope,b4,alert,True,1,1,1,0,1,R1,0,0
+E02,익명 API 스캔,deployment_default,b0,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,deployment_default,b1,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,deployment_default,b3,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,deployment_default,b4,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,portable_scope,b0,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,portable_scope,b1,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,portable_scope,b3,unsupported_input,False,7,0,0,0,0,,7,0
+E02,익명 API 스캔,portable_scope,b4,unsupported_input,False,7,0,0,0,0,,7,0
+E03,특권 Pod 생성,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E03,특권 Pod 생성,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E03,특권 Pod 생성,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E03,특권 Pod 생성,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E03,특권 Pod 생성,portable_scope,b0,no_alert,False,1,1,1,0,0,,0,0
+E03,특권 Pod 생성,portable_scope,b1,no_alert,False,1,1,1,0,0,,0,0
+E03,특권 Pod 생성,portable_scope,b3,no_alert,False,1,1,1,0,0,,0,0
+E03,특권 Pod 생성,portable_scope,b4,no_alert,False,1,1,1,0,0,,0,0
+E04,CronJob 생성,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E04,CronJob 생성,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E04,CronJob 생성,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E04,CronJob 생성,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E04,CronJob 생성,portable_scope,b0,no_alert,False,1,1,1,0,0,,0,0
+E04,CronJob 생성,portable_scope,b1,no_alert,False,1,1,1,0,0,,0,0
+E04,CronJob 생성,portable_scope,b3,no_alert,False,1,1,1,0,0,,0,0
+E04,CronJob 생성,portable_scope,b4,no_alert,False,1,1,1,0,0,,0,0
+E05,DaemonSet 생성,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E05,DaemonSet 생성,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E05,DaemonSet 생성,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E05,DaemonSet 생성,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E05,DaemonSet 생성,portable_scope,b0,no_alert,False,1,1,1,0,0,,0,0
+E05,DaemonSet 생성,portable_scope,b1,no_alert,False,1,1,1,0,0,,0,0
+E05,DaemonSet 생성,portable_scope,b3,no_alert,False,1,1,1,0,0,,0,0
+E05,DaemonSet 생성,portable_scope,b4,no_alert,False,1,1,1,0,0,,0,0
+E06,NodePort 생성,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E06,NodePort 생성,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E06,NodePort 생성,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E06,NodePort 생성,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E06,NodePort 생성,portable_scope,b0,no_alert,False,1,1,1,0,0,,0,0
+E06,NodePort 생성,portable_scope,b1,no_alert,False,1,1,1,0,0,,0,0
+E06,NodePort 생성,portable_scope,b3,no_alert,False,1,1,1,0,0,,0,0
+E06,NodePort 생성,portable_scope,b4,no_alert,False,1,1,1,0,0,,0,0
+E07,이미지 Pull 이벤트,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E07,이미지 Pull 이벤트,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E07,이미지 Pull 이벤트,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E07,이미지 Pull 이벤트,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E07,이미지 Pull 이벤트,portable_scope,b0,no_alert,False,1,1,1,0,0,,0,0
+E07,이미지 Pull 이벤트,portable_scope,b1,no_alert,False,1,1,1,0,0,,0,0
+E07,이미지 Pull 이벤트,portable_scope,b3,no_alert,False,1,1,1,0,0,,0,0
+E07,이미지 Pull 이벤트,portable_scope,b4,no_alert,False,1,1,1,0,0,,0,0
+E08,권한 없는 Job 생성 시도,deployment_default,b0,out_of_scope,False,1,1,0,1,0,,0,0
+E08,권한 없는 Job 생성 시도,deployment_default,b1,out_of_scope,False,1,1,0,1,0,,0,0
+E08,권한 없는 Job 생성 시도,deployment_default,b3,out_of_scope,False,1,1,0,1,0,,0,0
+E08,권한 없는 Job 생성 시도,deployment_default,b4,out_of_scope,False,1,1,0,1,0,,0,0
+E08,권한 없는 Job 생성 시도,portable_scope,b0,alert,True,1,1,1,0,1,R0,0,0
+E08,권한 없는 Job 생성 시도,portable_scope,b1,no_alert,False,1,1,1,0,0,,0,0
+E08,권한 없는 Job 생성 시도,portable_scope,b3,no_alert,False,1,1,1,0,0,,0,0
+E08,권한 없는 Job 생성 시도,portable_scope,b4,no_alert,False,1,1,1,0,0,,0,0

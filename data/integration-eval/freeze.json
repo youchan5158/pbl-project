@@ -1,0 +1,899 @@
+{
+  "created_before_requests": "2026-11-17T13:17:50.295648Z",
+  "split": "evaluation",
+  "repetitions": 2,
+  "seed": 918406,
+  "scenarios": [
+    {
+      "id": "X01",
+      "label": "normal",
+      "family": "execution",
+      "description": "승인된 정상 exec 성공",
+      "actor_role": "operator",
+      "approval": "exact",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic/exec?container=demo&stdout=true&stderr=true&stdin=false&tty=false&command=sh&command=-c&command=printf+%27EXEC_CONFIRMED%5Cn%27%3B+id+-u",
+          "body": null,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor",
+          "operation": "exec"
+        }
+      ],
+      "proof": "exec",
+      "expected_stdout": "EXEC_CONFIRMED\n0\n",
+      "limitation_control": false
+    },
+    {
+      "id": "X02",
+      "label": "attack",
+      "family": "execution",
+      "description": "RBAC는 허용하지만 업무 승인이 없는 exec 성공",
+      "actor_role": "operator",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic/exec?container=demo&stdout=true&stderr=true&stdin=false&tty=false&command=sh&command=-c&command=printf+%27EXEC_CONFIRMED%5Cn%27%3B+id+-u",
+          "body": null,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor",
+          "operation": "exec"
+        }
+      ],
+      "proof": "exec",
+      "expected_stdout": "EXEC_CONFIRMED\n0\n",
+      "limitation_control": false
+    },
+    {
+      "id": "X03",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인된 명령과 다른 exec 성공",
+      "actor_role": "operator",
+      "approval": "different_command",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic/exec?container=demo&stdout=true&stderr=true&stdin=false&tty=false&command=sh&command=-c&command=printf+%27EXEC_CONFIRMED%5Cn%27%3B+id+-u",
+          "body": null,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor",
+          "operation": "exec"
+        }
+      ],
+      "proof": "exec",
+      "expected_stdout": "EXEC_CONFIRMED\n0\n",
+      "limitation_control": false
+    },
+    {
+      "id": "X04",
+      "label": "attack",
+      "family": "execution",
+      "description": "RBAC가 거부한 exec 대조군",
+      "actor_role": "reader",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic/exec?container=demo&stdout=true&stderr=true&stdin=false&tty=false&command=sh&command=-c&command=printf+%27EXEC_CONFIRMED%5Cn%27%3B+id+-u",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "client": "actor",
+          "operation": "exec"
+        }
+      ],
+      "proof": "exec_denied",
+      "expected_stdout": "EXEC_CONFIRMED\n0\n",
+      "limitation_control": false
+    },
+    {
+      "id": "X05",
+      "label": "attack",
+      "family": "execution",
+      "description": "승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일",
+      "actor_role": "operator",
+      "approval": "exact",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic/exec?container=demo&stdout=true&stderr=true&stdin=false&tty=false&command=sh&command=-c&command=printf+%27EXEC_CONFIRMED%5Cn%27%3B+id+-u",
+          "body": null,
+          "expected_codes": [
+            101
+          ],
+          "client": "actor",
+          "operation": "exec"
+        }
+      ],
+      "proof": "exec",
+      "expected_stdout": "EXEC_CONFIRMED\n0\n",
+      "limitation_control": true
+    },
+    {
+      "id": "W01",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 Pod 실제 실행",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/integration-plan/pods",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+              "name": "w01-example",
+              "labels": {
+                "integration": "w01-example"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "name": "demo",
+                  "image": "docker.io/library/busybox:1.36",
+                  "imagePullPolicy": "Never",
+                  "command": [
+                    "sh",
+                    "-c",
+                    "sleep 7200"
+                  ],
+                  "resources": {
+                    "requests": {
+                      "cpu": "5m",
+                      "memory": "8Mi"
+                    },
+                    "limits": {
+                      "memory": "48Mi"
+                    }
+                  }
+                }
+              ],
+              "restartPolicy": "Never"
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "Pod",
+      "workload_name": "w01-example",
+      "risk": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "W02",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 privileged 관리 Pod 실행",
+      "actor_role": "admin",
+      "approval": "exact",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/integration-plan/pods",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+              "name": "w02-example",
+              "labels": {
+                "integration": "w02-example"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "name": "demo",
+                  "image": "docker.io/library/busybox:1.36",
+                  "imagePullPolicy": "Never",
+                  "command": [
+                    "sh",
+                    "-c",
+                    "sleep 7200"
+                  ],
+                  "resources": {
+                    "requests": {
+                      "cpu": "5m",
+                      "memory": "8Mi"
+                    },
+                    "limits": {
+                      "memory": "48Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "privileged": true
+                  }
+                }
+              ],
+              "restartPolicy": "Never"
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "Pod",
+      "workload_name": "w02-example",
+      "risk": "privileged",
+      "limitation_control": false
+    },
+    {
+      "id": "W03",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 privileged Pod 실행",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/integration-plan/pods",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+              "name": "w03-example",
+              "labels": {
+                "integration": "w03-example"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "name": "demo",
+                  "image": "docker.io/library/busybox:1.36",
+                  "imagePullPolicy": "Never",
+                  "command": [
+                    "sh",
+                    "-c",
+                    "sleep 7200"
+                  ],
+                  "resources": {
+                    "requests": {
+                      "cpu": "5m",
+                      "memory": "8Mi"
+                    },
+                    "limits": {
+                      "memory": "48Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "privileged": true
+                  }
+                }
+              ],
+              "restartPolicy": "Never"
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "Pod",
+      "workload_name": "w03-example",
+      "risk": "privileged",
+      "limitation_control": false
+    },
+    {
+      "id": "W04",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 hostPID Pod에서 VM init 관측",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/integration-plan/pods",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+              "name": "w04-example",
+              "labels": {
+                "integration": "w04-example"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "name": "demo",
+                  "image": "docker.io/library/busybox:1.36",
+                  "imagePullPolicy": "Never",
+                  "command": [
+                    "sh",
+                    "-c",
+                    "sleep 7200"
+                  ],
+                  "resources": {
+                    "requests": {
+                      "cpu": "5m",
+                      "memory": "8Mi"
+                    },
+                    "limits": {
+                      "memory": "48Mi"
+                    }
+                  }
+                }
+              ],
+              "hostPID": true,
+              "restartPolicy": "Never"
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "Pod",
+      "workload_name": "w04-example",
+      "risk": "hostpid",
+      "limitation_control": false
+    },
+    {
+      "id": "W05",
+      "label": "attack",
+      "family": "workload",
+      "description": "미승인 hostPath DaemonSet에서 VM 더미 파일 읽기",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/integration-plan/daemonsets",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "metadata": {
+              "name": "w05-example",
+              "labels": {
+                "integration": "w05-example"
+              }
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "integration": "w05-example"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "integration": "w05-example"
+                  }
+                },
+                "spec": {
+                  "automountServiceAccountToken": false,
+                  "containers": [
+                    {
+                      "name": "demo",
+                      "image": "docker.io/library/busybox:1.36",
+                      "imagePullPolicy": "Never",
+                      "command": [
+                        "sh",
+                        "-c",
+                        "sleep 7200"
+                      ],
+                      "resources": {
+                        "requests": {
+                          "cpu": "5m",
+                          "memory": "8Mi"
+                        },
+                        "limits": {
+                          "memory": "48Mi"
+                        }
+                      },
+                      "volumeMounts": [
+                        {
+                          "name": "fixture",
+                          "mountPath": "/fixture",
+                          "readOnly": true
+                        }
+                      ]
+                    }
+                  ],
+                  "volumes": [
+                    {
+                      "name": "fixture",
+                      "hostPath": {
+                        "path": "/var/lib/auditguard-fixtures",
+                        "type": "Directory"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "DaemonSet",
+      "workload_name": "w05-example",
+      "risk": "hostpath",
+      "limitation_control": false
+    },
+    {
+      "id": "W06",
+      "label": "normal",
+      "family": "workload",
+      "description": "승인된 hostPath 관리 DaemonSet 실행",
+      "actor_role": "admin",
+      "approval": "exact",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/integration-plan/daemonsets",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "metadata": {
+              "name": "w06-example",
+              "labels": {
+                "integration": "w06-example"
+              }
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "integration": "w06-example"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "integration": "w06-example"
+                  }
+                },
+                "spec": {
+                  "automountServiceAccountToken": false,
+                  "containers": [
+                    {
+                      "name": "demo",
+                      "image": "docker.io/library/busybox:1.36",
+                      "imagePullPolicy": "Never",
+                      "command": [
+                        "sh",
+                        "-c",
+                        "sleep 7200"
+                      ],
+                      "resources": {
+                        "requests": {
+                          "cpu": "5m",
+                          "memory": "8Mi"
+                        },
+                        "limits": {
+                          "memory": "48Mi"
+                        }
+                      },
+                      "volumeMounts": [
+                        {
+                          "name": "fixture",
+                          "mountPath": "/fixture",
+                          "readOnly": true
+                        }
+                      ]
+                    }
+                  ],
+                  "volumes": [
+                    {
+                      "name": "fixture",
+                      "hostPath": {
+                        "path": "/var/lib/auditguard-fixtures",
+                        "type": "Directory"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "DaemonSet",
+      "workload_name": "w06-example",
+      "risk": "hostpath",
+      "limitation_control": false
+    },
+    {
+      "id": "W07",
+      "label": "normal",
+      "family": "workload",
+      "description": "일반 Deployment 실제 실행",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/apis/apps/v1/namespaces/integration-plan/deployments",
+          "body": {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "metadata": {
+              "name": "w07-example",
+              "labels": {
+                "integration": "w07-example"
+              }
+            },
+            "spec": {
+              "selector": {
+                "matchLabels": {
+                  "integration": "w07-example"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "integration": "w07-example"
+                  }
+                },
+                "spec": {
+                  "automountServiceAccountToken": false,
+                  "containers": [
+                    {
+                      "name": "demo",
+                      "image": "docker.io/library/busybox:1.36",
+                      "imagePullPolicy": "Never",
+                      "command": [
+                        "sh",
+                        "-c",
+                        "sleep 7200"
+                      ],
+                      "resources": {
+                        "requests": {
+                          "cpu": "5m",
+                          "memory": "8Mi"
+                        },
+                        "limits": {
+                          "memory": "48Mi"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "replicas": 1
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "Deployment",
+      "workload_name": "w07-example",
+      "risk": "none",
+      "limitation_control": false
+    },
+    {
+      "id": "W08",
+      "label": "normal",
+      "family": "workload",
+      "description": "무해한 관리 작업이지만 승인 등록 누락",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "POST",
+          "path": "/api/v1/namespaces/integration-plan/pods",
+          "body": {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+              "name": "w08-example",
+              "labels": {
+                "integration": "w08-example"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "name": "demo",
+                  "image": "docker.io/library/busybox:1.36",
+                  "imagePullPolicy": "Never",
+                  "command": [
+                    "sh",
+                    "-c",
+                    "sleep 7200"
+                  ],
+                  "resources": {
+                    "requests": {
+                      "cpu": "5m",
+                      "memory": "8Mi"
+                    },
+                    "limits": {
+                      "memory": "48Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "privileged": true
+                  }
+                }
+              ],
+              "restartPolicy": "Never"
+            }
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        }
+      ],
+      "proof": "workload",
+      "workload_kind": "Pod",
+      "workload_name": "w08-example",
+      "risk": "privileged",
+      "limitation_control": true
+    },
+    {
+      "id": "R01",
+      "label": "normal",
+      "family": "privilege",
+      "description": "낮은 권한 연결 후 실제 Pod 조회: 403→200",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject",
+          "operation": "api"
+        },
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/namespaces/integration-plan/rolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "RoleBinding",
+            "metadata": {
+              "name": "r01-example"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "Role",
+              "name": "pod-reader"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "integration-plan",
+                "name": "r01-subject"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/pods/diagnostic",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject",
+          "operation": "api"
+        }
+      ],
+      "proof": "rbac_access",
+      "subject": "r01-subject",
+      "role": "pod-reader",
+      "limitation_control": false
+    },
+    {
+      "id": "R02",
+      "label": "attack",
+      "family": "privilege",
+      "description": "미승인 민감 권한 연결 후 실제 Secret 조회: 403→200",
+      "actor_role": "admin",
+      "approval": "none",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/secrets/demo-secret",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject",
+          "operation": "api"
+        },
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/namespaces/integration-plan/rolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "RoleBinding",
+            "metadata": {
+              "name": "r02-example"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "Role",
+              "name": "secret-reader"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "integration-plan",
+                "name": "r02-subject"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/secrets/demo-secret",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject",
+          "operation": "api"
+        }
+      ],
+      "proof": "rbac_access",
+      "subject": "r02-subject",
+      "role": "secret-reader",
+      "limitation_control": false
+    },
+    {
+      "id": "R03",
+      "label": "normal",
+      "family": "privilege",
+      "description": "승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",
+      "actor_role": "admin",
+      "approval": "exact",
+      "steps": [
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/secrets/demo-secret",
+          "body": null,
+          "expected_codes": [
+            403
+          ],
+          "client": "subject",
+          "operation": "api"
+        },
+        {
+          "method": "POST",
+          "path": "/apis/rbac.authorization.k8s.io/v1/namespaces/integration-plan/rolebindings",
+          "body": {
+            "apiVersion": "rbac.authorization.k8s.io/v1",
+            "kind": "RoleBinding",
+            "metadata": {
+              "name": "r03-example"
+            },
+            "roleRef": {
+              "apiGroup": "rbac.authorization.k8s.io",
+              "kind": "Role",
+              "name": "secret-reader"
+            },
+            "subjects": [
+              {
+                "kind": "ServiceAccount",
+                "namespace": "integration-plan",
+                "name": "r03-subject"
+              }
+            ]
+          },
+          "expected_codes": [
+            201
+          ],
+          "client": "actor",
+          "operation": "api"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/namespaces/integration-plan/secrets/demo-secret",
+          "body": null,
+          "expected_codes": [
+            200
+          ],
+          "client": "subject",
+          "operation": "api"
+        }
+      ],
+      "proof": "rbac_access",
+      "subject": "r03-subject",
+      "role": "secret-reader",
+      "limitation_control": true
+    }
+  ],
+  "files": {
+    "auditguard/__init__.py": "60fb39e048bdccd3e4da8e615d5b8cce0a9eb1c3aa52f42cfc4f12e816eb1131",
+    "auditguard/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "auditguard/advanced.py": "13defcb507996431b934ba2ee873d597ecbb1cb44bb25ebebaf2f6487c2b2571",
+    "auditguard/behavior.py": "34f248db671c24bf92b52f9de636099c76882428165a777d632b09d5739bc666",
+    "auditguard/behavior_events.py": "c6d751d2cf3d15bd7b0ff1d171ecf5237795ada6bdb666f7828d870193c459ba",
+    "auditguard/benchmark.py": "91c86d83f3b24270dc05d16a021e2f431454acb5c0279713aa0cf46870bdf6de",
+    "auditguard/cli.py": "472447f6439eaa3f2ad8c17dfc51007916c8b1979deacd36a69e5d450cb5bad2",
+    "auditguard/detector.py": "73bb7d404f2a7f01a31fd901a19aeff148f8b9f5d4e70b4e0b51e5e15c9e241b",
+    "auditguard/evaluate.py": "eae37107df624cf2a728c5a15db250b795ba14b2ff592f6ac2ee0d90a83cc76a",
+    "auditguard/events.py": "e4e0882d4bd3093005525447f705f029444ace61cf5829bef67cb3dc8c2869f8",
+    "auditguard/policy.py": "53c444932ec1703a6d8fe1baf80b1fe7e8aef0b8e9f766b5d57297c67f7b9ef7",
+    "auditguard/refinement.py": "b9c874192f4d4204624dbebae6d6f40e28fb359ad06f83aa5239a3554ccd8ac2",
+    "config/advanced.json": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+    "config/behavior.json": "9c9c5fc2721a8f6ad09b1a0e1599efce1d26ad0d3422ca9f0268067018f75a83",
+    "config/live-policy.json": "18ae5fc30a84c4d3a5d4be23d594c10c005019975a1630c92091c45d3668160e",
+    "data/behavior-plan/scenarios.json": "961460eb12cc6e7d994c37a36f02f65d5fd56d875c08c24ac6e83db91462a196",
+    "data/integration-baseline/preserved-files.json": "2e0e6caf62f968ede44ff5e3acd4034a5b8842c387662aa15eb687ac3e413122",
+    "docs/INTEGRATION_PROTOCOL.md": "01de0fdd4eeaa2909494a7b87aec93e4efe3799771ab125c705d27ddf6e49071",
+    "lab/behavior-audit-policy.yaml": "2f04b5059e545889ae467ee4d54055aded92ea242c35a046d395104f59ca464c",
+    "lab/behavior_live.py": "08d725888ab209f627945d552863738f208b7668221ba10bdb6c18f3dc0840e8",
+    "lab/behavior_scenarios.py": "a204ee6d4c37d98a980390c66bc2a1d3e13c283d0f72a536df116d1a59fe1e8b",
+    "lab/integration-bootstrap.sh": "c277ce765b218207f212ae17a97332c262fea2c05bbf18491da17e88949485ad",
+    "lab/integration-image.json": "71b68cf50e530235593be5a59c44923dd6ec0b3cdb0ad196092ad2cf939d8b1e",
+    "lab/integration_live.py": "9828461889df7a9366da7dde5f231f3475fb5e33c191b864891f5b7f40365e29",
+    "lab/integration_scenarios.py": "9bd855bed72bad361a57588c8a9787d59cbe22555ce630e0369dab2501787db7",
+    "lab/integration_stream.py": "4a8a19dd961652c06747f7ccb8acca8d52a65708cde2d0372619a41cbe274915",
+    "lab/integration_windows.py": "c5a7f1023e5c6a39fb5cfba762cf6130f6c5607a9d0f195049c089f1582b1e93",
+    "lab/windows.py": "17acab41d9ec5050a61270711a3772b3bcd0efadb3db04ade4b12e99d17f4ada",
+    "scripts/evaluate_behavior.py": "98925ab9dd34380b88d84c0cee57e13e6ccc3c35195ad0040416a3481ca90cd7",
+    "scripts/evaluate_integration.py": "3ef9f3a9ac2a6c6aaa45b9ae922dca5baa3c641d8ef1a9fe6c9c29bb6497aa03",
+    "tests/test_integration.py": "0a265c72d1bf620020528e46d137bae56a80307d3efa26bd97654c6fa1de42d4"
+  },
+  "policy": "Frozen B4/B5; integration collection/proof validation; no detector tuning",
+  "request_plan_sha256": "091069fff78ccf40e9142a45f816e7e000cb035d8ad77e9fb715ee9293d6b0cd",
+  "environment_sha256": "2f2dc769f3f1e6b17fc7d8a2f2cc1f0f6a3aa840ef0d12d5cd5d061615494b11"
+}

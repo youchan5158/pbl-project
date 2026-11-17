@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "long_window": {
+    "window_seconds": 90,
+    "request_threshold": 6,
+    "monitor_threshold": 49,
+    "resource_threshold": 3
+  },
+  "intents": [
+    {
+      "id": "authorized-work",
+      "actor": "system:serviceaccount:be-114046-2:operator",
+      "credential_id_hash": "d854d1236c48a5b0d5925e81448511afbb8483b78c847b276f88f28a62bf3cb7",
+      "not_before": "2026-11-17T11:41:42.000000Z",
+      "not_after": "2026-11-17T11:46:44.000000Z",
+      "max_requests": 1,
+      "reason": "사전에 발급한 범위·요청 수 제한 작업 승인",
+      "namespace": "be-114046-2",
+      "actions": [
+        {
+          "resource": "secrets",
+          "verb": "get",
+          "name": "demo-secret"
+        }
+      ]
+    }
+  ],
+  "resource_profiles": [
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-crypto-platform-app",
+      "namespace": "pbl-security",
+      "resource": "configmaps",
+      "request_threshold": 25
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-crypto-platform-app",
+      "namespace": "pbl-security",
+      "resource": "pods",
+      "request_threshold": 6
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-crypto-platform-app",
+      "namespace": "pbl-security",
+      "resource": "services",
+      "request_threshold": 6
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resource": "configmaps",
+      "request_threshold": 17
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resource": "pods",
+      "request_threshold": 17
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resource": "services",
+      "request_threshold": 17
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "time": "2026-11-17T11:41:39.340399Z",
+  "server_date_before_requests": "2026-11-17T11:41:38.000000Z",
+  "sha256": {
+    "behavior": "f9e5ff4481a8b3adaeafcffdb091e75685bad221b843cb91720aa46e71978922",
+    "legacy": "1872fb77b09bca175b48bf4b48a42080d207cb4336898c92e0201fe439328160",
+    "issuance": "c1954d2657f3cf2f86662b212cf207a8188145dd53745dcd437fce46b0515b6b"
+  }
+}

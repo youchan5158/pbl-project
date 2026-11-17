@@ -1,0 +1,18 @@
+{
+  "actor": {
+    "actor": "system:serviceaccount:int-131750-2:admin",
+    "credential_id_hash": "d0849a529c43a4c13e199dce1ae7505db26a62588356077045eacd1395b3739d",
+    "issued_at": "2026-11-17T13:18:07.059775Z",
+    "issuance_audit_id": "2e53556a-96cf-4178-bf2d-960a0e0cb1e2",
+    "review_audit_id": "801e7447-5f2d-4a38-b992-334ec334c1b1",
+    "expires": "2026-11-17T13:28:06Z"
+  },
+  "subject": {
+    "actor": "system:serviceaccount:int-131750-2:r03-subject",
+    "credential_id_hash": "52d4862d20797432e6925ff16e1c82e70d2e6e5f6c2a3d54edcad8a5255091f2",
+    "issued_at": "2026-11-17T13:18:07.120788Z",
+    "issuance_audit_id": "13a753d9-d71e-4289-b8b7-d486ed84e760",
+    "review_audit_id": "663ac9e9-9ff8-45e9-bfec-92764a9443eb",
+    "expires": "2026-11-17T13:28:06Z"
+  }
+}

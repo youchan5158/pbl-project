@@ -1,0 +1,8 @@
+{
+  "actor": "system:serviceaccount:be-114046-1:admin",
+  "credential_id_hash": "b74be6da33454f3eb73f7a11a028f7f83e54c03cf097e01a89d5acda2c59d400",
+  "issued_at": "2026-11-17T11:40:52.150334Z",
+  "issuance_audit_id": "c073a714-b0e4-4720-b741-caf1598dd3dc",
+  "review_audit_id": "56db7c7f-2c73-4a3d-bd47-304699f9a43e",
+  "expires": "2026-11-17T11:50:51Z"
+}

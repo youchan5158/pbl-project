@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "scope": {"namespaces": ["pbl-security"], "service_accounts_only": true},
+  "burst": {"window_seconds": 2, "request_threshold": 6, "resource_threshold": 3},
+  "monitor_profiles": [
+    {"actor": "system:serviceaccount:pbl-security:pbl-monitor", "namespace": "pbl-security", "resources": ["pods", "services", "configmaps"], "verbs": ["get", "list"], "request_threshold": 60}
+  ],
+  "approvals": [
+    {
+      "id": "LAB-DEMO-001", "actor": "system:serviceaccount:pbl-security:pbl-operator",
+      "namespace": "pbl-security", "api_group": "", "resource": "secrets", "subresource": "",
+      "name": "demo-secret", "verb": "get",
+      "not_before": "2026-01-01T00:00:00Z", "not_after": "2026-01-02T00:00:00Z",
+      "reason": "합성 검증 데이터의 명시적 운영 승인 예시. 실제 환경에서는 유효 시간을 새로 지정한다."
+    }
+  ]
+}

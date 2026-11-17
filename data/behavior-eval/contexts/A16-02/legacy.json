@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "long_window": {
+    "window_seconds": 90,
+    "request_threshold": 6,
+    "monitor_threshold": 49,
+    "resource_threshold": 3
+  },
+  "intents": [],
+  "resource_profiles": [
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-crypto-platform-app",
+      "namespace": "pbl-security",
+      "resource": "configmaps",
+      "request_threshold": 25
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-crypto-platform-app",
+      "namespace": "pbl-security",
+      "resource": "pods",
+      "request_threshold": 6
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-crypto-platform-app",
+      "namespace": "pbl-security",
+      "resource": "services",
+      "request_threshold": 6
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resource": "configmaps",
+      "request_threshold": 17
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resource": "pods",
+      "request_threshold": 17
+    },
+    {
+      "actor": "system:serviceaccount:pbl-security:pbl-monitor",
+      "namespace": "pbl-security",
+      "resource": "services",
+      "request_threshold": 17
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "source_type": "external_vendor_positive_fixtures",
+  "attack_data_commit": "eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c",
+  "security_content_commit": "a9ef36bfc90fc79eb54828f0310e681eba6a3eca",
+  "case_count": 8,
+  "raw_events": 14,
+  "normalized_events": 7,
+  "events_with_credential_identifier": 0,
+  "normal_controls": 0,
+  "precision": null,
+  "f1": null,
+  "fpr": null,
+  "rules_unchanged": true,
+  "thresholds_unchanged": true,
+  "harness_sha256": "296a361af17a9ac2183def6cddd3bb0ea5ceb27eec0a15cf58012232ebff93e3",
+  "tracks": {
+    "deployment_default": {
+      "b0": {
+        "alert": 0,
+        "no_alert": 0,
+        "out_of_scope": 7,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 0,
+        "total_fixtures": 8
+      },
+      "b1": {
+        "alert": 0,
+        "no_alert": 0,
+        "out_of_scope": 7,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 0,
+        "total_fixtures": 8
+      },
+      "b3": {
+        "alert": 0,
+        "no_alert": 0,
+        "out_of_scope": 7,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 0,
+        "total_fixtures": 8
+      },
+      "b4": {
+        "alert": 0,
+        "no_alert": 0,
+        "out_of_scope": 7,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 0,
+        "total_fixtures": 8
+      }
+    },
+    "portable_scope": {
+      "b0": {
+        "alert": 1,
+        "no_alert": 6,
+        "out_of_scope": 0,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 1,
+        "total_fixtures": 8
+      },
+      "b1": {
+        "alert": 1,
+        "no_alert": 6,
+        "out_of_scope": 0,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 1,
+        "total_fixtures": 8
+      },
+      "b3": {
+        "alert": 1,
+        "no_alert": 6,
+        "out_of_scope": 0,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 1,
+        "total_fixtures": 8
+      },
+      "b4": {
+        "alert": 1,
+        "no_alert": 6,
+        "out_of_scope": 0,
+        "unsupported_input": 1,
+        "invalid_input": 0,
+        "target_matches": 1,
+        "total_fixtures": 8
+      }
+    }
+  }
+}

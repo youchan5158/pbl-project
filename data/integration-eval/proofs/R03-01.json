@@ -1,0 +1,14 @@
+{
+  "kind": "rbac_access",
+  "codes": [
+    403,
+    201,
+    200
+  ],
+  "same_subject_credential": true,
+  "object_verified": true,
+  "resource_kind": "Secret",
+  "resource_uid": "bfc4de3e-910a-46f2-b2cc-0ab7c03fb595",
+  "subject_credential_id_hash": "783bc80c25f952eca811c7f5f801b6e3f9d0c18d463d6ad6da3de42b57192eaf",
+  "secret_values_persisted": false
+}

@@ -1,0 +1,710 @@
+[
+  {
+    "case_id": "E01",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "alert",
+    "matched_target_audit_ids": [
+      "71e17297-aa99-4e08-9147-ee36753f7dbf"
+    ],
+    "findings": [
+      {
+        "rule": "R1",
+        "title": "Secret 읽기 시도",
+        "actor": "kubernetes-admin",
+        "caller": "kubernetes-admin",
+        "namespace": "default",
+        "time": "2023-12-05T15:10:15.127831Z",
+        "outcome": "observed_api_activity",
+        "evidence_count": 1,
+        "evidence": [
+          {
+            "audit_id": "71e17297-aa99-4e08-9147-ee36753f7dbf",
+            "time": "2023-12-05T15:10:15.127831Z",
+            "actor": "kubernetes-admin",
+            "caller": "kubernetes-admin",
+            "namespace": "default",
+            "api_group": "",
+            "resource": "secrets",
+            "subresource": "",
+            "name": "my-secret",
+            "verb": "get",
+            "code": 200,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.102"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f"
+          }
+        ]
+      }
+    ],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "alert",
+    "matched_target_audit_ids": [
+      "71e17297-aa99-4e08-9147-ee36753f7dbf"
+    ],
+    "findings": [
+      {
+        "rule": "R1",
+        "title": "Secret 읽기 시도",
+        "actor": "kubernetes-admin",
+        "caller": "kubernetes-admin",
+        "namespace": "default",
+        "time": "2023-12-05T15:10:15.127831Z",
+        "outcome": "observed_api_activity",
+        "evidence_count": 1,
+        "evidence": [
+          {
+            "audit_id": "71e17297-aa99-4e08-9147-ee36753f7dbf",
+            "time": "2023-12-05T15:10:15.127831Z",
+            "actor": "kubernetes-admin",
+            "caller": "kubernetes-admin",
+            "namespace": "default",
+            "api_group": "",
+            "resource": "secrets",
+            "subresource": "",
+            "name": "my-secret",
+            "verb": "get",
+            "code": 200,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.102"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f"
+          }
+        ]
+      }
+    ],
+    "suppressed": []
+  },
+  {
+    "case_id": "E01",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "alert",
+    "matched_target_audit_ids": [
+      "71e17297-aa99-4e08-9147-ee36753f7dbf"
+    ],
+    "findings": [
+      {
+        "rule": "R1",
+        "title": "Secret 읽기 시도",
+        "actor": "kubernetes-admin",
+        "caller": "kubernetes-admin",
+        "namespace": "default",
+        "time": "2023-12-05T15:10:15.127831Z",
+        "outcome": "observed_api_activity",
+        "evidence_count": 1,
+        "evidence": [
+          {
+            "audit_id": "71e17297-aa99-4e08-9147-ee36753f7dbf",
+            "time": "2023-12-05T15:10:15.127831Z",
+            "actor": "kubernetes-admin",
+            "caller": "kubernetes-admin",
+            "namespace": "default",
+            "api_group": "",
+            "resource": "secrets",
+            "subresource": "",
+            "name": "my-secret",
+            "verb": "get",
+            "code": 200,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.102"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f"
+          }
+        ]
+      }
+    ],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E02",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "unsupported_input",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E03",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E04",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E05",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E06",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E07",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "deployment_default",
+    "mode": "b0",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "deployment_default",
+    "mode": "b1",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "deployment_default",
+    "mode": "b3",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "deployment_default",
+    "mode": "b4",
+    "status": "out_of_scope",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "portable_scope",
+    "mode": "b0",
+    "status": "alert",
+    "matched_target_audit_ids": [
+      "582c31ab-4906-49bb-9ff9-872f980ccb84"
+    ],
+    "findings": [
+      {
+        "rule": "R0",
+        "title": "권한 거부",
+        "actor": "k8s-test-user",
+        "caller": "k8s-test-user",
+        "namespace": "test2",
+        "time": "2023-12-07T14:44:53.358394Z",
+        "outcome": "denied_attempt",
+        "evidence_count": 1,
+        "evidence": [
+          {
+            "audit_id": "582c31ab-4906-49bb-9ff9-872f980ccb84",
+            "time": "2023-12-07T14:44:53.358394Z",
+            "actor": "k8s-test-user",
+            "caller": "k8s-test-user",
+            "namespace": "test2",
+            "api_group": "batch",
+            "resource": "jobs",
+            "subresource": "",
+            "name": "",
+            "verb": "create",
+            "code": 403,
+            "stage": "ResponseComplete",
+            "source_ips": [
+              "176.95.188.101"
+            ],
+            "user_agent": "kubectl/v1.27.2 (darwin/arm64) kubernetes/7f6f68f"
+          }
+        ]
+      }
+    ],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "portable_scope",
+    "mode": "b1",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "portable_scope",
+    "mode": "b3",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  },
+  {
+    "case_id": "E08",
+    "track": "portable_scope",
+    "mode": "b4",
+    "status": "no_alert",
+    "matched_target_audit_ids": [],
+    "findings": [],
+    "suppressed": []
+  }
+]

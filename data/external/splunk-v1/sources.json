@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "source_type": "external_vendor_fixture",
+  "provider": "Splunk",
+  "attack_data_commit": "eb3ab7424aaa4bd7ac8e97fd0af6c1d29944d23c",
+  "security_content_commit": "a9ef36bfc90fc79eb54828f0310e681eba6a3eca",
+  "selection": "All distinct audit-log fixtures referenced by the Kubernetes Security story detections checked on 2026-11-17; Falco/network sources excluded. Detections sharing a file count once. One detection has no test data.",
+  "detections": [
+    {
+      "path": "detections/cloud/kubernetes_abuse_of_secret_by_unusual_user_name.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1552.007/kube_audit_get_secret/kube_audit_get_secret.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_access_scanning.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1046/kubernetes_scanning/kubernetes_scanning.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_aws_detect_suspicious_kubectl_calls.yml",
+      "data_paths": []
+    },
+    {
+      "path": "detections/cloud/kubernetes_create_or_update_privileged_pod.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_cron_job_creation.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1053.007/kubernetes_audit_cron_job_creation/kubernetes_audit_cron_job_creation.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_daemonset_deployed.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1204/kubernetes_audit_daemonset_created/kubernetes_audit_daemonset_created.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_node_port_creation.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1204/kube_audit_create_node_port_service/kube_audit_create_node_port_service.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_pod_created_in_default_namespace.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_pod_with_host_network_attachment.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_scanning_by_unauthenticated_ip_address.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1046/kubernetes_scanning/kubernetes_scanning.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_suspicious_image_pulling.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1526/kubernetes_audit_pull_image/kubernetes_audit_pull_image.json"
+      ]
+    },
+    {
+      "path": "detections/cloud/kubernetes_unauthorized_access.yml",
+      "data_paths": [
+        "datasets/attack_techniques/T1204/kubernetes_unauthorized_access/kubernetes_unauthorized_access.json"
+      ]
+    }
+  ],
+  "data_paths": [
+    "datasets/attack_techniques/T1552.007/kube_audit_get_secret/kube_audit_get_secret.json",
+    "datasets/attack_techniques/T1046/kubernetes_scanning/kubernetes_scanning.json",
+    "datasets/attack_techniques/T1204/kubernetes_privileged_pod/kubernetes_privileged_pod.json",
+    "datasets/attack_techniques/T1053.007/kubernetes_audit_cron_job_creation/kubernetes_audit_cron_job_creation.json",
+    "datasets/attack_techniques/T1204/kubernetes_audit_daemonset_created/kubernetes_audit_daemonset_created.json",
+    "datasets/attack_techniques/T1204/kube_audit_create_node_port_service/kube_audit_create_node_port_service.json",
+    "datasets/attack_techniques/T1526/kubernetes_audit_pull_image/kubernetes_audit_pull_image.json",
+    "datasets/attack_techniques/T1204/kubernetes_unauthorized_access/kubernetes_unauthorized_access.json"
+  ]
+}
+

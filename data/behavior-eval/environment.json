@@ -1,0 +1,20 @@
+{
+  "api_version": {
+    "major": "1",
+    "minor": "35",
+    "emulationMajor": "1",
+    "emulationMinor": "35",
+    "minCompatibilityMajor": "1",
+    "minCompatibilityMinor": "34",
+    "gitVersion": "v1.35.2+k3s1",
+    "gitCommit": "13563febb4bd4aef9c7cda43a22c8155ac937dd4",
+    "gitTreeState": "clean",
+    "buildDate": "2026-03-04T22:29:48Z",
+    "goVersion": "go1.25.7",
+    "compiler": "gc",
+    "platform": "linux/amd64"
+  },
+  "node_count": 0,
+  "scope": "agentless K3s; actual API/RBAC and audit events; no container execution or successful exec",
+  "collection": "Audit-ID matched Request/Metadata; no response bodies or bearer tokens"
+}
