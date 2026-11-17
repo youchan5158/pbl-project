@@ -20,6 +20,7 @@ from auditguard.behavior_events import read_events
 from scripts.evaluate_behavior import evaluate, external, read
 from scripts.evaluate_integration import run as evaluate_integration
 from scripts.package_submission import files as submission_files
+from scripts.evaluate_components import run as evaluate_components
 
 
 def compare_files(actual, expected, names):
@@ -92,6 +93,13 @@ def main():
         checks.append({"check": "published_final_baseline_preserved", "passed": True,
                        **integration["comparison"]["baseline_preservation"]})
 
+        components = evaluate_components(target / "components")
+        compare_files(target / "components", ROOT / "results/components/final",
+                      ("metrics.json", "cases.csv", "changes.json"))
+        checks.append({"check": "final_component_exclusion_replay", "passed": True,
+                       "source_runs": sum(d["runs"] for d in components["datasets"].values()),
+                       "configurations": len(components["variants"]), "new_live_runs": 0})
+
     provided = []
     for path in sorted((ROOT / "category3/logs").glob("*.log")):
         events, stats = read_events(path)
@@ -109,7 +117,7 @@ def main():
         raise ValueError("final summary differs from measured results")
     checks.append({"check": "final_result_summary", "passed": True})
 
-    required = ["docs/UNDERSTAND.md", "docs/REPORT.md", "docs/INTEGRATION_REPORT.md",
+    required = ["docs/UNDERSTAND.md", "docs/REPORT.md", "docs/COMPONENT_EVALUATION.md", "docs/INTEGRATION_REPORT.md",
                 "docs/INTEGRATION_LAB.md", "docs/INTEGRATION_PROTOCOL.md", "docs/PROVENANCE.md"]
     for name in required:
         if not (ROOT / name).is_file() or not (ROOT / name).stat().st_size:

@@ -1,0 +1,491 @@
+﻿dataset,variant,run_id,scenario,label,description,valid,prediction,outcome,full_outcome,alerts,suppressed,rules,lost_findings,added_findings,unknown_role_references
+api_scope,full,N03-01,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N03-01,N03,normal,운영자 승인 exec POST 시도,True,alert,FP,TN,1,0,R2,0,1,0
+api_scope,without_temporal_alerts,N03-01,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N03-01,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N03-01,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,A03-01,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_approvals,A03-01,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_temporal_alerts,A03-01,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_role_inventory,A03-01,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_workload_alerts,A03-01,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,full,A10-01,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A10-01,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A10-01,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A10-01,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_workload_alerts,A10-01,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,N09-02,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N09-02,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N09-02,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N09-02,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,1
+api_scope,without_workload_alerts,N09-02,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N06-02,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N06-02,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N06-02,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N06-02,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N06-02,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N14-01,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N14-01,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N14-01,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N14-01,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N14-01,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N05-02,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N05-02,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N05-02,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N05-02,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N05-02,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,A03-02,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_approvals,A03-02,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_temporal_alerts,A03-02,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_role_inventory,A03-02,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_workload_alerts,A03-02,A03,attack,GET 방식의 미승인 exec,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,full,A10-02,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A10-02,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A10-02,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A10-02,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_workload_alerts,A10-02,A10,attack,JSON Patch로 Role 권한 확장,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,N10-01,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N10-01,N10,normal,사전 승인된 고권한 역할 연결,True,alert,FP,TN,1,0,G4,0,1,0
+api_scope,without_temporal_alerts,N10-01,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N10-01,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,1
+api_scope,without_workload_alerts,N10-01,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,A16-01,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A16-01,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A16-01,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A16-01,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A16-01,A16,attack,DaemonSet 호스트 네트워크 공유,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,H01-02,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,without_approvals,H01-02,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,alert,TP,FN,1,0,R1,0,1,0
+api_scope,without_temporal_alerts,H01-02,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,without_role_inventory,H01-02,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,without_workload_alerts,H01-02,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,full,A06-02,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,without_approvals,A06-02,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,without_temporal_alerts,A06-02,A06,attack,간격을 둔 다종 리소스 정찰,True,normal,FN,TP,0,0,,1,0,0
+api_scope,without_role_inventory,A06-02,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,without_workload_alerts,A06-02,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,full,A13-02,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A13-02,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A13-02,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A13-02,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A13-02,A13,attack,StatefulSet initContainer 특권 실행 설정,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A13-01,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A13-01,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A13-01,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A13-01,A13,attack,StatefulSet initContainer 특권 실행 설정,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A13-01,A13,attack,StatefulSet initContainer 특권 실행 설정,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A08-01,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A08-01,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A08-01,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A08-01,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_workload_alerts,A08-01,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,A01-02,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_approvals,A01-02,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_temporal_alerts,A01-02,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_role_inventory,A01-02,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_workload_alerts,A01-02,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,full,A05-02,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,without_approvals,A05-02,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,without_temporal_alerts,A05-02,A05,attack,익명 비리소스 경로 정찰,True,normal,FN,TP,0,0,,1,0,0
+api_scope,without_role_inventory,A05-02,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,without_workload_alerts,A05-02,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,full,N02-02,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N02-02,N02,normal,업무용 단기 토큰 발급,True,alert,FP,TN,1,0,G1,0,1,0
+api_scope,without_temporal_alerts,N02-02,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N02-02,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N02-02,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,N04-01,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N04-01,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N04-01,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N04-01,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N04-01,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,A02-01,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_approvals,A02-01,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_temporal_alerts,A02-01,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_role_inventory,A02-01,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_workload_alerts,A02-01,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,full,N13-02,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N13-02,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N13-02,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N13-02,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N13-02,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N15-02,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N15-02,N15,normal,승인된 인프라 특권 DaemonSet,True,alert,FP,TN,1,0,G5,0,1,0
+api_scope,without_temporal_alerts,N15-02,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N15-02,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N15-02,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,A09-02,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A09-02,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A09-02,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A09-02,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,normal,FN,TP,0,0,,1,0,1
+api_scope,without_workload_alerts,A09-02,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,H02-01,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_approvals,H02-01,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_temporal_alerts,H02-01,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_role_inventory,H02-01,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_workload_alerts,H02-01,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,full,N08-01,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,without_approvals,N08-01,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,without_temporal_alerts,N08-01,N08,normal,승인 정보 없는 정상 인벤토리,True,normal,TN,FP,0,0,,2,0,0
+api_scope,without_role_inventory,N08-01,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,without_workload_alerts,N08-01,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,full,A01-01,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_approvals,A01-01,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_temporal_alerts,A01-01,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_role_inventory,A01-01,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,without_workload_alerts,A01-01,A01,attack,허용된 권한으로 Secret 열거,True,alert,TP,TP,1,0,R1,0,0,0
+api_scope,full,N10-02,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N10-02,N10,normal,사전 승인된 고권한 역할 연결,True,alert,FP,TN,1,0,G4,0,1,0
+api_scope,without_temporal_alerts,N10-02,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N10-02,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,1
+api_scope,without_workload_alerts,N10-02,N10,normal,사전 승인된 고권한 역할 연결,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,N01-02,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N01-02,N01,normal,승인된 단일 Secret 조회,True,alert,FP,TN,1,0,R1,0,1,0
+api_scope,without_temporal_alerts,N01-02,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N01-02,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N01-02,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,A06-01,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,without_approvals,A06-01,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,without_temporal_alerts,A06-01,A06,attack,간격을 둔 다종 리소스 정찰,True,normal,FN,TP,0,0,,1,0,0
+api_scope,without_role_inventory,A06-01,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,without_workload_alerts,A06-01,A06,attack,간격을 둔 다종 리소스 정찰,True,alert,TP,TP,1,0,R4,0,0,0
+api_scope,full,A11-02,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A11-02,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A11-02,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A11-02,A11,attack,cluster-admin 역할 연결,True,normal,FN,TP,0,0,,1,0,1
+api_scope,without_workload_alerts,A11-02,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,N11-01,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N11-01,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N11-01,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N11-01,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N11-01,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,A15-01,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A15-01,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A15-01,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A15-01,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A15-01,A15,attack,Pod에 위험한 capability 부여,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A14-01,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A14-01,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A14-01,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A14-01,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A14-01,A14,attack,Deployment PATCH로 hostPID 활성화,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A07-01,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,without_approvals,A07-01,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,without_temporal_alerts,A07-01,A07,attack,두 namespace를 가로지르는 정찰,True,normal,FN,TP,0,0,,3,0,0
+api_scope,without_role_inventory,A07-01,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,without_workload_alerts,A07-01,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,full,N14-02,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N14-02,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N14-02,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N14-02,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N14-02,N14,normal,정상 NodePort 서비스,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N07-02,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,without_approvals,N07-02,N07,normal,승인된 인벤토리 조회,True,alert,FP,TN,2,0,"G3-list,R4",0,2,0
+api_scope,without_temporal_alerts,N07-02,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,without_role_inventory,N07-02,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,without_workload_alerts,N07-02,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,full,A15-02,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A15-02,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A15-02,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A15-02,A15,attack,Pod에 위험한 capability 부여,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A15-02,A15,attack,Pod에 위험한 capability 부여,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A14-02,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A14-02,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A14-02,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A14-02,A14,attack,Deployment PATCH로 hostPID 활성화,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A14-02,A14,attack,Deployment PATCH로 hostPID 활성화,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,N12-02,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N12-02,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N12-02,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N12-02,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N12-02,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N02-01,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N02-01,N02,normal,업무용 단기 토큰 발급,True,alert,FP,TN,1,0,G1,0,1,0
+api_scope,without_temporal_alerts,N02-01,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N02-01,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N02-01,N02,normal,업무용 단기 토큰 발급,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,H02-02,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_approvals,H02-02,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_temporal_alerts,H02-02,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_role_inventory,H02-02,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,without_workload_alerts,H02-02,H02,attack,정상 조회와 같은 단일 저빈도 정찰,True,normal,FN,FN,0,0,,0,0,0
+api_scope,full,A08-02,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A08-02,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A08-02,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A08-02,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_workload_alerts,A08-02,A08,attack,새 이름으로 wildcard 역할 생성,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,A11-01,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A11-01,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A11-01,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A11-01,A11,attack,cluster-admin 역할 연결,True,normal,FN,TP,0,0,,1,0,1
+api_scope,without_workload_alerts,A11-01,A11,attack,cluster-admin 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,A05-01,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,without_approvals,A05-01,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,without_temporal_alerts,A05-01,A05,attack,익명 비리소스 경로 정찰,True,normal,FN,TP,0,0,,1,0,0
+api_scope,without_role_inventory,A05-01,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,without_workload_alerts,A05-01,A05,attack,익명 비리소스 경로 정찰,True,alert,TP,TP,1,0,G3,0,0,0
+api_scope,full,A12-02,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A12-02,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A12-02,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A12-02,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A12-02,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A04-01,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_approvals,A04-01,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_temporal_alerts,A04-01,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_role_inventory,A04-01,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_workload_alerts,A04-01,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,full,H01-01,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,without_approvals,H01-01,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,alert,TP,FN,1,0,R1,0,1,0
+api_scope,without_temporal_alerts,H01-01,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,without_role_inventory,H01-01,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,without_workload_alerts,H01-01,H01,attack,승인 토큰의 최초 사용을 공격자가 차지,True,normal,FN,FN,0,1,,0,0,0
+api_scope,full,N05-01,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N05-01,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N05-01,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N05-01,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N05-01,N05,normal,반복 health check,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N13-01,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N13-01,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N13-01,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N13-01,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N13-01,N13,normal,일반 DaemonSet 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N11-02,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N11-02,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N11-02,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N11-02,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N11-02,N11,normal,최소권한 Role 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N07-01,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,without_approvals,N07-01,N07,normal,승인된 인벤토리 조회,True,alert,FP,TN,2,0,"G3-list,R4",0,2,0
+api_scope,without_temporal_alerts,N07-01,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,without_role_inventory,N07-01,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,without_workload_alerts,N07-01,N07,normal,승인된 인벤토리 조회,True,normal,TN,TN,0,9,,0,0,0
+api_scope,full,N03-02,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N03-02,N03,normal,운영자 승인 exec POST 시도,True,alert,FP,TN,1,0,R2,0,1,0
+api_scope,without_temporal_alerts,N03-02,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N03-02,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N03-02,N03,normal,운영자 승인 exec POST 시도,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,A02-02,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_approvals,A02-02,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_temporal_alerts,A02-02,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_role_inventory,A02-02,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,without_workload_alerts,A02-02,A02,attack,다른 SA 토큰의 승인 없는 발급,True,alert,TP,TP,1,0,G1,0,0,0
+api_scope,full,N08-02,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,without_approvals,N08-02,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,without_temporal_alerts,N08-02,N08,normal,승인 정보 없는 정상 인벤토리,True,normal,TN,FP,0,0,,2,0,0
+api_scope,without_role_inventory,N08-02,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,without_workload_alerts,N08-02,N08,normal,승인 정보 없는 정상 인벤토리,True,alert,FP,FP,2,0,"G3-list,R4",0,0,0
+api_scope,full,A12-01,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A12-01,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A12-01,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A12-01,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A12-01,A12,attack,CronJob 템플릿에 호스트 경로 추가,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,A09-01,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_approvals,A09-01,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_temporal_alerts,A09-01,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,without_role_inventory,A09-01,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,normal,FN,TP,0,0,,1,0,1
+api_scope,without_workload_alerts,A09-01,A09,attack,이름만으로 알 수 없는 고권한 역할 연결,True,alert,TP,TP,1,0,G4,0,0,0
+api_scope,full,A04-02,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_approvals,A04-02,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_temporal_alerts,A04-02,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_role_inventory,A04-02,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,without_workload_alerts,A04-02,A04,attack,승인한 명령과 다른 exec 요청,True,alert,TP,TP,1,0,R2,0,0,0
+api_scope,full,N06-01,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N06-01,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N06-01,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N06-01,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N06-01,N06,normal,한 번의 비리소스 권한 오류,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N12-01,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N12-01,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N12-01,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N12-01,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N12-01,N12,normal,일반 CronJob 생성,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,A16-02,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_approvals,A16-02,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_temporal_alerts,A16-02,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_role_inventory,A16-02,A16,attack,DaemonSet 호스트 네트워크 공유,True,alert,TP,TP,1,0,G5,0,0,0
+api_scope,without_workload_alerts,A16-02,A16,attack,DaemonSet 호스트 네트워크 공유,True,normal,FN,TP,0,0,,1,0,0
+api_scope,full,N09-01,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N09-01,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N09-01,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N09-01,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,1
+api_scope,without_workload_alerts,N09-01,N09,normal,읽기 전용 ClusterRole 연결,True,normal,TN,TN,0,0,,0,0,0
+api_scope,full,N15-01,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N15-01,N15,normal,승인된 인프라 특권 DaemonSet,True,alert,FP,TN,1,0,G5,0,1,0
+api_scope,without_temporal_alerts,N15-01,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N15-01,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N15-01,N15,normal,승인된 인프라 특권 DaemonSet,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,N01-01,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_approvals,N01-01,N01,normal,승인된 단일 Secret 조회,True,alert,FP,TN,1,0,R1,0,1,0
+api_scope,without_temporal_alerts,N01-01,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_role_inventory,N01-01,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,without_workload_alerts,N01-01,N01,normal,승인된 단일 Secret 조회,True,normal,TN,TN,0,1,,0,0,0
+api_scope,full,A07-02,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,without_approvals,A07-02,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,without_temporal_alerts,A07-02,A07,attack,두 namespace를 가로지르는 정찰,True,normal,FN,TP,0,0,,3,0,0
+api_scope,without_role_inventory,A07-02,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,without_workload_alerts,A07-02,A07,attack,두 namespace를 가로지르는 정찰,True,alert,TP,TP,3,0,"G3-list,R4",0,0,0
+api_scope,full,N04-02,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_approvals,N04-02,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_temporal_alerts,N04-02,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_role_inventory,N04-02,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+api_scope,without_workload_alerts,N04-02,N04,normal,잘못된 Pod 로그 접근 한 번,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,W05-02,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W05-02,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W05-02,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W05-02,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W05-02,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,normal,FN,TP,0,0,,1,0,0
+runtime_integration,full,W04-01,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W04-01,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W04-01,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W04-01,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W04-01,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,normal,FN,TP,0,0,,1,0,0
+runtime_integration,full,X05-01,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,without_approvals,X05-01,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,alert,TP,FN,1,0,R2,0,1,0
+runtime_integration,without_temporal_alerts,X05-01,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,without_role_inventory,X05-01,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,X05-01,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,full,X01-02,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_approvals,X01-02,X01,normal,승인된 정상 exec 성공,True,alert,FP,TN,1,0,R2,0,1,0
+runtime_integration,without_temporal_alerts,X01-02,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_role_inventory,X01-02,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,X01-02,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,full,R02-01,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,without_approvals,R02-01,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,without_temporal_alerts,R02-01,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,without_role_inventory,R02-01,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,2,0,R1,1,0,1
+runtime_integration,without_workload_alerts,R02-01,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,full,R03-02,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,0
+runtime_integration,without_approvals,R03-02,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,3,0,"G4,R1",0,2,0
+runtime_integration,without_temporal_alerts,R03-02,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,0
+runtime_integration,without_role_inventory,R03-02,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,1
+runtime_integration,without_workload_alerts,R03-02,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,0
+runtime_integration,full,X02-02,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_approvals,X02-02,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_temporal_alerts,X02-02,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_role_inventory,X02-02,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_workload_alerts,X02-02,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,full,W01-01,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_approvals,W01-01,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_temporal_alerts,W01-01,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_role_inventory,W01-01,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_workload_alerts,W01-01,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,W03-01,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W03-01,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W03-01,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W03-01,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W03-01,W03,attack,미승인 privileged Pod 실행,True,normal,FN,TP,0,0,,1,0,0
+runtime_integration,full,W05-01,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W05-01,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W05-01,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W05-01,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W05-01,W05,attack,미승인 hostPath DaemonSet에서 VM 더미 파일 읽기,True,normal,FN,TP,0,0,,1,0,0
+runtime_integration,full,W06-01,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_approvals,W06-01,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,alert,FP,TN,1,0,G5,0,1,0
+runtime_integration,without_temporal_alerts,W06-01,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_role_inventory,W06-01,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,W06-01,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,full,W03-02,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W03-02,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W03-02,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W03-02,W03,attack,미승인 privileged Pod 실행,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W03-02,W03,attack,미승인 privileged Pod 실행,True,normal,FN,TP,0,0,,1,0,0
+runtime_integration,full,W02-02,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_approvals,W02-02,W02,normal,승인된 privileged 관리 Pod 실행,True,alert,FP,TN,1,0,G5,0,1,0
+runtime_integration,without_temporal_alerts,W02-02,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_role_inventory,W02-02,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,W02-02,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,full,W07-01,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_approvals,W07-01,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_temporal_alerts,W07-01,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_role_inventory,W07-01,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_workload_alerts,W07-01,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,X03-01,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_approvals,X03-01,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_temporal_alerts,X03-01,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_role_inventory,X03-01,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_workload_alerts,X03-01,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,full,R01-02,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_approvals,R01-02,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_temporal_alerts,R01-02,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_role_inventory,R01-02,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,1
+runtime_integration,without_workload_alerts,R01-02,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,X05-02,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,without_approvals,X05-02,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,alert,TP,FN,1,0,R2,0,1,0
+runtime_integration,without_temporal_alerts,X05-02,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,without_role_inventory,X05-02,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,X05-02,X05,attack,승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일,True,normal,FN,FN,0,1,,0,0,0
+runtime_integration,full,W07-02,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_approvals,W07-02,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_temporal_alerts,W07-02,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_role_inventory,W07-02,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_workload_alerts,W07-02,W07,normal,일반 Deployment 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,W08-02,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W08-02,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W08-02,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W08-02,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W08-02,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,normal,TN,FP,0,0,,1,0,0
+runtime_integration,full,R02-02,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,without_approvals,R02-02,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,without_temporal_alerts,R02-02,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,without_role_inventory,R02-02,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,2,0,R1,1,0,1
+runtime_integration,without_workload_alerts,R02-02,R02,attack,미승인 민감 권한 연결 후 실제 Secret 조회: 403→200,True,alert,TP,TP,3,0,"G4,R1",0,0,0
+runtime_integration,full,X03-02,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_approvals,X03-02,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_temporal_alerts,X03-02,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_role_inventory,X03-02,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_workload_alerts,X03-02,X03,attack,승인된 명령과 다른 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,full,W06-02,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_approvals,W06-02,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,alert,FP,TN,1,0,G5,0,1,0
+runtime_integration,without_temporal_alerts,W06-02,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_role_inventory,W06-02,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,W06-02,W06,normal,승인된 hostPath 관리 DaemonSet 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,full,R03-01,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,0
+runtime_integration,without_approvals,R03-01,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,3,0,"G4,R1",0,2,0
+runtime_integration,without_temporal_alerts,R03-01,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,0
+runtime_integration,without_role_inventory,R03-01,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,1
+runtime_integration,without_workload_alerts,R03-01,R03,normal,"승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",True,alert,FP,FP,1,2,R1,0,0,0
+runtime_integration,full,W02-01,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_approvals,W02-01,W02,normal,승인된 privileged 관리 Pod 실행,True,alert,FP,TN,1,0,G5,0,1,0
+runtime_integration,without_temporal_alerts,W02-01,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_role_inventory,W02-01,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,W02-01,W02,normal,승인된 privileged 관리 Pod 실행,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,full,W01-02,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_approvals,W01-02,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_temporal_alerts,W01-02,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_role_inventory,W01-02,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_workload_alerts,W01-02,W01,normal,일반 Pod 실제 실행,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,X02-01,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_approvals,X02-01,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_temporal_alerts,X02-01,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_role_inventory,X02-01,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_workload_alerts,X02-01,X02,attack,RBAC는 허용하지만 업무 승인이 없는 exec 성공,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,full,W08-01,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W08-01,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W08-01,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W08-01,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,alert,FP,FP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W08-01,W08,normal,무해한 관리 작업이지만 승인 등록 누락,True,normal,TN,FP,0,0,,1,0,0
+runtime_integration,full,R01-01,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_approvals,R01-01,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_temporal_alerts,R01-01,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,without_role_inventory,R01-01,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,1
+runtime_integration,without_workload_alerts,R01-01,R01,normal,낮은 권한 연결 후 실제 Pod 조회: 403→200,True,normal,TN,TN,0,0,,0,0,0
+runtime_integration,full,X01-01,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_approvals,X01-01,X01,normal,승인된 정상 exec 성공,True,alert,FP,TN,1,0,R2,0,1,0
+runtime_integration,without_temporal_alerts,X01-01,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_role_inventory,X01-01,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,without_workload_alerts,X01-01,X01,normal,승인된 정상 exec 성공,True,normal,TN,TN,0,1,,0,0,0
+runtime_integration,full,X04-02,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_approvals,X04-02,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_temporal_alerts,X04-02,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_role_inventory,X04-02,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_workload_alerts,X04-02,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,full,W04-02,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_approvals,W04-02,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_temporal_alerts,W04-02,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_role_inventory,W04-02,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,alert,TP,TP,1,0,G5,0,0,0
+runtime_integration,without_workload_alerts,W04-02,W04,attack,미승인 hostPID Pod에서 VM init 관측,True,normal,FN,TP,0,0,,1,0,0
+runtime_integration,full,X04-01,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_approvals,X04-01,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_temporal_alerts,X04-01,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_role_inventory,X04-01,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0
+runtime_integration,without_workload_alerts,X04-01,X04,attack,RBAC가 거부한 exec 대조군,True,alert,TP,TP,1,0,R2,0,0,0

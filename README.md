@@ -43,12 +43,19 @@ API 동작 범위 평가의 Precision은 94.1%, Recall은 88.9%, F1은 0.914다.
 
 수치와 단위는 [최종 결과 요약](results/final-summary.json), 자세한 사례와 한계는 [평가 보고서](docs/REPORT.md)와 [실제 실행 보고서](docs/INTEGRATION_REPORT.md)에 있다. 자체 설계 소규모 실험이며 운영 환경의 일반적인 탐지율을 뜻하지 않는다.
 
+## 각 기능이 필요한 이유
+
+최종 구성에서 한 요소씩 제외해 같은 로그를 재생했다. 작업 승인을 제외하면 실제 실행 자료의 오탐이 4회에서 10회로 늘었고, 워크로드 보안 속성 경보를 제외하면 미탐이 2회에서 8회로 늘었다. API 동작 범위 자료에서는 시간 누적 경보 제외 시 미탐이 4회에서 10회로, 사전 Role 정보 제외 시 8회로 늘었다.
+
+승인을 제외하면 동일 승인 토큰 도용 가정도 경보해 미탐이 줄어드는 절충점이 있다. Role 정보가 없어도 다른 경보 때문에 전체 점수는 유지될 수 있으므로, 실행별 판정과 사라진 근거를 함께 분석했다. [기능별 필요성과 비교 결과](docs/COMPONENT_EVALUATION.md)는 최종 설계의 기여를 설명하는 기존 로그의 사후 분석이다.
+
 ## 자료 안내
 
 | 목적 | 문서·폴더 |
 |---|---|
 | 프로젝트를 처음 이해하기 | [UNDERSTAND.md](docs/UNDERSTAND.md) |
 | 탐지 기준·전체 평가·한계 | [REPORT.md](docs/REPORT.md) |
+| 기능별 설계 이유와 제외 실험 | [COMPONENT_EVALUATION.md](docs/COMPONENT_EVALUATION.md) |
 | 실제 실행 증거와 사례별 판정 | [INTEGRATION_REPORT.md](docs/INTEGRATION_REPORT.md) |
 | 실험 환경 재현 | [INTEGRATION_LAB.md](docs/INTEGRATION_LAB.md) |
 | 실험 단위와 증거 기준 | [INTEGRATION_PROTOCOL.md](docs/INTEGRATION_PROTOCOL.md) |

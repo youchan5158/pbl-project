@@ -1,0 +1,1170 @@
+[
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N03-01",
+    "description": "운영자 승인 exec POST 시도",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N03-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R2",
+        "audit_ids": [
+          "cd6c22fe-5cd5-4c98-81a3-8b1fcfc1c47e"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N10-01",
+    "description": "사전 승인된 고권한 역할 연결",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N10-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "ce7b685d-62cf-40e3-8a7a-454bfe13461e"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A16-01",
+    "description": "DaemonSet 호스트 네트워크 공유",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A16-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "02341f6e-0ebe-494f-ac69-fa1ec0f46369"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "H01-02",
+    "description": "승인 토큰의 최초 사용을 공격자가 차지",
+    "from": "FN",
+    "to": "TP",
+    "log": "data/behavior-eval/logs/H01-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R1",
+        "audit_ids": [
+          "211d1762-c062-4e13-9443-5a99676bbbc6"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "A06-02",
+    "description": "간격을 둔 다종 리소스 정찰",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A06-02.jsonl",
+    "lost": [
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "1c96902e-73e0-440b-8b3b-b48416b1140a",
+          "98bef321-37d5-4632-adbc-1f25b729d2ce",
+          "46e4ceb1-7ada-4664-9c0e-88b49557ddc5",
+          "e1103aec-63ef-43ad-8fa7-93c30c00a23a",
+          "992fbcd8-7ecd-4115-ae7b-2c1d4c24d862",
+          "0c99d848-7d06-4413-92bd-975d65e7b919"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A13-02",
+    "description": "StatefulSet initContainer 특권 실행 설정",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A13-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "bef43888-8591-4995-bacd-046858de16b9"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A13-01",
+    "description": "StatefulSet initContainer 특권 실행 설정",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A13-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "36cd76c6-a159-4443-ae65-6db3a194ec2f"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "A05-02",
+    "description": "익명 비리소스 경로 정찰",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A05-02.jsonl",
+    "lost": [
+      {
+        "rule": "G3",
+        "audit_ids": [
+          "74e869c1-b49d-4363-8fa3-ac58c7687b3b",
+          "71a0c74f-d654-4f9b-82ea-21370b4e8251",
+          "b89642c6-b74e-4c9a-9368-e89c34a26035",
+          "2396dfeb-9ab1-4ee4-8d3e-1998f8000e73",
+          "682626c7-9ca2-4f1d-b007-de66633c339e"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N02-02",
+    "description": "업무용 단기 토큰 발급",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N02-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G1",
+        "audit_ids": [
+          "68559037-e0c7-40da-9234-97d049a061c2"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N15-02",
+    "description": "승인된 인프라 특권 DaemonSet",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N15-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "9459595e-9d12-47c6-a7f2-60e699b82b51"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_role_inventory",
+    "run_id": "A09-02",
+    "description": "이름만으로 알 수 없는 고권한 역할 연결",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A09-02.jsonl",
+    "lost": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "67bd3a4e-96c9-4a31-a1d1-f40c4cf1de3f"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "N08-01",
+    "description": "승인 정보 없는 정상 인벤토리",
+    "from": "FP",
+    "to": "TN",
+    "log": "data/behavior-eval/logs/N08-01.jsonl",
+    "lost": [
+      {
+        "rule": "G3-list",
+        "audit_ids": [
+          "5a27e4a5-fc5a-40a4-841a-87cc828fb1b7",
+          "6792aa4b-56ae-4406-bcb7-571de96c4963",
+          "64a07aa3-6b05-4822-92ab-3647bf7ea4d1",
+          "8cd6071b-6160-4118-9f55-83a428a0c8c5",
+          "ff5da10c-b86b-45af-9b43-1c0b4ff3fdbf",
+          "923bb328-ecd5-42fe-8211-1fdd42b093ca",
+          "052486a2-3d1e-456e-ab11-902f96606e5b",
+          "6e743a11-7ecf-43b0-bf19-64ed2c2d8e6b"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "5a27e4a5-fc5a-40a4-841a-87cc828fb1b7",
+          "6792aa4b-56ae-4406-bcb7-571de96c4963",
+          "64a07aa3-6b05-4822-92ab-3647bf7ea4d1",
+          "8cd6071b-6160-4118-9f55-83a428a0c8c5",
+          "ff5da10c-b86b-45af-9b43-1c0b4ff3fdbf",
+          "923bb328-ecd5-42fe-8211-1fdd42b093ca"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N10-02",
+    "description": "사전 승인된 고권한 역할 연결",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N10-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "a6553a8c-3d72-47c8-854e-255e6e87664e"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N01-02",
+    "description": "승인된 단일 Secret 조회",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N01-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R1",
+        "audit_ids": [
+          "a2e4537c-7a50-4bd0-a38b-da8b2edb8911"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "A06-01",
+    "description": "간격을 둔 다종 리소스 정찰",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A06-01.jsonl",
+    "lost": [
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "279b3be9-b0ab-4014-ad4d-cccff7d2b17b",
+          "66c2e373-5869-43a3-849e-2fed9463c8ad",
+          "64939ebc-b683-4591-ba3c-8070d9810c0b",
+          "7ea88ba8-2f96-48f7-a63c-6469ca2782ed",
+          "fbf592e8-7a6e-4ee9-8523-b945c5db618d",
+          "7e3ce414-6c10-47c4-925f-3bb0bcd73830"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_role_inventory",
+    "run_id": "A11-02",
+    "description": "cluster-admin 역할 연결",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A11-02.jsonl",
+    "lost": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "63f5ed09-3e88-495b-88b4-04299890ff5b"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A15-01",
+    "description": "Pod에 위험한 capability 부여",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A15-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "56bee932-c501-4c9e-b27c-49ea1c502549"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A14-01",
+    "description": "Deployment PATCH로 hostPID 활성화",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A14-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "de997f91-2be3-41ae-89c2-9eb2d2ac8ecf"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "A07-01",
+    "description": "두 namespace를 가로지르는 정찰",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A07-01.jsonl",
+    "lost": [
+      {
+        "rule": "G3-list",
+        "audit_ids": [
+          "b8799c46-d2f4-42c6-8986-9378bcef553d",
+          "5f8e54dd-fcb5-4bd0-8b95-7c86d896a136",
+          "42665485-bf41-4687-9f8a-2bb1d51784b3",
+          "899183cb-60f1-42bd-bb83-0dd59c342354",
+          "980df4b3-0eae-4d43-8f21-5001427523f5",
+          "28f8fbc3-2336-4dce-b487-ef9178f54b9d",
+          "9cb6fe5a-bdd3-4b9f-a40d-bd3156497f35",
+          "e9c92f99-42a4-4123-81be-a2f5e5b68270"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "899183cb-60f1-42bd-bb83-0dd59c342354",
+          "980df4b3-0eae-4d43-8f21-5001427523f5",
+          "28f8fbc3-2336-4dce-b487-ef9178f54b9d",
+          "24a74fe5-dd86-436c-bf63-a2ddac8ff590",
+          "2dcbd44f-b1fa-4885-bacd-dea69f68f9ca",
+          "1a494879-ac19-4248-b654-5166c40da9d0"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "b8799c46-d2f4-42c6-8986-9378bcef553d",
+          "5f8e54dd-fcb5-4bd0-8b95-7c86d896a136",
+          "42665485-bf41-4687-9f8a-2bb1d51784b3",
+          "9cb6fe5a-bdd3-4b9f-a40d-bd3156497f35",
+          "e9c92f99-42a4-4123-81be-a2f5e5b68270",
+          "1056e994-7a99-4194-8393-9e095b848880"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N07-02",
+    "description": "승인된 인벤토리 조회",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N07-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G3-list",
+        "audit_ids": [
+          "ea8eb9f1-79f6-461b-bd5d-d57830c3eed2",
+          "230650c8-0029-4df7-8eb3-66f426cbd46c",
+          "fe50d033-e9c6-432a-8374-8506469ae231",
+          "77c0a82a-c33d-4d68-99bc-ce48d0dcff6c",
+          "90d79e6a-4fce-41ef-934c-3f22a97dbca4",
+          "95175e42-afe7-4641-8447-7b0d8e18419d",
+          "22f9ea6a-2121-487d-ae1c-c3bbb72a4a98",
+          "aeb6706c-1999-471f-bb9c-f5f6507eb4c6"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "ea8eb9f1-79f6-461b-bd5d-d57830c3eed2",
+          "230650c8-0029-4df7-8eb3-66f426cbd46c",
+          "fe50d033-e9c6-432a-8374-8506469ae231",
+          "77c0a82a-c33d-4d68-99bc-ce48d0dcff6c",
+          "90d79e6a-4fce-41ef-934c-3f22a97dbca4",
+          "95175e42-afe7-4641-8447-7b0d8e18419d"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A15-02",
+    "description": "Pod에 위험한 capability 부여",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A15-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "fce7a28b-cb11-4a92-8f5a-b25200c43417"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A14-02",
+    "description": "Deployment PATCH로 hostPID 활성화",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A14-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "9af2cd9f-78ab-4f77-962e-a47d50251f2b"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N02-01",
+    "description": "업무용 단기 토큰 발급",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N02-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G1",
+        "audit_ids": [
+          "fe240220-709c-4914-a8fe-9909b9d2f898"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_role_inventory",
+    "run_id": "A11-01",
+    "description": "cluster-admin 역할 연결",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A11-01.jsonl",
+    "lost": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "83cedd07-7b63-4806-a5bd-97a670e58724"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "A05-01",
+    "description": "익명 비리소스 경로 정찰",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A05-01.jsonl",
+    "lost": [
+      {
+        "rule": "G3",
+        "audit_ids": [
+          "4813b38f-cdbf-4720-ae5a-318a3223fd3f",
+          "829ed553-9cbf-4dbe-971b-dac3f8942c5f",
+          "72885a38-950a-4c70-a2bd-5fca8fbac4f2",
+          "ef0f615b-a10e-424c-a7e0-3803b7247305",
+          "8bbd3682-ae4a-4f7d-a144-69250a098cab"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A12-02",
+    "description": "CronJob 템플릿에 호스트 경로 추가",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A12-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "d6e54ad5-bed8-4230-bac1-4798aced00dd"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "H01-01",
+    "description": "승인 토큰의 최초 사용을 공격자가 차지",
+    "from": "FN",
+    "to": "TP",
+    "log": "data/behavior-eval/logs/H01-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R1",
+        "audit_ids": [
+          "8c168691-3d7b-4948-a07c-02b740e9c5d4"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N07-01",
+    "description": "승인된 인벤토리 조회",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N07-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G3-list",
+        "audit_ids": [
+          "1ced833f-5c7c-4bcf-aa05-6b90f1405d17",
+          "fc6f316e-971d-44b8-aecf-4860d12bd6d2",
+          "c377e611-1bc1-480f-a260-afb9367da78d",
+          "99148b83-19c8-4967-94c6-e87eeb6edd3b",
+          "481943aa-d284-4c97-b01c-84306ce87c08",
+          "c7f0a546-2eb1-48c4-a890-f62da0550c3e",
+          "f2fb2b5b-8c1f-4c34-b413-8d745607d35c",
+          "24fc65cc-6e0e-4cc5-a3ea-0dc8782ee492"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "1ced833f-5c7c-4bcf-aa05-6b90f1405d17",
+          "fc6f316e-971d-44b8-aecf-4860d12bd6d2",
+          "c377e611-1bc1-480f-a260-afb9367da78d",
+          "99148b83-19c8-4967-94c6-e87eeb6edd3b",
+          "481943aa-d284-4c97-b01c-84306ce87c08",
+          "c7f0a546-2eb1-48c4-a890-f62da0550c3e"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N03-02",
+    "description": "운영자 승인 exec POST 시도",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N03-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R2",
+        "audit_ids": [
+          "e84e4ce4-af42-46df-85b4-e291c99d3642"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "N08-02",
+    "description": "승인 정보 없는 정상 인벤토리",
+    "from": "FP",
+    "to": "TN",
+    "log": "data/behavior-eval/logs/N08-02.jsonl",
+    "lost": [
+      {
+        "rule": "G3-list",
+        "audit_ids": [
+          "9a047c6f-f0eb-48fc-80cc-a9167709b620",
+          "1a5ebd99-8ed3-43e7-beb2-f5bd8ef777ad",
+          "c7168cb5-e5e2-4cae-bcdd-4cf7d945621d",
+          "fea6829b-caa8-49f5-9c90-7221c7efb7b6",
+          "4b739851-3eb2-4b21-a944-dc1205ed9df1",
+          "5fa57d63-fd47-4bdd-ac77-60e4e1231a4b",
+          "96e2a7eb-0219-4a27-b547-aa52f01ae794",
+          "1bd5f30e-e744-4e65-90aa-f306702cf615"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "9a047c6f-f0eb-48fc-80cc-a9167709b620",
+          "1a5ebd99-8ed3-43e7-beb2-f5bd8ef777ad",
+          "c7168cb5-e5e2-4cae-bcdd-4cf7d945621d",
+          "fea6829b-caa8-49f5-9c90-7221c7efb7b6",
+          "4b739851-3eb2-4b21-a944-dc1205ed9df1",
+          "5fa57d63-fd47-4bdd-ac77-60e4e1231a4b"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A12-01",
+    "description": "CronJob 템플릿에 호스트 경로 추가",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A12-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "b4067138-16c7-4f4a-8018-bf72b2e37a41"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_role_inventory",
+    "run_id": "A09-01",
+    "description": "이름만으로 알 수 없는 고권한 역할 연결",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A09-01.jsonl",
+    "lost": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "fd4b2088-b833-40c4-a74b-3a4c3397c50f"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_workload_alerts",
+    "run_id": "A16-02",
+    "description": "DaemonSet 호스트 네트워크 공유",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A16-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "c292060a-5b92-4f68-bca4-b4816d3e8c76"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N15-01",
+    "description": "승인된 인프라 특권 DaemonSet",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N15-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "f0e869c1-dcda-48c6-aec9-ca440c6944f0"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_approvals",
+    "run_id": "N01-01",
+    "description": "승인된 단일 Secret 조회",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/behavior-eval/logs/N01-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R1",
+        "audit_ids": [
+          "043319a3-be52-47e7-8541-255dd3201a44"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "api_scope",
+    "variant": "without_temporal_alerts",
+    "run_id": "A07-02",
+    "description": "두 namespace를 가로지르는 정찰",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/behavior-eval/logs/A07-02.jsonl",
+    "lost": [
+      {
+        "rule": "G3-list",
+        "audit_ids": [
+          "5ed61892-5c1d-4fac-b14c-597d4a8bdc33",
+          "2072b9b5-1a70-4339-a0f3-6243d135649e",
+          "a4f06f54-2ab6-4ceb-a9a5-1ac6905b434d",
+          "c1f2bf06-9054-401c-baf6-e697a6142288",
+          "7967242b-f6db-41ba-b170-c06edb7c2d52",
+          "0c2e22d8-7115-44c1-be28-0713069717d3",
+          "955a94a7-a57e-4ec7-8ad9-7e82315b5611",
+          "79ea0952-4304-4db3-aa1f-0a8b185dbdf4"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "5ed61892-5c1d-4fac-b14c-597d4a8bdc33",
+          "2072b9b5-1a70-4339-a0f3-6243d135649e",
+          "a4f06f54-2ab6-4ceb-a9a5-1ac6905b434d",
+          "955a94a7-a57e-4ec7-8ad9-7e82315b5611",
+          "79ea0952-4304-4db3-aa1f-0a8b185dbdf4",
+          "e21f7ec3-4afd-4d57-aacb-d5ed0f8ff8c8"
+        ]
+      },
+      {
+        "rule": "R4",
+        "audit_ids": [
+          "c1f2bf06-9054-401c-baf6-e697a6142288",
+          "7967242b-f6db-41ba-b170-c06edb7c2d52",
+          "0c2e22d8-7115-44c1-be28-0713069717d3",
+          "9ca4a978-424c-422f-ac91-21e535893875",
+          "806cee4a-46fd-4720-aace-aef45cc0642e",
+          "22be68ee-a98f-4dcb-b4e1-9b299224a308"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W05-02",
+    "description": "미승인 hostPath DaemonSet에서 VM 더미 파일 읽기",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/integration-eval/logs/W05-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "7fd1a177-8a4c-4a2d-b402-97c6bf7b3f4c"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W04-01",
+    "description": "미승인 hostPID Pod에서 VM init 관측",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/integration-eval/logs/W04-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "d41d7855-f11c-40b2-989f-4beefff09a45"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "X05-01",
+    "description": "승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일",
+    "from": "FN",
+    "to": "TP",
+    "log": "data/integration-eval/logs/X05-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R2",
+        "audit_ids": [
+          "90ec95be-a948-4474-9fed-3c6ac7a6a1d9"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "X01-02",
+    "description": "승인된 정상 exec 성공",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/integration-eval/logs/X01-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R2",
+        "audit_ids": [
+          "bb9ef72d-63e0-4202-80e8-fa45651c439a"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_role_inventory",
+    "run_id": "R02-01",
+    "description": "미승인 민감 권한 연결 후 실제 Secret 조회: 403→200",
+    "from": "TP",
+    "to": "TP",
+    "log": "data/integration-eval/logs/R02-01.jsonl",
+    "lost": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "93d62e1f-8d1a-4744-b2d7-b4c7f41bdbaa"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "R03-02",
+    "description": "승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",
+    "from": "FP",
+    "to": "FP",
+    "log": "data/integration-eval/logs/R03-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "b5f19094-4ff7-47a3-ad01-d86b7050d165"
+        ]
+      },
+      {
+        "rule": "R1",
+        "audit_ids": [
+          "48ca3464-88e5-400d-880e-48924e946cda"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W03-01",
+    "description": "미승인 privileged Pod 실행",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/integration-eval/logs/W03-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "183c09e3-35b9-43e6-8ad0-4ee68fed289b"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W05-01",
+    "description": "미승인 hostPath DaemonSet에서 VM 더미 파일 읽기",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/integration-eval/logs/W05-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "3118dad2-f71c-4160-bcc9-d8b249aa9a2c"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "W06-01",
+    "description": "승인된 hostPath 관리 DaemonSet 실행",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/integration-eval/logs/W06-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "96dc935c-360d-44d6-a44d-1e02c07d66e6"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W03-02",
+    "description": "미승인 privileged Pod 실행",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/integration-eval/logs/W03-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "8f51a7ed-53b9-4285-b186-f0b2647cf33e"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "W02-02",
+    "description": "승인된 privileged 관리 Pod 실행",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/integration-eval/logs/W02-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "84f7d792-5e5e-4c0c-875a-550bb81de658"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "X05-02",
+    "description": "승인된 토큰·동일 명령의 첫 도용: 관측상 정상과 동일",
+    "from": "FN",
+    "to": "TP",
+    "log": "data/integration-eval/logs/X05-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R2",
+        "audit_ids": [
+          "c101a194-0ab9-4331-bab1-f16e4a692b52"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W08-02",
+    "description": "무해한 관리 작업이지만 승인 등록 누락",
+    "from": "FP",
+    "to": "TN",
+    "log": "data/integration-eval/logs/W08-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "d444c03b-2347-4199-9113-bbf5dd59ab79"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_role_inventory",
+    "run_id": "R02-02",
+    "description": "미승인 민감 권한 연결 후 실제 Secret 조회: 403→200",
+    "from": "TP",
+    "to": "TP",
+    "log": "data/integration-eval/logs/R02-02.jsonl",
+    "lost": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "11085652-3d04-43f2-9a5e-11edfe436031"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "W06-02",
+    "description": "승인된 hostPath 관리 DaemonSet 실행",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/integration-eval/logs/W06-02.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "b011ed30-4a00-496f-a680-7a53c4ad0e08"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "R03-01",
+    "description": "승인된 민감 권한 변경 및 접근, 사전 403 점검 포함",
+    "from": "FP",
+    "to": "FP",
+    "log": "data/integration-eval/logs/R03-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G4",
+        "audit_ids": [
+          "0c6ea8ed-8e86-4fc9-bad4-f7b73ad3a614"
+        ]
+      },
+      {
+        "rule": "R1",
+        "audit_ids": [
+          "367e673f-d272-4a2d-bac5-15f8c35bc3ab"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "W02-01",
+    "description": "승인된 privileged 관리 Pod 실행",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/integration-eval/logs/W02-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "a38a11c8-661c-4e82-844a-3873d9ff3bb4"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W08-01",
+    "description": "무해한 관리 작업이지만 승인 등록 누락",
+    "from": "FP",
+    "to": "TN",
+    "log": "data/integration-eval/logs/W08-01.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "2def16e7-f816-49a3-a30e-fe11b9d237f0"
+        ]
+      }
+    ],
+    "added": []
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_approvals",
+    "run_id": "X01-01",
+    "description": "승인된 정상 exec 성공",
+    "from": "TN",
+    "to": "FP",
+    "log": "data/integration-eval/logs/X01-01.jsonl",
+    "lost": [],
+    "added": [
+      {
+        "rule": "R2",
+        "audit_ids": [
+          "fbe9cfb1-ede7-41c4-a53b-8993e9a8397a"
+        ]
+      }
+    ]
+  },
+  {
+    "dataset": "runtime_integration",
+    "variant": "without_workload_alerts",
+    "run_id": "W04-02",
+    "description": "미승인 hostPID Pod에서 VM init 관측",
+    "from": "TP",
+    "to": "FN",
+    "log": "data/integration-eval/logs/W04-02.jsonl",
+    "lost": [
+      {
+        "rule": "G5",
+        "audit_ids": [
+          "40caac5c-6608-49ed-a11f-2fb4018c71d7"
+        ]
+      }
+    ],
+    "added": []
+  }
+]
