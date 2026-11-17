@@ -179,7 +179,7 @@ def run(args):
         if sha(ROOT / name) != expected:
             raise ValueError("B5 baseline changed: " + name)
     paths = sorted(set(old["files"]) | {"lab/integration_scenarios.py", "lab/integration_live.py", "lab/integration_stream.py",
-        "lab/integration_windows.py", "lab/integration-bootstrap.sh", "lab/integration-image.json", "docs/INTEGRATION_PROTOCOL.md",
+        "lab/integration_windows.py", "lab/integration-bootstrap.sh", "lab/integration-image.json",
         "scripts/evaluate_integration.py", "tests/test_integration.py", "data/integration-baseline/preserved-files.json"})
     freeze = {"created_before_requests": iso_time(datetime.now(timezone.utc)), "split": args.split,
               "repetitions": args.repetitions, "seed": args.seed, "scenarios": templates,

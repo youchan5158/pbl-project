@@ -1,4 +1,4 @@
-"""Bundle source, measured evidence and documents; exclude runtimes/keys/slides."""
+"""Bundle source, measured evidence and README; exclude local docs/runtimes/keys/slides."""
 
 import argparse
 import hashlib
@@ -16,10 +16,8 @@ FINAL_BASELINE_PATHS = ("data/behavior-eval", "data/behavior-plan", "data/extern
 DIRECTORIES = ("auditguard", "config", "tests", "scripts", "lab", "category1", "category2",
                "category3", "workload", ".github", "results/integration/final", "results/components/final",
                "data/integration-baseline", "data/integration-eval", *FINAL_BASELINE_PATHS)
-ROOT_FILES = ("README.md", "README_EN.md", "install.sh", "pyproject.toml", ".gitignore", ".gitattributes", "results/final-summary.json",
-              "docs/UPSTREAM_README.md", "docs/upstream-files.json", "docs/UNDERSTAND.md",
-              "docs/REPORT.md", "docs/COMPONENT_EVALUATION.md", "docs/INTEGRATION_REPORT.md", "docs/INTEGRATION_LAB.md",
-              "docs/INTEGRATION_PROTOCOL.md", "docs/PROVENANCE.md")
+ROOT_FILES = ("README.md", "README_EN.md", "install.sh", "pyproject.toml", ".gitignore",
+              ".gitattributes", "results/final-summary.json")
 
 
 def files():

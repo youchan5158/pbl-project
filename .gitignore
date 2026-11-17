@@ -16,10 +16,7 @@ results/tuning/
 data/synthetic/
 output/submission/
 output/pdf/
-/docs/PRESENTATION*.md
-/docs/REPORT-v1.md
-/docs/REPORT_B4.md
-/docs/UNDERSTAND_B4.md
+/docs/
 /scripts/build_*report.py
 /scripts/build_*slides.py
 
@@ -42,11 +39,3 @@ output/pdf/
 /results/verification.json
 /results/source-snapshot.json
 /results/external/splunk-v1/report.md
-/docs/B5_DEVELOPMENT_NOTES.md
-/docs/B5_PROTOCOL.md
-/docs/DESIGN.md
-/docs/EXTERNAL_EVALUATION.md
-/docs/IMPROVEMENT.md
-/docs/INTEGRATION_DEVELOPMENT_NOTES.md
-/docs/LAB.md
-/docs/SUBMISSION.md

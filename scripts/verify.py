@@ -55,7 +55,7 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "results/local/verification.json")
     args = parser.parse_args()
     checks = []
-    upstream = read(ROOT / "docs/upstream-files.json")
+    upstream = read(ROOT / "config/upstream-files.json")
     for entry in upstream["files"]:
         content = (ROOT / entry["local_path"]).read_bytes().replace(b"\r\n", b"\n")
         actual = hashlib.sha1(b"blob " + str(len(content)).encode() + b"\0" + content).hexdigest()
@@ -117,8 +117,7 @@ def main():
         raise ValueError("final summary differs from measured results")
     checks.append({"check": "final_result_summary", "passed": True})
 
-    required = ["docs/UNDERSTAND.md", "docs/REPORT.md", "docs/COMPONENT_EVALUATION.md", "docs/INTEGRATION_REPORT.md",
-                "docs/INTEGRATION_LAB.md", "docs/INTEGRATION_PROTOCOL.md", "docs/PROVENANCE.md"]
+    required = ["README.md"]
     for name in required:
         if not (ROOT / name).is_file() or not (ROOT / name).stat().st_size:
             raise ValueError("missing final document: " + name)

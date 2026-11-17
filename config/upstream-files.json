@@ -2,11 +2,6 @@
   "commit": "270bf2df9ae1eddfb26e8dc88cb92326c54a99a8",
   "files": [
     {
-      "upstream_path": "README.md",
-      "local_path": "docs/UPSTREAM_README.md",
-      "git_blob_sha1": "24aac5280eb8efd3124216da181879292a715973"
-    },
-    {
       "upstream_path": "README_EN.md",
       "local_path": "README_EN.md",
       "git_blob_sha1": "5d2aace01fbdec1846f48c2c6c767dfcae1abd67"
