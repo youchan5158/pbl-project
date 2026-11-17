@@ -1,4 +1,4 @@
-"""Verify physical execution evidence, then replay unchanged B4 and B5."""
+"""Verify physical execution evidence and reproduce the final detection results."""
 
 import argparse
 from collections import Counter
@@ -13,21 +13,26 @@ from auditguard.behavior_events import read_events
 from auditguard.events import write_json
 from lab.integration_live import execution_errors
 from scripts.evaluate_behavior import evaluate, read, sha
-from scripts.package_submission import FINAL_BASELINE_PATHS
+from scripts.package_submission import FINAL_BASELINE_PATHS, EDITABLE_EVIDENCE_DOCUMENTS
 
 
 def verify_preserved():
     document = read(ROOT / "data/integration-baseline/preserved-files.json")
-    checked = 0
+    checked, omitted, documentation = 0, 0, 0
     for name, digest in document["files"].items():
         if not any(name == p or name.startswith(p + "/") for p in FINAL_BASELINE_PATHS):
+            omitted += 1
+            continue
+        if name in EDITABLE_EVIDENCE_DOCUMENTS:
+            documentation += 1
             continue
         if sha(ROOT / name) != digest:
             raise ValueError("preserved baseline changed: " + name)
         checked += 1
     return {"scope": "published final evaluation inputs and results", "files": checked,
             "all_hashes_match": True,
-            "development_files_not_distributed": len(document["files"]) - checked}
+            "development_files_not_distributed": omitted,
+            "editable_documentation_not_hashed_as_evidence": documentation}
 
 
 def check_integration_freeze(data):
@@ -35,12 +40,12 @@ def check_integration_freeze(data):
 
     This reporting entry point was updated after collection to stop requiring
     unpublished development history. Its original hash stays in freeze.json;
-    it is the only source path outside the collection-time equality check.
-    Final metrics and all per-case evidence are independently replay-checked.
+    explanatory protocol is maintained separately from the measured evidence.
+    Detector/collector code, plans, logs and final per-case results remain checked.
     """
     frozen = read(Path(data) / "freeze.json")
     for name, expected in frozen["files"].items():
-        if name == "scripts/evaluate_integration.py":
+        if name in {"scripts/evaluate_integration.py", "docs/INTEGRATION_PROTOCOL.md"}:
             continue
         if sha(ROOT / name) != expected:
             raise ValueError("code/config changed after evaluation freeze: " + name)
@@ -137,7 +142,9 @@ def main():
     p.add_argument("--output", type=Path, default=ROOT / "results/integration/final")
     args = p.parse_args()
     result = run(args.data, args.output)
-    print(json.dumps({"counts": result["execution"]["counts"], "comparison": result["comparison"]}, ensure_ascii=False, indent=2))
+    print(json.dumps({"detector": "AuditGuard", "runs": result["metrics"]["runs"],
+        "counts": result["execution"]["counts"],
+        "detection": result["metrics"]["configurations"]["b5"]["supported_only"]}, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

@@ -1,9 +1,10 @@
 {
   "baseline_preservation": {
     "scope": "published final evaluation inputs and results",
-    "files": 377,
+    "files": 374,
     "all_hashes_match": true,
-    "development_files_not_distributed": 723
+    "development_files_not_distributed": 723,
+    "editable_documentation_not_hashed_as_evidence": 3
   },
   "old_api_only": {
     "runs": 66,

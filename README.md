@@ -1,72 +1,68 @@
-# AuditGuard B5: Kubernetes API/Credential 악용 탐지
+# AuditGuard: Kubernetes API/Credential 악용 탐지
 
-자격 증명·원격 실행·정찰·RBAC 권한 변경·위험한 워크로드의 **5개 행동군**을 다룬다. 요청의 보안 속성과 개별 토큰에 묶인 사전 승인을 결합한 Python 프로젝트다.
+Kubernetes 감사 로그에서 **자격 증명 접근, 원격 실행, 정찰, 권한 변경, 위험한 워크로드**를 탐지한다. API 요청의 위험 속성과 사전에 승인한 작업을 함께 검사하고, 경보 또는 억제 이유를 남기는 Python 배치 탐지기다.
 
-먼저 [이해 가이드](docs/UNDERSTAND.md)를 읽고 [실제 실행 통합 보고서](docs/INTEGRATION_REPORT.md)에서 최신 결과와 한계를 확인한다. [이전 API 단계 보고서](docs/REPORT.md)는 보존했다.
+## 탐지 방식
 
-## 실제 컨테이너 통합 검증 추가
+| 행동군 | 확인하는 행위 | 정상과 구분하는 근거 |
+|---|---|---|
+| 자격 증명 | Secret 조회, ServiceAccount 토큰 발급 등 | 민감 리소스·발급 동작과 승인 범위 |
+| 원격 실행 | Pod exec / attach | 호출자·토큰·대상·명령 지문의 일치 |
+| 정찰 | 반복 실패, 여러 리소스 목록 조회 | 시간 창·횟수·대상 다양성과 정상 조회 프로필 |
+| 권한 변경 | Role / RoleBinding 등의 변경 | 연결된 역할의 실제 권한 내용 |
+| 위험 워크로드 | privileged, hostPID, hostPath, 위험 capability 등 | Pod 및 컨트롤러 템플릿의 보안 속성 |
 
-실행 노드 1개에 kubelet·containerd를 구성하고 **16종 × 2회 = 32회**, 44개 실제 API 감사 이벤트를 수집했다. 성공한 측정 exec 8회, RBAC 거부 exec 2회, 실제 Running 워크로드 16개, 같은 토큰의 권한 변경 전후 `403 → 201 → 200` 전이 6회를 검증했다. 무효 0회다.
-
-탐지 코드는 기존 B5 그대로다. 동일한 새 32회에서 B4는 TP 10·FP 4·FN 6·TN 12, **B5는 TP 14·FP 4·FN 2·TN 12**였다. B5 Precision 77.8%, Recall 87.5%, F1 0.824다. 승인 누락 정상 관리 작업과 정상적인 변경 전 거부 점검이 오탐을, 승인 토큰·동일 명령 도용이 미탐을 만들었다.
-
-아래 66회와 사례 구성이 다르므로 수치를 직접적인 성능 증감으로 해석하지 않는다. 자체 설계 통합 실험이며, 운영 환경의 일반적인 탐지율을 뜻하지 않는다. 실제 명령 출력·종료 코드·Pod UID·컨테이너 ID를 [실행 증거](data/integration-eval/proofs)에 보존했다. [상세 결과와 한계](docs/INTEGRATION_REPORT.md) · [재현 방법](docs/INTEGRATION_LAB.md).
-
-## 보존한 API 단계 평가 결과
-
-개발과 분리한 33종(정상 15종·공격 18종)을 새 토큰으로 2회씩 실행했다. 총 66회·158개 실제 Kubernetes 감사 이벤트, 무효 0회. 구현과 기준을 고정한 뒤 수집했다. 이 환경은 노드가 없는 API 단계 평가였으며 성공한 컨테이너 실행을 입증하지 않는다.
-
-| 같은 새 로그의 결과 | B4 | B5 |
-|---|---:|---:|
-| 공격 탐지 / 36회 | 10 | 32 |
-| 정상 작업 오탐 / 30회 | 4 | 2 |
-| 탐지 못한 공격(미지원 포함) | 26 | 4 |
-| 위 미탐 중 입력·범위 미지원 | 8 | 0 |
-| 정상 입력·범위 미지원 | 6 | 0 |
-
-B5: **TP 32 · FP 2 · FN 4 · TN 28**, Precision 94.1%, Recall 88.9%, F1 0.914. B4 미탐지 26회는 검사 후 미탐 18회와 미지원 8회다. 미지원 정상 요청은 TN으로 계산하지 않는다.
-
-작성자가 설계한 소규모 평가다. 반복 66회는 독립 공격 66종이 아니다. 알려진 외부 Splunk 자료는 B4 1/8, B5 3/8 경보였다. 외부 정상 자료가 없어 외부 F1·오탐률은 계산하지 않는다.
+정상 승인은 작업자, 개별 토큰 식별자, 요청 지문, 시간, 횟수를 제한한다. API 권한이 있다고 해서 정상 업무로 판단하지 않는다. 401/403 요청은 승인으로 억제하지 않는 보수적 정책을 사용한다.
 
 ## 실행
 
-Python 3.10 이상. 저장 로그 재생에는 별도 VM·Docker·추가 패키지가 필요 없다.
+Python 3.10 이상. 저장 로그 재생에는 VM·Docker·추가 Python 패키지가 필요 없다.
 
 ```powershell
-python scripts/evaluate_integration.py
 python scripts/verify.py
-python -m auditguard.behavior --input data/behavior-eval/logs/A13-01.jsonl --output results/local/b5-demo
+python scripts/evaluate_integration.py --output results/local/integration
+python -m auditguard.behavior --input data/integration-eval/logs/X02-01.jsonl --output results/local/exec-demo
 ```
 
-**새 B5 명령은 `python -m auditguard.behavior`**다. 기존 `python -m auditguard scan`은 B4 비교용으로 보존했다. 새 단일 로그에 작업 승인이 필요하면 `--config`에 해당 작업의 신뢰된 승인·Role 권한 스냅샷을 지정한다. 설정이 없으면 보수적으로 경보한다.
+단일 로그를 정상 작업 승인과 함께 분석하려면 해당 실행의 `--config`와 `--legacy-context` 파일을 지정한다. 정확한 예시는 [이해 가이드](docs/UNDERSTAND.md)에 있다. 승인 정보가 없으면 위험 요청을 보수적으로 경보한다.
 
-## 제출 자료
+## 실험 결과
 
-| 자료 | 위치 |
+모든 행은 같은 최종 탐지기를 서로 다른 자료에 적용한 결과다. 평가 목적과 사례 구성이 달라 합산하지 않는다.
+
+| 평가 | 규모 | 최종 결과 | 검증 범위 |
+|---|---|---|---|
+| 수업 기본 예제 | 정상 1·공격 3개, 24개 이벤트 | 4개 모두 예상 판정과 일치 | 제공 예제 호환성 |
+| API 동작 범위 평가 | 33종 × 2회, 158개 이벤트 | TP 32 / FP 2 / FN 4 / TN 28 | 5개 행동군의 API 패턴 |
+| 실제 실행 통합 평가 | 16종 × 2회, 44개 이벤트 | TP 14 / FP 4 / FN 2 / TN 12 | 컨테이너 실행과 권한 효과 |
+| 외부 공개 로그 | 공격 양성 8개, 14개 이벤트 | 3개 사례에서 경보 | 외부 작성 로그에 대한 보충 검증 |
+
+실제 실행 통합 평가의 **Precision은 77.8%, Recall은 87.5%, F1은 0.824**다. 정상 16회 중 4회를 오탐했고, 공격 16회 중 2회를 놓쳤다. 승인 등록이 없는 정상 관리 작업과 정상적인 거부 점검이 오탐을, 정상 승인과 동일한 토큰·명령의 도용 가정이 미탐을 만들었다.
+
+API 동작 범위 평가의 Precision은 94.1%, Recall은 88.9%, F1은 0.914다. 이 자료는 실행 노드가 없는 환경의 API 로그이므로 컨테이너 명령 성공을 입증하지 않는다. 실제 실행 통합 평가는 별도로 Ready 노드 1개에서 수행했다. 외부 자료에는 정상 대조군이 없어 Precision·F1·오탐률을 계산하지 않는다.
+
+수치와 단위는 [최종 결과 요약](results/final-summary.json), 자세한 사례와 한계는 [평가 보고서](docs/REPORT.md)와 [실제 실행 보고서](docs/INTEGRATION_REPORT.md)에 있다. 자체 설계 소규모 실험이며 운영 환경의 일반적인 탐지율을 뜻하지 않는다.
+
+## 자료 안내
+
+| 목적 | 문서·폴더 |
 |---|---|
-| 최신 통합 검증 보고서 | [docs/INTEGRATION_REPORT.md](docs/INTEGRATION_REPORT.md) |
-| 실제 실행 증거·새 감사 로그 | [data/integration-eval](data/integration-eval) |
-| 통합 결과·이전 결과 비교 | [results/integration/final](results/integration/final) |
-| 실제 노드 재현 안내 | [docs/INTEGRATION_LAB.md](docs/INTEGRATION_LAB.md) |
-| 이해 가이드 | [docs/UNDERSTAND.md](docs/UNDERSTAND.md) |
-| 결과·사례·한계 보고서 | [docs/REPORT.md](docs/REPORT.md) |
-| 최종 수치·사례별 근거 | [results/behavior/fresh](results/behavior/fresh) |
-| 고정 기록·새 실제 로그 | [data/behavior-eval](data/behavior-eval) |
-| 실험 방법·사전 계획 | [통합 평가 방법](docs/INTEGRATION_PROTOCOL.md), [요청 계획](data/integration-eval/request-plan.json) |
+| 프로젝트를 처음 이해하기 | [UNDERSTAND.md](docs/UNDERSTAND.md) |
+| 탐지 기준·전체 평가·한계 | [REPORT.md](docs/REPORT.md) |
+| 실제 실행 증거와 사례별 판정 | [INTEGRATION_REPORT.md](docs/INTEGRATION_REPORT.md) |
+| 실험 환경 재현 | [INTEGRATION_LAB.md](docs/INTEGRATION_LAB.md) |
+| 실험 단위와 증거 기준 | [INTEGRATION_PROTOCOL.md](docs/INTEGRATION_PROTOCOL.md) |
+| 출처와 구현 범위 | [PROVENANCE.md](docs/PROVENANCE.md) |
+| API 로그·사전 승인 | [data/behavior-eval](data/behavior-eval) |
+| 컨테이너 실행 증거·감사 로그 | [data/integration-eval](data/integration-eval) |
 
-## 한계
-
-기존 66회에서 남은 오류는 승인 없는 정상 인벤토리(FP 2), 승인 토큰 최초 사용 도용(FN 2), 단발 저빈도 정찰(FN 2)이다. 새 32회의 오류는 위 통합 결과에 별도로 보고했다. 실제 실행 증거는 보완했지만 실제 침해·컨테이너 탈출·장기 운영 분포·실시간 차단은 검증하지 않았다. 탐지는 수집한 로그에 대한 배치 판정이다.
-
-## 패키지 생성
+## 제출 패키지
 
 ```powershell
 python scripts/verify.py
 python scripts/package_submission.py
 ```
 
-`output/submission/auditguard-integration-pbl.zip`에 코드·실측 로그·실행 증거·출처·결과·문서·파일별 SHA-256이 들어간다. VM 런타임·개인 키·bearer token과 발표자료는 포함하지 않는다.
+`output/submission/auditguard-integration-pbl.zip`에 코드·평가 증거·결과·문서·파일별 SHA-256을 담는다. VM, 개인 키, bearer token, 발표자료와 중간 실험 기록은 포함하지 않는다. 검증 출력은 Git에서 제외한 `results/local/verification.json`에 저장한다.
 
-[공통 저장소](https://github.com/cclab-inu/Practical-Cloud-Security-PBL)의 Category 1·2·3, workload, 설치 스크립트와 원본 문서를 그대로 보존했다. 원래 한국어 README는 [UPSTREAM_README.md](docs/UPSTREAM_README.md)에 있다. 원본 39개 파일의 해시를 검증한다. [출처·추가 구현 범위](docs/PROVENANCE.md).
-
-추가 구현에는 최종 코드, 최종 평가 로그·실행 증거·결과와 사용 문서만 포함한다. 중간 실험, smoke test, 개발 노트, 중간 보고서와 로컬 검증 출력은 Git·제출 ZIP에서 제외한다. 검증 출력은 `results/local/verification.json`에 저장된다.
+[수업 공통 저장소](https://github.com/cclab-inu/Practical-Cloud-Security-PBL)의 Category 1·2·3, workload, 설치 스크립트와 원본 문서 39개를 그대로 보존한다. 원래 한국어 README는 [UPSTREAM_README.md](docs/UPSTREAM_README.md)에 있다.

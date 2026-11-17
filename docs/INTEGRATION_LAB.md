@@ -1,21 +1,23 @@
-# 통합 검증 재현
+# 실행과 평가 재현
 
-## VM 없이 결과 검증
+## 저장 로그로 검증
 
-Python 3.10 이상, 추가 패키지 없이 프로젝트 루트에서 실행한다.
+Python 3.10 이상에서 프로젝트 루트의 다음 명령을 실행한다. 추가 Python 패키지나 실행 중인 클러스터는 필요 없다.
 
 ```powershell
-python -X utf8 scripts/evaluate_integration.py
 python -X utf8 scripts/verify.py
+python -X utf8 scripts/evaluate_integration.py --output results/local/integration
 python -X utf8 scripts/package_submission.py
 python -X utf8 scripts/package_submission.py --check output/submission/auditguard-integration-pbl.zip
 ```
 
-첫 명령은 원본 로그·실행 증거·탐지 및 수집 코드의 해시를 확인하고 같은 결과를 재생한다. 결과는 `results/integration/final/`, 전체 검증 출력은 Git에서 제외한 `results/local/verification.json`에 기록된다. ZIP 이름은 **auditguard-integration-pbl.zip**이다. 중간 개발 기록 없이 공개 저장소만으로 검증할 수 있다.
+`verify.py`는 수업 원본 파일, 단위 테스트, API 평가 66회, 실제 실행 평가 32회, 외부 로그 8개, 기본 예제 4개의 최종 결과와 해시를 확인한다. 출력은 `results/local/verification.json`이다. 통합 평가 명령은 실제 실행 증거를 확인하고 최종 탐지기의 수치를 출력한다. 평가 점수는 로그의 이벤트 수가 아니라 사례 실행 단위다.
 
-## 실제 컨테이너 환경을 다시 만들기
+최종 수치만 보려면 [final-summary.json](../results/final-summary.json)을 읽는다. 자세한 오류와 한계는 [평가 보고서](REPORT.md)에 있다. 설명 문서의 문장과 원본 측정 로그·실행 증거는 서로 다른 자료로 관리한다.
 
-현재 제공하는 자동 실행기는 Windows용이다. QEMU 소프트웨어 가상화를 사용하며 Windows 가상화 기능·서비스를 변경하지 않는다. VM에 4 GiB RAM, 2 vCPU를 할당하므로 그 이상의 여유 메모리와 디스크가 필요하다. 처음에는 공개 런타임과 이미지 다운로드가 필요하다.
+## 실제 컨테이너 환경 재구성
+
+자동 실행기는 Windows용이다. QEMU 소프트웨어 가상화를 사용하며 VM에 RAM 4 GiB, 2 vCPU를 할당한다. 처음에는 공개 런타임과 이미지 다운로드가 필요하다.
 
 ```powershell
 python -X utf8 -m lab.windows prepare
@@ -26,18 +28,18 @@ python -X utf8 scripts/evaluate_integration.py --data data/my-integration --outp
 python -X utf8 -m lab.integration_windows stop
 ```
 
-`prepare`는 기존에 제공한 QEMU·Alpine·K3s 런타임을 SHA-256으로 검사한다. `integration_assets`는 추가 airgap 이미지와 digest로 고정한 BusyBox 이미지를 준비한다. 새 VM은 full K3s server로 kubelet·containerd·scheduler를 함께 실행한다. native snapshotter, flannel host-gw, nft 모드를 사용한다. [K3s의 공식 iptables 모드 선택 구현](https://github.com/k3s-io/k3s-root/blob/master/iptables-detect/iptables-detect.sh)에 따라 `IPTABLES_MODE=nft`를 지정했다. host-gw는 이번 단일 노드 환경에서 사용한 설정이며 다중 노드 네트워크 검증을 뜻하지 않는다.
+`prepare`는 QEMU·Alpine·K3s 런타임을 SHA-256으로 확인한다. `integration_assets`는 airgap 이미지와 digest로 고정한 BusyBox 이미지를 준비한다. K3s server와 kubelet·containerd·scheduler를 함께 실행하며 native snapshotter, flannel host-gw, nft 모드를 사용한다. 단일 노드 환경이므로 다중 노드 네트워크 검증을 뜻하지 않는다.
 
-API는 `https://127.0.0.1:26443`, 감사 로그 전달은 `127.0.0.1:28081`, 시리얼 관리 포트는 `127.0.0.1:43221`이다. 부팅 중 파일 전달 포트 `28080`은 준비 완료 후 닫힌다. API TLS를 검증하며 관리 인증서와 키는 `lab/private/integration`에만 저장한다. 로그에는 Secret 응답·bearer token을 저장하지 않는다. 역할 부여와 위험 설정은 전용 VM·전용 namespace 안에서만 수행한다.
+API는 `https://127.0.0.1:26443`, 로그 전달은 `127.0.0.1:28081`, 관리 포트는 `127.0.0.1:43221`이다. 준비 중 파일 전달 포트 28080은 준비 완료 후 닫힌다. API TLS를 검증하고 인증서·키는 `lab/private/integration`에 저장한다. Windows 폴더는 VM에 공유하지 않는다.
 
-실험 경로는 반드시 새 디렉터리를 사용한다. 기존 출력이 있으면 수집기는 중단하므로 과거 원본을 덮어쓰지 않는다. VM을 중지한 뒤 `start`하면 새 가상 디스크와 클러스터를 만든다. 과거 VM 디스크와 수집 증거는 자동 삭제하지 않는다. `stop`은 저장한 PID가 이 프로젝트의 QEMU인지 확인한 뒤 해당 VM만 종료한다.
+새 수집에는 새 디렉터리를 지정한다. 기존 출력이 있으면 수집기가 중단한다. VM 재시작은 새 가상 디스크와 클러스터를 만들며 과거 디스크·증거를 자동 삭제하지 않는다. `stop`은 저장된 PID가 이 프로젝트의 QEMU인지 확인한다.
 
-## 파일을 읽는 순서
+## 증거를 읽는 순서
 
-1. `data/integration-eval/request-plan.json`: 실제 실행 전에 고정한 요청·라벨·기대 실행 조건.
-2. `contexts/<사례>/before.json`: 측정 전 시각과 승인·권한·발급 영수증의 해시.
-3. `logs/<사례>.jsonl`: 실제 API 서버가 만든 완료 감사 이벤트의 보존 필드.
-4. `proofs/<사례>.json`: Pod/컨테이너 상태, exec 출력·종료 코드 또는 권한 전후 접근 증거.
-5. `results/integration/final/cases.csv`와 `findings.json`: 탐지 결과, 승인으로 억제된 이유.
+1. `request-plan.json`: 요청·라벨·기대 실행 조건.
+2. `contexts/<사례>/before.json`: 요청 전 시각과 승인·권한·토큰 영수증의 해시.
+3. `logs/<사례>.jsonl`: 실제 API 감사 이벤트.
+4. `proofs/<사례>.json`: 컨테이너 상태, stdout·종료 코드, 권한 효과.
+5. 결과의 `cases.csv`, `findings.json`: 탐지 결과와 근거.
 
-공격 라벨은 무해한 실험 동작에 부여한 사전 의도이며, 토큰 탈취·호스트 탈출·악성 코드 실행까지 성공했다는 의미가 아니다. 실행 검증과 탐지 점수는 분리해 확인한다.
+HTTP 101만으로 명령 성공을 판단하지 않고 stdout·종료 코드·연결 종료를 함께 확인한다. Secret은 더미 값과 일치하는지 확인하되 원문을 저장하지 않는다. 공격 라벨은 무해한 실험 동작의 사전 의도이며 토큰 탈취·호스트 탈출·악성 코드 실행 성공을 뜻하지 않는다.

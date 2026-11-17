@@ -7,13 +7,16 @@ from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+EDITABLE_EVIDENCE_DOCUMENTS = frozenset({"data/behavior-eval/README.md",
+    "data/external/splunk-v1/README.md", "results/external/splunk-v1/report.md"})
+EXCLUDED_FILES = frozenset({"results/external/splunk-v1/report.md"})
 FINAL_BASELINE_PATHS = ("data/behavior-eval", "data/behavior-plan", "data/external",
                         "results/behavior/fresh", "results/behavior/external",
                         "results/behavior/provided.json", "results/external")
 DIRECTORIES = ("auditguard", "config", "tests", "scripts", "lab", "category1", "category2",
                "category3", "workload", ".github", "results/integration/final",
                "data/integration-baseline", "data/integration-eval", *FINAL_BASELINE_PATHS)
-ROOT_FILES = ("README.md", "README_EN.md", "install.sh", "pyproject.toml", ".gitignore", ".gitattributes",
+ROOT_FILES = ("README.md", "README_EN.md", "install.sh", "pyproject.toml", ".gitignore", ".gitattributes", "results/final-summary.json",
               "docs/UPSTREAM_README.md", "docs/upstream-files.json", "docs/UNDERSTAND.md",
               "docs/REPORT.md", "docs/INTEGRATION_REPORT.md", "docs/INTEGRATION_LAB.md",
               "docs/INTEGRATION_PROTOCOL.md", "docs/PROVENANCE.md")
@@ -27,6 +30,8 @@ def files():
             continue
         for path in (ROOT / name).rglob("*"):
             if not path.is_file() or "__pycache__" in path.parts or "private" in path.parts or path.suffix in {".pyc", ".key", ".crt", ".pem"}:
+                continue
+            if path.relative_to(ROOT).as_posix() in EXCLUDED_FILES:
                 continue
             found.add(path)
     found.update(ROOT / name for name in ROOT_FILES if (ROOT / name).is_file())

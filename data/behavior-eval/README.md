@@ -1,14 +1,12 @@
-# B5 동결 후 실제 API 평가
+# API 동작 범위 평가 자료
 
-작성자가 사전에 정의한 33종(정상 15종·공격 18종), 각 2회, 66회·158개 감사 이벤트다. 실제 K3s API/RBAC 로그이며 worker는 0개다. 성공한 컨테이너 실행·실제 침해 사고 자료가 아니다.
+사전에 정의한 정상 15종·공격 18종을 각각 두 번 수행한 66회, 158개 감사 이벤트다. 최종 탐지기의 다섯 행동군을 실제 K3s API/RBAC 요청으로 검사한다. worker가 0개인 환경이므로 성공한 컨테이너 명령 실행을 증명하지 않는다.
 
-- `freeze.json`: 첫 평가 요청 전에 고정한 코드·설정·수집기·평가기·사례 해시.
-- `request-plan.json`: 실행 순서와 요청·의도. 탐지기에는 주지 않는다.
-- `contexts/<run-id>/`: 해당 실행 전의 토큰 ID 확인 영수증, B5 승인, B4 호환 승인, Role 권한 스냅샷, API 서버 시계와 해시.
-- `logs/`: 응답 Audit-ID로 연결한 감사 이벤트. 토큰 원문·Secret 값·응답 본문을 포함하지 않는다.
-- `manifest.json`: 라벨·관측 응답·상태·로그 해시. 라벨은 탐지 후 채점에만 사용한다.
-- `environment.json`: 실제 버전과 노드 수.
+- `freeze.json`: 측정 전 소스·설정·사례 해시.
+- `request-plan.json`: 실행 순서, 요청, 사전 의도 라벨.
+- `contexts/<run-id>/`: 토큰 식별 영수증, 작업 승인, 권한 스냅샷, API 시계와 해시.
+- `logs/`: 요청과 연결한 감사 이벤트. 토큰 원문·Secret 값은 포함하지 않는다.
+- `manifest.json`: 라벨·관측 응답·수집 상태·로그 해시. 라벨은 판정 후 채점한다.
+- `environment.json`: 버전과 노드 수.
 
-재생: 프로젝트 루트에서 `python scripts/evaluate_behavior.py`.
-최신 결과는 `results/behavior/fresh`와 `docs/REPORT.md`에 있다.
-모든 자료가 같은 설계자·같은 실험 환경에서 나왔으므로 독립 블라인드 평가를 주장하지 않는다.
+프로젝트 루트에서 `python scripts/verify.py`로 결과를 재현한다. [최종 요약](../../results/final-summary.json)과 [평가 보고서](../../docs/REPORT.md)에 수치와 해석을 정리했다. 같은 설계자·제한된 환경에서 작성한 자료이며 독립 기관의 맹검 벤치마크가 아니다.

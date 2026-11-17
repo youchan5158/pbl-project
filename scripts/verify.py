@@ -30,6 +30,25 @@ def compare_files(actual, expected, names):
             raise ValueError("published result differs: " + str(expected / name))
 
 
+def build_final_summary():
+    def measurement(name):
+        value = read(ROOT / name)
+        selected = value["configurations"]["b5"]
+        return {"distinct_cases": value["distinct_cases"], "runs": value["runs"],
+                "audit_events": value["events"], "normal_runs": selected["normal"],
+                "attack_runs": selected["attacks"], **selected["supported_only"]}
+    provided = read(ROOT / "results/behavior/provided.json")
+    public = read(ROOT / "results/behavior/external/metrics.json")
+    return {"detector": "AuditGuard", "classification_unit": "scenario run",
+        "provided_examples": {"cases": len(provided), "events": sum(x["events"] for x in provided),
+            "matching_predictions": sum(x["prediction"] == x["expected"] for x in provided)},
+        "api_scope_evaluation": measurement("results/behavior/fresh/metrics.json"),
+        "runtime_integration_evaluation": measurement("results/integration/final/metrics.json"),
+        "external_positive_fixtures": {"cases": public["cases"], "events": public["events"],
+            "alerted_cases": public["target_matches"], "normal_controls": public["normal_controls"],
+            "precision": None, "f1": None, "fpr": None}}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "results/local/verification.json")
@@ -85,6 +104,10 @@ def main():
     if any(r["prediction"] != r["expected"] or r["malformed"] for r in provided):
         raise ValueError("provided example prediction mismatch")
     checks.append({"check": "provided_examples", "passed": True, "cases": 4})
+
+    if build_final_summary() != read(ROOT / "results/final-summary.json"):
+        raise ValueError("final summary differs from measured results")
+    checks.append({"check": "final_result_summary", "passed": True})
 
     required = ["docs/UNDERSTAND.md", "docs/REPORT.md", "docs/INTEGRATION_REPORT.md",
                 "docs/INTEGRATION_LAB.md", "docs/INTEGRATION_PROTOCOL.md", "docs/PROVENANCE.md"]

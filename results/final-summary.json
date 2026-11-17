@@ -1,0 +1,52 @@
+{
+  "detector": "AuditGuard",
+  "classification_unit": "scenario run",
+  "provided_examples": {
+    "cases": 4,
+    "events": 24,
+    "matching_predictions": 4
+  },
+  "api_scope_evaluation": {
+    "distinct_cases": 33,
+    "runs": 66,
+    "audit_events": 158,
+    "normal_runs": 30,
+    "attack_runs": 36,
+    "valid_runs": 66,
+    "invalid_runs": 0,
+    "tp": 32,
+    "fp": 2,
+    "fn": 4,
+    "tn": 28,
+    "precision": 0.9411764705882353,
+    "recall": 0.8888888888888888,
+    "f1": 0.9142857142857143,
+    "fpr": 0.06666666666666667
+  },
+  "runtime_integration_evaluation": {
+    "distinct_cases": 16,
+    "runs": 32,
+    "audit_events": 44,
+    "normal_runs": 16,
+    "attack_runs": 16,
+    "valid_runs": 32,
+    "invalid_runs": 0,
+    "tp": 14,
+    "fp": 4,
+    "fn": 2,
+    "tn": 12,
+    "precision": 0.7777777777777778,
+    "recall": 0.875,
+    "f1": 0.8235294117647058,
+    "fpr": 0.25
+  },
+  "external_positive_fixtures": {
+    "cases": 8,
+    "events": 14,
+    "alerted_cases": 3,
+    "normal_controls": 0,
+    "precision": null,
+    "f1": null,
+    "fpr": null
+  }
+}

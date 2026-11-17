@@ -1,81 +1,83 @@
-# 프로젝트를 이해하고 설명하기
+# AuditGuard를 이해하고 설명하기
 
-이 가이드는 탐지 원리와 기존 66회 API 단계 평가를 설명한다. 이후 실제 실행 노드에서 수행한 32회 통합 검증은 [통합 보고서](INTEGRATION_REPORT.md)에 있다. 승인·미승인 exec 성공, 위험 워크로드 실행, 권한 변경 후 접근 증거와 추가 오탐·미탐을 그 문서에서 함께 읽는다.
+## 무엇을 만들었나
 
-## 한 문장으로 무엇을 만들었나
+Kubernetes 관리 API의 감사 로그를 읽어 위험한 행동을 찾고, 사전에 허용한 작업과 비교하는 탐지기다. 출력에는 경보 규칙, 근거 이벤트, 정상 승인으로 억제한 이유가 포함된다. 수집한 로그를 분석하는 배치 프로그램이며 실시간 차단기는 아니다.
 
-**Kubernetes 관리 API의 감사 로그를 읽어 위험한 행동을 찾고, 사전에 허용한 작업과 비교하는 탐지기**다. 로그에 ‘토큰을 훔쳤다’고 쓰여 있는 것은 아니므로, 어떤 행동이 관측됐는지와 어떤 의도를 추론했는지 구분한다.
+## 알아야 할 개념
 
-## 먼저 알아야 할 개념
-
-| 개념 | 쉬운 설명 |
+| 개념 | 의미 |
 |---|---|
 | Pod | 컨테이너를 실행하는 단위 |
 | API 서버 | 조회·배포·권한 변경 요청을 받는 관리 창구 |
-| ServiceAccount | 프로그램의 신원 |
-| 토큰 | 그 신원을 증명하는 출입증 |
-| Secret | 암호·키 등을 담는 Kubernetes 리소스 |
-| Role / RoleBinding | 허용할 작업 목록 / 그 권한을 누가 사용할지 연결하는 설정 |
-| 감사 로그 | 누가 언제 무엇을 요청했고 응답이 어땠는지 남긴 기록 |
+| ServiceAccount / 토큰 | 프로그램의 신원 / 그 신원을 증명하는 자격 증명 |
+| Secret | 암호·키 등을 담을 수 있는 Kubernetes 리소스 |
+| Role / RoleBinding | 허용할 작업 목록 / 그 권한을 사용할 신원과의 연결 |
+| 감사 로그 | 누가 언제 무엇을 요청했고 어떤 응답을 받았는지 남긴 기록 |
 
-인증은 ‘누구인가’, 인가는 ‘이 작업을 할 권한이 있는가’다. 공격자가 정상 토큰을 훔쳤다면 둘 다 통과할 수 있다. HTTP 200/201은 요청 성공을 뜻하고, 정상적인 목적을 증명하지 않는다. 403은 거부된 시도다.
+인증은 ‘누구인가’, 인가는 ‘이 작업의 API 권한이 있는가’를 확인한다. 유효한 토큰을 도용하면 둘 다 통과할 수 있다. HTTP 200/201은 요청 성공이지 정상 목적의 증거가 아니다. 403은 거부된 시도다.
 
-## B4에서 B5로 무엇이 달라졌나
+## 처리 순서
 
-B4는 Secret 읽기·exec·조회량에 집중했다. B5는 요청 본문도 읽어 다섯 행동군을 검사한다.
+1. 감사 이벤트를 읽고 중복 단계를 정리한다.
+2. 행위자·토큰 식별자·대상·응답·명령과 보안 설정의 지문을 추출한다.
+3. 신뢰된 작업 승인과 일치하는 요청을 확인한다.
+4. 승인되지 않은 요청에 다섯 행동군과 조회량 규칙을 적용한다.
+5. 경보, 억제 이유, 추가 확인이 필요한 관측을 기록한다.
 
-1. **자격 증명:** Secret 조회와 다른 ServiceAccount의 토큰 발급을 찾는다.
-2. **원격 실행:** Pod exec/attach 요청을 찾고 승인된 명령과 비교한다.
-3. **정찰:** 짧거나 긴 시간에 여러 목록·API 경로를 반복하는 행동을 누적한다.
-4. **권한 변경:** 역할 이름 대신 실제 권한 내용을 읽는다. 이름이 평범해도 전체 권한이면 위험하다.
-5. **워크로드:** Pod뿐 아니라 CronJob·StatefulSet 등의 내부 Pod 설정에서 privileged·hostPath·hostPID·위험 capability를 찾는다.
+사례 이름과 정상·공격 정답은 탐지 후 평가에만 사용한다. 요청에 적힌 이름을 보고 실험 정답을 맞추는 방식이 아니다.
 
-예를 들어 CronJob을 만들었다는 이유만으로 공격이라고 하지 않는다. CronJob 안에 호스트의 `/` 경로를 연결하는 설정이 있으면 위험한 속성으로 경보한다. 실제로 그 경로를 읽었는지까지 입증하는 것은 아니다.
+## 다섯 행동군
 
-## 정상 관리자를 어떻게 구분하나
+**자격 증명:** Secret 읽기, ServiceAccount TokenRequest, 토큰용 Secret 또는 API 클라이언트 인증서 발급 요청을 확인한다. 승인되지 않은 민감 접근·발급은 위험 신호다. 토큰을 훔친 순간이나 외부 유출 완료를 직접 관측한 것은 아니다.
 
-‘admin 계정이므로 모두 정상’이라고 하지 않는다. **이 토큰으로, 이 대상에, 이 행동을, 정해진 시간 안에, 정해진 횟수만큼** 수행하도록 작업 승인을 만든다. 명령·보안 설정의 지문도 비교한다. 이 승인은 측정 요청 전에 별도로 저장한다.
+**원격 실행:** Pod exec/attach를 확인한다. 정상 진단도 같은 API를 쓰므로 작업자·토큰·대상·명령 지문을 승인과 비교한다. API 권한이 있어 실행되더라도 업무 승인이 없으면 경보한다. 거부된 실행 시도와 성공한 명령 실행을 구분한다.
 
-출입증 번호가 같아도 승인한 명령과 다른 명령이면 예외가 아니다. 요청 횟수를 초과해도 경보한다. 반면 출입증 자체를 훔친 공격자가 정상 작업과 똑같은 첫 요청을 보내면 이 정보만으로 구분할 수 없다.
+**정찰:** 여러 API 경로의 반복 실패와 다종 목록 조회를 시간 창으로 모은다. 주요 조건은 90초 동안 실패 5회·경로 3개 이상, 180초 동안 목록 조회 8회·리소스 종류 3개 이상이다. 짧은 조회 급증, 누적 조회와 계정·리소스별 정상 기준도 함께 검사한다. 천천히 한 번씩 조회하면 구별하기 어렵다.
 
-## 결과 숫자 읽기
+**권한 변경:** Role/ClusterRole의 권한 내용과 RoleBinding/ClusterRoleBinding의 연결 대상을 검사한다. roleRef는 신뢰된 Role 스냅샷으로 해석한다. Secret 읽기, 토큰 발급, 광범위 권한이나 권한 위임이 승인 없이 연결되면 경보한다. 알 수 없는 역할 참조는 별도 관측으로 남긴다.
 
-| | 경보 있음 | 경보 없음 |
+**위험 워크로드:** Pod와 Deployment·DaemonSet·StatefulSet·Job·CronJob 등의 Pod 템플릿에서 privileged, 호스트 공간 공유, hostPath, 위험 capability를 찾는다. 리소스 이름이나 단순한 생성 여부만으로 공격이라 하지 않는다. 정상 관리에도 필요한 속성이므로 승인 정보가 중요하다.
+
+## 정상 작업을 인정하는 근거
+
+승인은 ‘이 사용자면 모두 허용’이 아니다. **이 작업자가, 이 토큰으로, 이 요청을, 정해진 시간 안에, 정해진 횟수만큼** 수행하는 조건이다. 요청 지문에는 대상·동작·쿼리·명령과 선택한 보안 관련 속성이 포함된다. 모든 객체 필드의 의미를 완전히 증명하는 것은 아니다.
+
+명령·대상·토큰이 다르거나 시간·횟수를 넘기면 승인으로 억제하지 않는다. 401/403도 억제하지 않으므로 정상 권한 점검을 오탐할 수 있다. 공격자가 승인된 토큰으로 같은 요청을 보내면 현재 정보만으로 정상 사용자와 구별할 수 없다.
+
+## 결과를 읽는 방법
+
+| 실제 작업 의도 | 경보 있음 | 경보 없음 |
 |---|---|---|
-| 실제 공격 의도 | TP: 잘 찾음 | FN: 미탐 |
-| 실제 정상 의도 | FP: 오탐 | TN: 정상 판단 |
+| 공격 | TP: 탐지 | FN: 미탐 |
+| 정상 | FP: 오탐 | TN: 정상 판단 |
 
-새 평가에서 공격 36회 중 32회를 찾고 4회를 놓쳤다. 정상 30회 중 2회를 잘못 경보했다. Precision 94.1%는 ‘발생한 경보 34개 실행 중 공격이 32개’라는 뜻이고, Recall 88.9%는 ‘전체 공격 36개 실행 중 32개를 찾음’이라는 뜻이다. 이벤트 158줄을 158개 독립 공격으로 계산하지 않는다.
+실제 실행 통합 평가에서는 공격 16회 중 14회를 탐지했고, 정상 16회 중 4회를 경보했다. Precision 77.8%는 경보가 발생한 18개 실행 중 14개가 공격이었다는 뜻이다. Recall 87.5%는 공격 16개 실행 중 14개를 찾았다는 뜻이다. 정상 오탐률은 4/16=25%다. 경보 개수나 로그 줄 수를 독립 사례 수로 세지 않는다.
 
-정상 인벤토리의 오탐 2회, 승인 토큰 최초 사용 탈취의 미탐 2회, 저빈도 정찰의 미탐 2회가 남았다. 작성자가 만든 33종을 두 번 실행한 소규모 평가이므로 이 비율을 실제 회사 전체의 성능이라고 발표하지 않는다.
+오탐은 승인 누락 정상 privileged 작업 2회와 정상 Secret 접근 거부 점검 2회다. 미탐은 승인 토큰·동일 명령 도용을 가정한 2회다. API 동작 범위 평가와 외부 공개 로그 검증의 수치는 [평가 보고서](REPORT.md)에 별도로 설명한다.
+
+## 직접 실행해 보기
+
+승인 없는 exec 분석:
+
+```powershell
+python -m auditguard.behavior --input data/integration-eval/logs/X02-01.jsonl --output results/local/attack-demo
+```
+
+승인된 정상 exec 분석:
+
+```powershell
+python -m auditguard.behavior --input data/integration-eval/logs/X01-01.jsonl --config data/integration-eval/contexts/X01-01/behavior.json --legacy-context data/integration-eval/contexts/X01-01/legacy.json --output results/local/normal-demo
+```
+
+각 폴더의 `status.json`, `findings.json`, `suppressed.json`을 비교한다. 정상 예에서 승인 설정을 생략하면 탐지기가 작업 승인을 알 수 없다. 실행 증거는 `data/integration-eval/proofs/X01-01.json`에 있다.
 
 ## 코드를 읽는 순서
 
-1. `config/behavior.json`: 어떤 속성과 시간·횟수를 위험 기준으로 보는지 읽는다.
-2. `auditguard/behavior_events.py`: 다양한 audit 입력에서 보안 속성을 뽑는다. 민감한 명령·환경 값은 해시만 알림에 넣는다.
-3. `auditguard/behavior.py`: 승인 검사, 이전 규칙, 다섯 행동군 검사, 근거 생성 순서다.
-4. `lab/behavior_scenarios.py`: 개발·평가에서 수행할 정상·공격 의도를 정의한다. 탐지 코드가 이 라벨을 읽지 않는다.
-5. `lab/behavior_live.py`: 실제 API 요청과 Audit-ID 수집, 사전 승인·권한 스냅샷을 만든다.
-6. `scripts/evaluate_behavior.py`: B4/B5를 같은 로그에서 실행한 뒤 정답과 비교한다.
-
-## 직접 확인할 두 가지
-
-위험한 StatefulSet initContainer 탐지:
-
-```powershell
-python -m auditguard.behavior --input data/behavior-eval/logs/A13-01.jsonl --output results/local/attack-demo
-```
-
-승인된 정상 exec 시도:
-
-```powershell
-python -m auditguard.behavior --input data/behavior-eval/logs/N03-01.jsonl --config data/behavior-eval/contexts/N03-01/behavior.json --legacy-context data/behavior-eval/contexts/N03-01/legacy.json --output results/local/normal-demo
-```
-
-각 출력의 status.json, findings.json, suppressed.json을 비교한다. 정상 예에서 --config를 생략하면 사전 승인을 모르므로 경보한다. 제출 데이터나 승인서를 직접 고치지 않는다.
-
-## 발표에서 지켜야 할 구분
-
-‘고위험 API 요청을 탐지했다’고 설명한다. ‘토큰을 실제로 훔쳤다’거나 ‘컨테이너 탈출에 성공했다’고 설명하지 않는다. 실제 API 서버와 감사 로그는 사용했지만 실행 노드는 없고, 정상 exec도 HTTP 400으로 끝난 요청 시도였다.
-
-외부 자료는 이미 분석한 Splunk 회귀 시험이다. 8개 중 3개에 경보했고 익명 저빈도 스캔 등은 놓쳤다. 정상 자료가 없으므로 외부 정확도·F1은 제시하지 않는다. 상세한 결과·사례와 한계는 [최종 보고서](REPORT.md)에 있다. 비교 기준 B4의 구현은 [advanced.py](../auditguard/advanced.py)에 있다.
+1. `config/behavior.json`: 행동군 임계값과 승인 형식.
+2. `auditguard/behavior_events.py`: 감사 로그 정규화와 보안 속성 추출.
+3. `auditguard/behavior.py`: 승인·행동군 판정과 근거 생성.
+4. `auditguard/advanced.py`: 민감 접근·exec·조회량의 공통 규칙.
+5. `lab/integration_scenarios.py`: 정상·공격 실험 정의.
+6. `lab/integration_live.py`, `integration_stream.py`: 실제 요청·실행 증거 수집.
+7. `scripts/verify.py`: 최종 결과와 원본 자료의 재현 검증.
